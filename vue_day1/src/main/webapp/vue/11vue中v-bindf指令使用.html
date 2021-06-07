@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件绑定</title>
+
+    <style>
+        .aa{
+            border: 5px red solid;
+        }
+        .bb{
+            border: 10px blue solid;
+        }
+    </style>
+</head>
+<body>
+  <div id="app">
+    <h2>{{msg}}</h2>
+    <img :width="width" :src="imgSrc" :alt="tip" :class="isClass?'aa':'bb'">
+
+  </div>
+</body>
+</html>
+<!-- 引入vue.js-->
+<script src="js/vue.js"></script>
+<script>
+  var app = new Vue({
+    // element：元素 作用：用来指定vue实例作用范围
+    el:"#app",
+    // data: 数据 作用：用来给vue实例对象绑定一系列数据
+    data: {
+      msg: "hello vue",
+        width: 300,
+        imgSrc: "https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=1717413651,2404415313&fm=224&gp=0.jpg",
+        tip: "图片不存在",
+        isClass: false
+
+    },
+      methods: {
+
+      }
+  });
+</script>
