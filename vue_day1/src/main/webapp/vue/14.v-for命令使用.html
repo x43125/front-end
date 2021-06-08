@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for命令使用</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{msg}}</h1>
+        <h2 v-for="(value, key, index) in user">
+            index: {{index}} key:{{key}} value:{{value}}
+        </h2>
+        <h2 v-for="(school, index) in schools">
+            index:{{index}} name:{{school}}
+        </h2>
+    </div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script>
+    var app=new Vue ({
+        el: "#app",
+        data: {
+            msg: "hello vue",
+            user: {name:"xiaowang", age:26,des:"码农小x"},
+            schools: ["北京","上海","nanjing"]
+        }
+    });
+</script>

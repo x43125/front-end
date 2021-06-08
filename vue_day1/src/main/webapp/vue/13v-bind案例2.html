@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>龟龟</title>
+    <style>
+        .aa{
+            border: 5px red solid;
+        }
+        .bb{
+            border: 10px blue solid;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>{{msg}}</h1>
+        <img :width="width" :src="imgSrc1" :title="title" :alt="tip" @mouseover="change" @mouseout="recover" :class="cls">
+<!--        <img :width="width" :src="imgSrc2" :alt="tip" @mouseover="change">-->
+    </div>
+</body>
+</html>
+<!--引入vue.js-->
+<script src="js/vue.js"></script>
+<script>
+    var app=new Vue({
+        el: "#app",
+        data: {
+            msg: "hello tortoise",
+            width: 200,
+            imgSrc1: "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3384652228,1907542725&fm=26&gp=0.jpg",
+            imgSrc2: "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=4271637987,2592559282&fm=26&gp=0.jpg",
+            tip: "图片不存在",
+            isShow: true,
+            cls: "aa",
+            title: "龟龟"
+        },
+        methods: {
+            change() {
+                this.imgSrc1 = this.imgSrc2;
+                this.cls = "bb";
+                this.title = "美少女骑龟";
+            },
+            recover() {
+                this.imgSrc1 = "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3384652228,1907542725&fm=26&gp=0.jpg";
+                this.cls = "aa";
+                this.title = "龟龟";
+            }
+        }
+    });
+</script>

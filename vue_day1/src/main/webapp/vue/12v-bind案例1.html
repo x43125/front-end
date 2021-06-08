@@ -16,7 +16,8 @@
 <body>
   <div id="app">
     <h2>{{msg}}</h2>
-    <img :width="width" :src="imgSrc" :alt="tip" @mouseover="change">
+    <img :width="width" :src="imgSrc1" :alt="tip" @mouseover="change">
+    <img :width="width" :src="imgSrc2" :alt="tip" @mouseover="change">
   </div>
 </body>
 </html>
@@ -30,7 +31,8 @@
     data: {
       msg: "hello vue",
         width: 200,
-        imgSrc: "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3384652228,1907542725&fm=26&gp=0.jpg",
+        imgSrc1: "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3384652228,1907542725&fm=26&gp=0.jpg",
+        imgSrc2: "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=4271637987,2592559282&fm=26&gp=0.jpg",
         tip: "图片不存在",
         isClass: false
     },

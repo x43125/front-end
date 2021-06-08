@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue实现备忘录01</title>
+</head>
+<body>
+  <div id="app">
+    <h1>{{msg}}</h1>
+    输入备忘录内容: <input type="text" v-model="content"><input type="button" value="添加到备忘录" @click="saveItem"><br>
+    <ul v-show="items.length>0">
+      <li v-for="(item, index) in items">{{index+1}}. {{item}}<a href="javascript:;" @click="delItem(index)">删除</a> </li>
+    </ul>
+    <h5 v-show="items.length==0">当前备忘录中还没有任何内容，请添加</h5>
+    <h3>当前备忘录中共：{{items.length}}条</h3>
+    <input type="button" value="清空备忘录" @click="delAll">
+
+  </div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script>
+  var app=new Vue({
+    el: "#app",
+    data: {
+      msg: "备忘录功能实现",
+      items: ["今天学习", "买菜", "学习vue"],
+      content: "",
+    },
+    methods: {
+      saveItem() {
+        console.log(this.content);
+        if (!this.content){
+          alert('请输入备忘录内容');
+          return;
+        }
+        this.items.push(this.content);
+        this.content = "";
+      },
+      delItem(index) {
+        console.log(index);
+        this.items.splice(index, 1);
+      },
+      delAll() {
+        this.items = [];
+      }
+    }
+  })
+</script>
