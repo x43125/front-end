@@ -5,6 +5,7 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/../vue_day2/pom.xml" />
+        <option value="$PROJECT_DIR$/../vue_admin/pom.xml" />
       </list>
     </option>
   </component>

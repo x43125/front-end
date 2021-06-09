@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Axios01</title>
+</head>
+<body>
+    <h1>Axios学习</h1>
+</body>
+</html>
+
+<script src="js/axios.min.js"></script>
+<script>
+/*    axios.get("http://localhost:8080/demo").then(function (response) {
+        console.log(response)
+    });*/
+    axios.get("http://localhost:8080/user?id=33").then(function (res){
+        console.log(res.data);
+        console.log(res.data.id);
+        console.log(res.data.username);
+        console.log(res.data.age);
+        console.log(res.data.des);
+    });
+    axios.get("http://localhost:8080/user?id=22").then(data=>{
+        console.log(data);
+    });
+</script>
