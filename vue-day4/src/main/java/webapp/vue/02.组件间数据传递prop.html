@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件间数据传递prop的使用</title>
+</head>
+<body>
+  <div id="app">
+    <login title="欢迎来到这里" count="222"></login>
+  </div>
+</body>
+</html>
+
+<template id="login">
+  <div><h3>登陆界面 -- {{title}} -- {{count}}</h3></div>
+</template>
+
+<script src="js/vue.js"></script>
+<script src="js/axios.min.js"></script>
+<script>
+
+  const login = {
+    template: "#login",
+    data() {
+      return {};
+    },
+    props: ["title", "count"]
+  }
+
+  const app = new Vue({
+    el: "#app",
+    data: {
+    },
+    methods: {},
+    computed: {},
+    components: {
+      login,
+    }
+  });
+</script>

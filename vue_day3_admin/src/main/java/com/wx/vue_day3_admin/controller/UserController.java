@@ -29,16 +29,14 @@ public class UserController {
         userService.deleteUserById(userId);
     }
 
-    @GetMapping("/{id}")
-    public User user(@PathVariable("id") Integer userId) {
+    @GetMapping("/getUser/{id}")
+    public User getUser(@PathVariable("id") Integer userId) {
         LOGGER.info("获取到的用户ID: {}", userId);
         return userService.findByUserId(userId);
     }
 
-    @PostMapping("saveOrUpdate")
+    @PostMapping("/saveOrUpdate")
     public void saveOrUpdate(@RequestBody User user) {
-//        LOGGER.info("接收到的用户数据是: {}", user);
-//        User user = userService.findByUserId(userId);
         if (ObjectUtils.isEmpty(user.getId())) {
             LOGGER.info("添加业务逻辑...");
             userService.save(user);

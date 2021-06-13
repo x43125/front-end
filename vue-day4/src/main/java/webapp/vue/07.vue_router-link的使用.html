@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue router-link的使用</title>
+</head>
+<body>
+<div id="app">
+  <h1>{{msg}}</h1>
+    <router-link to="/users?userid=1&name=xiaox">用户管理</router-link>
+    <router-link to="/emps/22">员工管理</router-link>
+
+    <router-view></router-view>
+    <button @click="test">切换路由</button>
+</div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script src="js/vue-router.js"></script>
+<script src="js/axios.min.js"></script>
+<script>
+
+    const users = {
+        template: "<div><h3>用户管理</h3></div>",
+        created() {
+            console.log(this);
+            console.log(this.$route.query.name);
+        }
+    };
+    const emps = {
+        template: "<div><h3>员工管理</h3></div>",
+        created() {
+            console.log(this);
+            console.log(this.$route.params.id);
+        }
+    };
+    const router = new VueRouter({
+        routes: [
+            {path:"/", redirect: "/users"},
+            {path:"/users", name:"users", component: users},
+            {path:"/emps/:id", emps:"emps", component: emps},
+        ]
+    });
+    const app = new Vue({
+        el: "#app",
+        data: {
+            msg: "vue-router",
+        },
+        methods: {
+            test() {
+                this.$router.push({name:"emps"});
+                // this.$router.push({path:"/users"});
+            }
+        },
+        computed: {},
+        components: {},
+        router,
+    });
+</script>

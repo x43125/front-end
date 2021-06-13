@@ -9,12 +9,14 @@
         <module name="vue_day1" />
         <module name="vue-day3" />
         <module name="vue_day2" />
+        <module name="vue-day4" />
         <module name="vue_admin" />
         <module name="vue_day3_admin" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="vue-day3" target="8" />
+      <module name="vue-day4" target="8" />
       <module name="vue_admin" target="1.8" />
       <module name="vue_day1" target="1.5" />
       <module name="vue_day2" target="8" />
