@@ -24,6 +24,10 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @GetMapping("/delete/{id}")
+    public void deleteUser(@PathVariable("id") Integer userId) {
+        userService.deleteUserById(userId);
+    }
 
     @GetMapping("/{id}")
     public User user(@PathVariable("id") Integer userId) {

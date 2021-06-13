@@ -44,4 +44,9 @@ public class UserServiceImpl implements UserService {
     public User findByUserId(Integer userId) {
         return userDao.findByUserId(userId);
     }
+
+    @Override
+    public void deleteUserById(Integer userId) {
+        userDao.deleteUserById(userId);
+    }
 }

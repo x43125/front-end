@@ -34,4 +34,10 @@ public interface UserService {
      * @return
      */
     User findByUserId(Integer userId);
+
+    /**
+     * 根据用户id删除用户
+     * @param userId
+     */
+    void deleteUserById(Integer userId);
 }

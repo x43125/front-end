@@ -25,4 +25,8 @@
         where id=#{userId};
     </select>
 
+    <delete id="deleteUserById" parameterType="Integer">
+        delete from t_user
+        where id=#{userId};
+    </delete>
 </mapper>
