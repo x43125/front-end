@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import HelloWorld from '../components/HelloWorld'
 import Login from "../components/Login";
 import Register from "../components/Register";
 import UserManager from "../components/UserManager";
+import UserAdd from "../components/UserAdd";
 
 Vue.use(Router)
 
@@ -27,7 +28,16 @@ export default new Router({
     {
       path: '/userManager',
       name: 'UserManager',
-      component: UserManager
-    }
+      component: UserManager,
+      children: [
+        {
+          // 子路由不加"/"
+          path: 'userAdd',
+          name: 'UserAdd',
+          component: UserAdd
+        },
+      ]
+    },
+
   ]
 })
