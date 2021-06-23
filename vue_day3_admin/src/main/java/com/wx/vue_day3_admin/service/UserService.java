@@ -40,4 +40,11 @@ public interface UserService {
      * @param userId
      */
     void deleteUserById(Integer userId);
+
+    /**
+     * 通过用户名获取用户信息
+     * @param name
+     * @return
+     */
+    User findByUserName(String name);
 }

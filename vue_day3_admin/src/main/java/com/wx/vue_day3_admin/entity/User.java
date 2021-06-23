@@ -8,19 +8,27 @@ package com.wx.vue_day3_admin.entity;
 public class User {
     private Integer id;
     private String name;
-    private Double salary;
-    private Integer age;
-    private String des;
+    private Integer phone;
+    private String email;
+    private String password;
 
     public User() {
     }
 
-    public User(Integer id, String name, Double salary, Integer age, String des) {
+    public User(Integer id, String name, Integer phone, String email, String password) {
         this.id = id;
         this.name = name;
-        this.salary = salary;
-        this.age = age;
-        this.des = des;
+        this.phone = phone;
+        this.email = email;
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Integer getId() {
@@ -39,28 +47,20 @@ public class User {
         this.name = name;
     }
 
-    public Double getSalary() {
-        return salary;
+    public Integer getPhone() {
+        return phone;
     }
 
-    public void setSalary(Double salary) {
-        this.salary = salary;
+    public void setPhone(Integer phone) {
+        this.phone = phone;
     }
 
-    public Integer getAge() {
-        return age;
+    public String getEmail() {
+        return email;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public String getDes() {
-        return des;
-    }
-
-    public void setDes(String des) {
-        this.des = des;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
@@ -68,9 +68,8 @@ public class User {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", salary=" + salary +
-                ", age=" + age +
-                ", des='" + des + '\'' +
+                ", phone=" + phone +
+                ", email='" + email + '\'' +
                 '}';
     }
 }

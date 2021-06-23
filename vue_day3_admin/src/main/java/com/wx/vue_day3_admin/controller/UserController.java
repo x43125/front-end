@@ -1,6 +1,8 @@
 package com.wx.vue_day3_admin.controller;
 
 import com.wx.vue_day3_admin.entity.User;
+import com.wx.vue_day3_admin.model.ResultInfo;
+import com.wx.vue_day3_admin.pojo.LoginUser;
 import com.wx.vue_day3_admin.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +25,38 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @RequestMapping("/login")
+    public ResultInfo login(@RequestBody LoginUser loginUser) {
+        if (ObjectUtils.isEmpty(loginUser)) {
+            throw new RuntimeException("用户为空");
+        }
+        User resultUser = userService.findByUserName(loginUser.getName());
+        String msg = null;
+        int code = 0;
+        if (ObjectUtils.isEmpty(resultUser)) {
+            msg = "用户名或密码错误";
+            code = 400;
+        } else {
+            if (loginUser.getPassword().equals(resultUser.getPassword())) {
+                msg = "登陆成功";
+                code = 200;
+            } else {
+                msg = "用户名或密码错误";
+                code = 400;
+            }
+        }
+        ResultInfo resultInfo = new ResultInfo();
+        resultInfo.setCode(code);
+        resultInfo.setMsg(msg);
+        return resultInfo;
+    }
+
+    public ResultInfo register(@RequestBody User user) {
+        ResultInfo resultInfo = new ResultInfo();
+
+        return resultInfo;
+    }
 
     @GetMapping("/delete/{id}")
     public void deleteUser(@PathVariable("id") Integer userId) {

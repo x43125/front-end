@@ -3,9 +3,12 @@
     <img src="./assets/logo.png">
     <br>
     <router-link to="/">主页</router-link>
-    <router-link to="/user/login">登录</router-link>
-    <router-link to="/user/register">注册</router-link>
-    <router-view/>
+    <router-link to="/user/login">登陆注册</router-link>
+    <router-link to="/userManager">用户管理</router-link>
+<!--    <router-link to="/user/register">注册</router-link>-->
+    <div>
+      <router-view/>
+    </div>
   </div>
 </template>
 

@@ -29,4 +29,11 @@
         delete from t_user
         where id=#{userId};
     </delete>
+
+    <select id="findByUserName" parameterType="String" resultType="com.wx.vue_day3_admin.entity.User">
+        select
+               id,name,phone,email,create_time,password
+        from t_user
+        where name=#{name};
+    </select>
 </mapper>
