@@ -42,6 +42,7 @@ export default {
       msg: "登录页",
       isActive: true,
       mainContent: "登录内容区",
+      user: {},
       loginUser: {},
       registerUser: {},
     }
@@ -63,6 +64,9 @@ export default {
       console.log(this.loginUser);
       this.$http.post("http://localhost:8081/user/login", this.loginUser).then(res=>{
         console.log(res.data);
+        console.log(res.data.data.token);
+        console.log(res.data.data.tokenHead);
+        this.$http.headers.common['Authorization'] = res.data.data.tokenHead + ' ' +res.data.data.token;
         if (res.data.code==200) {
           alert("登陆成功");
           this.$router.push("/");

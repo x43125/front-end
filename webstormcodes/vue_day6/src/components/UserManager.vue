@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>
+    <div id="usertable">
       <h3>{{msg}}</h3>
       <router-link to="/userManager/userAdd" style="float: left">添加</router-link>
       <table border="1" width="100%">
@@ -15,15 +15,6 @@
           <th>创建时间</th>
           <th>操作</th>
         </tr>
-  <!--      <tr v-for="(user,index) in users" :key="user.id">-->
-  <!--        <td v-model="user.id"></td>-->
-  <!--        <td v-model="user.username"></td>-->
-  <!--        <td v-model="user.role"></td>-->
-  <!--        <td v-model="user.perms"></td>-->
-  <!--        <td v-model="user.phone"></td>-->
-  <!--        <td v-model="user.email"></td>-->
-  <!--        <td v-model="user.create_time"></td>-->
-  <!--        <td><a href="" @click="deleteUser">删除</a> <a href="" @click="updateUser">更改</a></td>-->
         <tr v-for="(user,index) in users" :key="user.id">
           <td>{{user.id}}</td>
           <td>{{user.username}}</td>
@@ -99,4 +90,11 @@ export default {
   th {
     background-color: bisque;
   }
+  #usertable {
+    position: relative;
+    left: 10%;
+    width: 80%;
+    text-align: center;
+  }
+
 </style>
