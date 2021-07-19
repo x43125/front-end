@@ -5,6 +5,8 @@ import Login from "../components/Login";
 import Register from "../components/Register";
 import UserManager from "../components/UserManager";
 import UserAdd from "../components/UserAdd";
+import Blog from "../components/Blog";
+import PageBar from "../components/PageBar";
 
 Vue.use(Router)
 
@@ -38,6 +40,16 @@ export default new Router({
         },
       ]
     },
+    {
+      path: '/blog',
+      name: 'Blog',
+      component: Blog
+    },
+    {
+      path: 'pageBar',
+      name: 'PageBar',
+      component: PageBar
+    }
 
   ]
 })

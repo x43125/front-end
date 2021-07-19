@@ -69,6 +69,7 @@ export default {
       }
     },
     updateUser(user) {
+
     },
     findAll() {
       this.$http.get("http://localhost:8081/userManager/getAll").then(res => {
