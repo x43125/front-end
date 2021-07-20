@@ -51,7 +51,7 @@ export default {
   text-align: left;
   background-color: papayawhip;
   border: solid 1px;
-  width: 20%;
+  width: 10%;
   height: 85%;
   float: left;
 }
@@ -59,7 +59,7 @@ export default {
   position: relative;
   text-align: center;
   background-color: azure;
-  width: 79%;
+  width: 89%;
   height: 85%;
   float: right;
 }
