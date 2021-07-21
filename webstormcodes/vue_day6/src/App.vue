@@ -1,27 +1,48 @@
 <template>
   <div id="app">
+<!--    头部导航栏 -->
     <div id="header">
-      <h1>ppdream.xyz</h1>
+      <div id="webName">
+        <h1>{{webName}}</h1>
+      </div>
     </div>
-    <div id="routerLink">
-      <img src="./assets/logo.png">
-      <br>
-      <router-link to="/">主页</router-link> <br>
-      <router-link to="/user/login">登陆注册</router-link> <br>
-      <router-link to="/userManager">用户管理</router-link> <br>
-      <router-link to="/blog">博客</router-link>
+
+<!--    主体 -->
+    <div id="body">
+<!--      菜单栏 -->
+      <div id="menuBar">
+        <div id="webLog"><img src="./assets/logo.png"></div>
+        <div id="routerLink">
+          <ul>
+            <li><router-link to="/">主页</router-link> </li><br/>
+            <li><router-link to="/user/login">登陆注册</router-link></li><br/>
+            <li><router-link to="/userManager">用户管理</router-link></li><br/>
+            <li><router-link to="/blog">博客</router-link></li>
+          </ul>
+        </div>
+      </div>
+
+<!--      实际显示内容主体 -->
+      <div id="content">
+        <div id="routerView">
+          <router-view/>
+        </div>
+      </div>
+
+      <div id="toolBar"></div>
     </div>
-    <div id="routerView">
-      <router-view/>
-    </div>
-    <div>
-      <h1>
-<!--        政府要求！！！ -->
-        <a href="http://beian.miit.gov.cn/">
-<!--          todo 后期要把此处换成自己的备案号 -->
-          京ICP备999999号
-        </a>
+
+<!--    底部栏 -->
+    <div id="tail">
+      <div id="record">
+        <h1>
+          <!--        政府要求！！！ -->
+          <a href="http://beian.miit.gov.cn/">
+            <!--          todo 后期要把此处换成自己的备案号 -->
+            京ICP备999999号
+          </a>
         </h1>
+      </div>
     </div>
   </div>
 
@@ -30,12 +51,17 @@
 <script>
 export default {
   name: 'App',
+  data() {
+    return {
+      webName: 'ppdream.xyz',
+    }
+  }
 }
 </script>
 
 <style>
 #app {
-  position: absolute;
+  /*position: absolute;*/
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -45,24 +71,40 @@ export default {
 }
 #header {
   text-align: center;
+  background-color: #bfa;
+  /*position: absolute;*/
+  /*top: 0;*/
 }
-#routerLink {
+#body {
+  /*position: absolute;*/
+}
+#menuBar {
   position: relative;
   text-align: left;
   background-color: papayawhip;
   border: solid 1px;
-  width: 10%;
-  height: 85%;
+  width: 250px;
+  height: 1100px;
   float: left;
 }
-#routerView {
+#content {
   position: relative;
   text-align: center;
   background-color: azure;
-  width: 89%;
-  height: 85%;
-  float: right;
+  width: 2200px;
+  height: 1100px;
+  margin-left: 10px;
+  float: left;
 }
+#tail {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  background-color: azure;
+  width: 100%;
+  height: 100px;
+}
+
 h1, h2 {
   font-weight: normal;
 }

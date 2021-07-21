@@ -11,6 +11,7 @@
      两到三行正文
      阅读量，点赞数，评论数，上架时间
 -->
+    <div id="blogMainBody">
       <div id="blogCatalog">
         <h4>
         博客列表:
@@ -42,12 +43,12 @@
           <router-view/>
         </div>
       </div>
-<!--
-      正文
-      开始为隐藏，
-      当选择某一文章后，在空出的位置展示
--->
-    <div>
+
+  <!--
+        正文
+        开始为隐藏，
+        当选择某一文章后，在空出的位置展示
+  -->
       <div id="blogContent">
         <div>
           <h4>
@@ -66,61 +67,60 @@
             </div>
           </div>
         </div>
-
-
       </div>
-    <div id="classificationBlogList">
-      <h4>
-        列表
-        开始为隐藏，
-        当选择某一标签后，在空出的位置展示
-      </h4>
-      <div>
-        <ul v-for="(blog, index) in classBlogList" :key="blog.id">
-          <li>
-            <div @click="getBlogById(blog.id)">{{blog.name}}</div>
-            <div @click="getBlogById(blog.id)">{{blog.content}}</div>
-            <div>
-              阅读量：{{blog.readAmount}}
-              点赞数：{{blog.likeAmount}}
-              评论数：{{blog.commentAmount}}</div>
-            <div>
-              上线时间：{{blog.uploadTime}}
-            </div>
-          </li>
-          <hr/>
-        </ul>
+  <!--
+       点击文章将压缩左侧菜单栏至一细列
+       同时将博客列表向左侧平移，平移后博客列表右上提供压解缩本列按钮
+       右侧将空出大量空白，在此处展示文章主体，全屏阅读文章按钮 zen模式
+  -->
+  <!--
+       博客分类，标签等信息
+       分类列表
+       文章数
+  -->
+      <div id="blogClassification">
+        <h4>
+          博客分类，标签等信息
+          分类列表
+          文章数
+        </h4>
+        <div >
+          <ul v-for="(tag,index) in tags" :key="tag.Id">
+            <li>
+              <div id="tagName" @click="getBlogListByTagId(tag.id)">{{tag.name}}</div>
+              <div id="tagDescription" @click="getBlogListByTagId(tag.id)">{{tag.description}}</div>
+            </li>
+            <hr/>
+          </ul>
+        </div>
+
+<!--        <div id="classificationBlogList">
+          <h4>
+            列表
+            开始为隐藏，
+            当选择某一标签后，在空出的位置展示
+          </h4>
+          <div>
+            <ul v-for="(blog, index) in classBlogList" :key="blog.id">
+              <li>
+                <div @click="getBlogById(blog.id)">{{blog.name}}</div>
+                <div @click="getBlogById(blog.id)">{{blog.content}}</div>
+                <div>
+                  阅读量：{{blog.readAmount}}
+                  点赞数：{{blog.likeAmount}}
+                  评论数：{{blog.commentAmount}}</div>
+                <div>
+                  上线时间：{{blog.uploadTime}}
+                </div>
+              </li>
+              <hr/>
+            </ul>
+          </div>
+        </div>-->
       </div>
+
     </div>
-  </div>
 
-<!--
-     点击文章将压缩左侧菜单栏至一细列
-     同时将博客列表向左侧平移，平移后博客列表右上提供压解缩本列按钮
-     右侧将空出大量空白，在此处展示文章主体，全屏阅读文章按钮 zen模式
--->
-
-<!--
-     博客分类，标签等信息
-     分类列表
-     文章数
--->
-    <div id="blogClassification">
-      <h4>
-        博客分类，标签等信息
-        分类列表
-        文章数
-      </h4>
-      <div >
-        <ul v-for="(tag,index) in tags" :key="tag.Id">
-          <li>
-            <div id="tagName" @click="getBlogListByTagId(tag.id)">{{tag.name}}</div>
-            <div id="tagDescription" @click="getBlogListByTagId(tag.id)">{{tag.description}}</div>
-          </li>
-          <hr/>
-        </ul>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -180,12 +180,13 @@ export default {
 </script>
 
 <style scoped>
+#blogMainBody {
 
+}
 #blogName:hover {
   color: #E96463;
   cursor:pointer
 }
-
 #blogContentAbb:hover {
   cursor:pointer
 }
@@ -196,35 +197,39 @@ export default {
 #tagDescription:hover {
   cursor:pointer
 }
-
 #commentArea {
   float: left;
 }
 #uploadTime {
   float: right;
 }
-
 #blogCatalog {
-  width: 25%;
+  width: 490px;
+  height: 1000px;
   float: left;
   background-color: burlywood;
 }
-#classificationBlogList {
-  width: 62%;
-  margin-left: 1%;
-  background-color: antiquewhite;
-}
+/* todo
+    - div随内容多少而变长
+    - 模拟sticky效果实现菜单栏，底部栏等固定显示
+*/
 #blogContent {
-  width: 62%;
+  width: 1200px;
+  height: 1000px;
   float: left;
-  margin-left: 1%;
-
+  margin-left: 10px;
+  margin-right: 10px;
   background-color: #42b983;
 }
 #blogClassification {
-  width: 10%;
-  float: right;
+  width: 490px;
+  height: 1000px;
+  float: left;
   background-color: antiquewhite;
 }
-/*todo 细调css，主要是大小，位置*/
+/*#classificationBlogList {
+  width: 62%;
+  !*margin-left: 1%;*!
+  background-color: antiquewhite;
+}*/
 </style>
