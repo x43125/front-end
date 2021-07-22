@@ -24,11 +24,13 @@
             <li>
               <div id="blogName" @click="getBlogById(blog.id)">{{blog.name}}</div>
               <div id="blogContentAbb" @click="getBlogById(blog.id)">{{blog.content}}</div>
-              <div id="commentArea">
-                阅读量：{{blog.readAmount}}
-                点赞数：{{blog.likeAmount}}
-                评论数：{{blog.commentAmount}}</div>
-              <div id="uploadTime">
+              <div>
+                <div id="addReadAmount" @click="addReadAmount(blog.id)">阅读量：{{blog.readAmount}}</div>
+                <div id="likeBlog" @click="likeBlog(blog.id)">点赞数：{{blog.likeAmount}}</div>
+                <div id="commentBlog" @click="commentBlog(blog.id)">评论数：{{blog.commentAmount}}</div>
+                <div id="favoriteBlog" @click="favoriteBlog(blog.id)">favorite</div>
+              </div>
+              <div>
                 上线时间：{{blog.uploadTime}}
               </div>
             </li>
@@ -59,9 +61,10 @@
           <div v-model="blog">
             <div>{{blog.content}}</div>
             <div>
-              阅读量：{{blog.readAmount}}
-              点赞数：{{blog.likeAmount}}
-              评论数：{{blog.commentAmount}}</div>
+              <div>阅读量：{{blog.readAmount}}</div>
+              <div id="like" @click="likeBlog(blog.id)" >点赞数：{{blog.likeAmount}}</div>
+              <div>评论数：{{blog.commentAmount}}</div>
+            </div>
             <div>
               上线时间：{{blog.uploadTime}}
             </div>
@@ -84,7 +87,7 @@
           分类列表
           文章数
         </h4>
-        <div >
+        <div>
           <ul v-for="(tag,index) in tags" :key="tag.Id">
             <li>
               <div id="tagName" @click="getBlogListByTagId(tag.id)">{{tag.name}}</div>
@@ -131,12 +134,23 @@ export default {
     return {
       msg: "Blog",
       blog: {},
+      mainBlog: {},
       blogs: [],
       tags: [],
       classBlogList: []
     }
   },
   methods: {
+    likeBlog(blogId) {
+      this.$http.get("http://localhost:8081/blog/likeBlogByBlogId/" + blogId).then(res => {
+        console.log(res.data);
+        //todo 把list解析出来，用","分割
+        this.blog.likeAmount = res.data.data;
+        this.getBlogList();
+      }).catch(err=>{
+        alert(err);
+      });
+    },
     getBlogList() {
       this.$http.get("http://localhost:8081/blog/getBlogList").then(res => {
         console.log(res);
@@ -159,6 +173,17 @@ export default {
       this.$http.get("http://localhost:8081/blog/getBlogByBlogId/" + blogId).then(res => {
         console.log(res);
         this.blog = res.data.data;
+        // this.blog.readAmount = this.blog.readAmount+1;
+        this.addReadAmount(blogId);
+        // this.getBlogList();
+      }).catch(err=>{
+        alert(err);
+      });
+    },
+    addReadAmount(blogId) {
+      this.$http.get("http://localhost:8081/blog/addReadAmountByBlogId/" + blogId).then(res => {
+        console.log(res);
+        this.blog.readAmount = res.data.data;
       }).catch(err=>{
         alert(err);
       });
