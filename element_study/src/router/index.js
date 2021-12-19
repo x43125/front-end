@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from '../components'
+import Index from '../components/index/Index'
 import Blog from "../components/Blog";
 import Shop from "../components/Shop";
 import Tool from "../components/Tool";
