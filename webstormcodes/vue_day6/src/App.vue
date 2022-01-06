@@ -17,7 +17,8 @@
             <li><router-link to="/">主页</router-link> </li><br/>
             <li><router-link to="/user/login">登陆注册</router-link></li><br/>
             <li><router-link to="/userManager">用户管理</router-link></li><br/>
-            <li><router-link to="/blog">博客</router-link></li>
+            <li><router-link to="/blog">博客</router-link></li><br/>
+            <li><router-link to="/blogManger">博客管理</router-link></li>
           </ul>
         </div>
       </div>

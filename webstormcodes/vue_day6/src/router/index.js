@@ -7,6 +7,7 @@ import UserManager from "../components/UserManager";
 import UserAdd from "../components/UserAdd";
 import Blog from "../components/Blog";
 import PageBar from "../components/PageBar";
+import BlogManager from "../components/BlogManager";
 
 Vue.use(Router)
 
@@ -44,6 +45,11 @@ export default new Router({
       path: '/blog',
       name: 'Blog',
       component: Blog
+    },
+    {
+      path: '/blogManger',
+      name: 'BlogManger',
+      component: BlogManager
     },
     {
       path: 'pageBar',

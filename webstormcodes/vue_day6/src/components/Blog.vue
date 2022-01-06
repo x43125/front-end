@@ -137,7 +137,8 @@ export default {
       mainBlog: {},
       blogs: [],
       tags: [],
-      classBlogList: []
+      classBlogList: [],
+      blogHasOpened: false
     }
   },
   methods: {
@@ -173,9 +174,12 @@ export default {
       this.$http.get("http://localhost:8081/blog/getBlogByBlogId/" + blogId).then(res => {
         console.log(res);
         this.blog = res.data.data;
-        // this.blog.readAmount = this.blog.readAmount+1;
-        this.addReadAmount(blogId);
-        // this.getBlogList();
+        if (!this.blogHasOpened) {
+          this.blog.readAmount = this.blog.readAmount+1;
+          this.addReadAmount(blogId);
+          this.blogHasOpened = true;
+        }
+        this.getBlogList();
       }).catch(err=>{
         alert(err);
       });
@@ -200,6 +204,7 @@ export default {
   created() {
     this.getBlogList();
     this.getTagBlogList();
+    this.blogHasOpened = false;
   }
 }
 </script>

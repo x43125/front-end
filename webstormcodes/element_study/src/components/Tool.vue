@@ -1,10 +1,12 @@
 <template>
-$END$
+  <div>
+    <h1>tool</h1>
+  </div>
 </template>
 
 <script>
 export default {
-name: "Tools"
+  name: "Tool"
 }
 </script>
 
