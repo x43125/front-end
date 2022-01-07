@@ -1,16 +1,15 @@
 <template>
-  <div id="app">
+  <div>
+    <h1>game</h1>
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'App',
-  components: {
-  }
+  name: "Game"
 }
 </script>
 
-<style>
+<style scoped>
+
 </style>
