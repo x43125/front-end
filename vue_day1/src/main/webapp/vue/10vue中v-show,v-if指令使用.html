@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件绑定</title>
+</head>
+<body>
+  <div id="app">
+    <h2>{{age}}</h2>
+      <input type="button" value="切换显示状态" @click="changeState">
+      <input type="button" value="切换显示状态2" @click="isShow=!isShow">
+      <!--
+          v-show, v-if：作用：控制页面中标签是否展示，使用 v-if="true|false" v-show="true|false"
+       -->
+      <h1 v-show="isShow">{{msg}}</h1>
+      <h1 v-if="isShow">{{msg}}</h1>
+
+
+
+
+  </div>
+</body>
+</html>
+<!-- 引入vue.js-->
+<script src="js/vue.js"></script>
+<script>
+  var app = new Vue({
+    // element：元素 作用：用来指定vue实例作用范围
+    el:"#app",
+    // data: 数据 作用：用来给vue实例对象绑定一系列数据
+    data: {
+      msg: "hello vue",
+        age: 5,
+        isShow: true
+    },
+      methods: {
+        changeState() {
+            this.isShow = !this.isShow;
+        }
+      }
+  });
+</script>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-text_v-html</title>
+</head>
+<body>
+  <div id="app">
+    <h2>{{msg}}</h2>
+<!--    v-text避免插值闪烁情况 -->
+    <h2 v-text="msg"></h2>
+    <h2 v-html="links"></h2>
+  </div>
+</body>
+</html>
+<!-- 引入vue.js-->
+<script src="js/vue.js"></script>
+<script>
+  var app = new Vue({
+    // element：元素 作用：用来指定vue实例作用范围
+    el:"#app",
+    // data: 数据 作用：用来给vue实例对象绑定一系列数据
+    data: {
+      msg: "hello stranger",
+      age: 23,
+      user: {name:"xiaox",age:22,des:"love peace"},
+      links: "欢迎来到<a href='http://www.baidu.com'>垃圾百度</a>"
+    }
+  });
+</script>

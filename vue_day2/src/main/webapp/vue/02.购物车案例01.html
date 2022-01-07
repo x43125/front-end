@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车案例实现</title>
+</head>
+<body>
+  <div id="app">
+    <h1>{{msg}}</h1>
+
+    <table border="1">
+      <tr>
+        <th>id</th>
+        <th>名称</th>
+        <th>价格</th>
+        <th>数量</th>
+        <th>小计</th>
+      </tr>
+      <tr v-for="(item,index) in items" :key="item.id">
+        <th>{{item.id}}</th>
+        <th>{{item.name}}</th>
+        <th>{{item.price}}</th>
+        <th><input type="button" value="-" @click="decrCount(index)"> {{item.count}}<input type="button" value="+" @click="incrCount(index)"> </th>
+        <th>{{(item.price * item.count).toFixed(2)}}</th>
+      </tr>
+    </table>
+    <h3>总价格：{{getTotalPrice()}}</h3>
+  </div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script>
+  var app=new Vue({
+    el: "#app",
+    data: {
+      msg: "购物车案例实现",
+      items: [
+        {id:1,name:"iphone",count:1,price:28.2},
+        {id:2,name:"mate40",count:2,price:31.2},
+      ]
+    },
+    methods: {
+      incrCount(index) {
+        this.items[index].count++;
+      },
+      decrCount(index) {
+        if (this.items[index].count>0) {
+          this.items[index].count--;
+        }
+      },
+      getTotalPrice() {
+        var totalPrice = 0;
+        for (var i=0; i<this.items.length; i++) {
+          totalPrice += this.items[i].count * this.items[i].price;
+        }
+        return totalPrice.toFixed(2);
+      }
+    }
+  })
+</script>

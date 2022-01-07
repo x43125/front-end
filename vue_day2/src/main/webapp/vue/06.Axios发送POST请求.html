@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Axios01</title>
+</head>
+<body>
+    <h1>Axios学习</h1>
+</body>
+</html>
+
+<script src="js/axios.min.js"></script>
+<script>
+/*    axios.get("http://localhost:8080/demo").then(function (response) {
+        console.log(response)
+    });*/
+    axios.post("http://localhost:8080/save", {
+        username: "xiaox",
+        age: 12,
+        des: "码农"
+    }).then(res=>{
+        console.log(res.data);
+    })
+</script>

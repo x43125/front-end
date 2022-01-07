@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wx.vue_day3_admin.dao.UserDao">
+    <select id="findAll" resultType="com.wx.vue_day3_admin.entity.User">
+        select
+            id,name,age,salary,des
+        from t_user;
+    </select>
+
+    <insert id="save" parameterType="com.wx.vue_day3_admin.entity.User">
+        insert into t_user(name, salary, age, des)
+        values(#{name}, #{salary}, #{age}, #{des});
+    </insert>
+
+    <update id="update" parameterType="com.wx.vue_day3_admin.entity.User">
+        update t_user
+        set name=#{name}, salary=#{salary}, age=#{age}, des=#{des}
+        where id=#{id};
+    </update>
+
+    <select id="findByUserId" parameterType="Integer" resultType="com.wx.vue_day3_admin.entity.User">
+        select
+            id,name,age,salary,des
+        from t_user
+        where id=#{userId};
+    </select>
+
+    <delete id="deleteUserById" parameterType="Integer">
+        delete from t_user
+        where id=#{userId};
+    </delete>
+
+    <select id="findByUserName" parameterType="String" resultType="com.wx.vue_day3_admin.entity.User">
+        select
+               id,name,phone,email,create_time,password
+        from t_user
+        where name=#{name};
+    </select>
+</mapper>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>购物车案例实现</title>
+</head>
+<body>
+  <div id="app">
+    <h1>{{msg}}</h1>
+    <h2>stop事件修饰符</h2>
+    <div style="width: 200px; height: 200px; background-color: red" @click="parent">
+      <div style="width: 100px; height: 100px; background-color: green" @click.stop.once="child"></div>
+    </div>
+    <h2>prevent事件修饰符</h2>
+    <a href="http://www.baidu.com" @click.prevent="search">百度一下</a>
+    <a href="javascript:;" @click="search">百度一下</a>
+    <a href="javascript:void(0);" @click="search">百度一下</a>
+
+    <h2>self事件修饰符</h2>
+    <div style="width: 200px; height: 200px; background-color: red" @click.self="parent">
+      <div style="width: 100px; height: 100px; background-color: green" @click="child"></div>
+      <div style="width: 100px; height: 100px; background-color: blue" @click="child"></div>
+    </div>
+    <h2>once事件修饰符</h2>
+    <div style="width: 200px; height: 200px; background-color: red" @click.self="parent">
+      <div style="width: 100px; height: 100px; background-color: green" @click.once="child"></div>
+      <div style="width: 100px; height: 100px; background-color: blue" @click="child"></div>
+    </div>
+<!--    事件修饰符可以叠加使用 .self.once 等-->
+  </div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script>
+  var app=new Vue({
+    el: "#app",
+    data: {
+      msg: "时间修饰符",
+    },
+    methods: {
+      parent() {
+        alert("parent");
+      },
+      child() {
+        alert("child");
+      },
+      search() {
+        alert("search");
+      }
+
+    },
+    computed: {
+
+    }
+  });
+</script>

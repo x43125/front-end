@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表案例练习</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{msg}}</h1>
+        <div>
+            <div class="row">
+                <div>用户列表</div>
+            </div>
+            <div class="row">
+                <table>
+                    <a href="" @click.prevent="resetForm">添加</a>
+                    <tr>
+                        <th>编号</th>
+                        <th>姓名</th>
+                        <th>年龄</th>
+                        <th>薪酬</th>
+                        <th>描述</th>
+                        <th>操作</th>
+                    </tr>
+                    <tr v-for="(user,index) in users" :key="user.id">
+                        <th>{{user.id}}</th>
+                        <th>{{user.name}}</th>
+                        <th>{{user.age}}</th>
+                        <th>{{user.salary}}</th>
+                        <th>{{user.des}}</th>
+                        <th><a href="" @click.prevent="deleteUserInfo(user.id)">删除</a></th>
+                        <th><a href="" @click.prevent="updateUser(user.id)">修改</a></th>
+                    </tr>
+                </table>
+                <form>
+                    <div class="form-group" v-show="user.id">
+                        <label>编号</label>
+                        <div><p>{{user.id}}</p></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">姓名</label>
+                        <input type="text" class="form-control" id="name" v-model="user.name" placeholder="请输入姓名">
+                    </div>
+                    <div class="form-group">
+                        <label for="age">年龄</label>
+                        <input type="text" class="form-control" id="age" v-model="user.age" placeholder="请输入年龄">
+                    </div>
+                    <div class="form-group">
+                        <label for="salary">薪酬</label>
+                        <input type="text" class="form-control" id="salary" v-model="user.salary" placeholder="请输入薪酬">
+                    </div>
+                    <div class="form-group">
+                        <label for="des">描述</label>
+                        <input type="text" class="form-control" id="des" v-model="user.des" placeholder="请输入描述">
+                    </div>
+                    <button type="button" class="btn btn-info" @click="saveOrUpdate" >提交</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
+<script src="js/axios.min.js"></script>
+<script src="js/vue.js"></script>
+<script>
+    var app = new Vue({
+        el: "#app",
+        data: {
+            msg: "用户列表案例练习",
+            users: [],
+            user: {},
+        },
+        methods: {
+            resetForm() {
+                this.user = {};
+            },
+            saveOrUpdate() {
+                if (!this.user.name) {
+                    alert("请输入用户名");
+                    return;
+                }
+                if (this.user.name.length>16) {
+                    alert("用户名不得长于16位");
+                    return;
+                }
+                axios.post("http://localhost:8080/user/saveOrUpdate", this.user).then(res=>{
+                    this.resetForm();
+                    this.findAll();
+                    alert("添加用户信息成功");
+                }).catch(err=>{
+                    alert("添加用户信息失败");
+                });
+            },
+            findAll() {
+                axios.get("http://localhost:8080/user/getAll").then(res=>{
+                    this.users = res.data;
+                });
+            },
+            deleteUserInfo(userId) {
+                if (confirm("确定删除该条信息吗?")) {
+                    axios.get("http://localhost:8080/user/delete/" + userId).then(res => {
+                        alert("删除用户成功");
+                        this.findAll();
+                    }).catch(err => {
+                        alert("删除用户失败");
+                    });
+                }
+            },
+            updateUser(userId) {
+                axios.get("http://localhost:8080/user/getUser/" + userId).then(res => {
+                    this.user = res.data;
+                }).catch(err => {
+                    alert("查找该用户失败...")
+                });
+            },
+        },
+        created() {
+            this.findAll();
+        }
+    });
+</script>
