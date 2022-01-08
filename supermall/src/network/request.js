@@ -1,5 +1,7 @@
 import axios from "axios";
 
+// request是基本请求，设置
+// 拦截器等
 export function request(config) {
     const instance = axios.create({
         baseURL: 'http://localhost:8081',

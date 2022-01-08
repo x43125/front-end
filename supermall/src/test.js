@@ -1,5 +1,5 @@
 import {request} from "@/network/request";
-
+// 请求通过这种封装来操作，就是将原先的直接请求包装一层 request，以做拦截操作和可移植性增强，也实现和第三方依赖 axios解耦
 export function sayHello() {
     return request({
         url: '/test/sayHello'
