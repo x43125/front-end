@@ -15,14 +15,19 @@ export default new Router({
       component: () => import('@/views/Index'),
       children: [
         {
+          path: '/test',
+          name: 'Test',
+          component: () => import('@/views/Test')
+        },
+        {
           path: '/login',
           name: 'Login',
           component: () => import('@/views/Login')
         },
         {
-          path: '/test',
-          name: 'Test',
-          component: () => import('@/views/Test')
+          path: '/register',
+          name: 'Register',
+          component: () => import('@/views/Register')
         }
       ]
     },

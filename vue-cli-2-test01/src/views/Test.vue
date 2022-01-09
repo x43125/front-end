@@ -12,7 +12,6 @@
         <div>
           <el-button @click="sayHello()">sayHello</el-button>
           <el-button @click="testGet()">testGet</el-button>
-
         </div>
         <div>
           <el-input v-model="param1" placeholder="请输入参数1"></el-input>
@@ -30,13 +29,13 @@
 </template>
 
 <script>
-import {sayHello, testGet, testParam, testBody} from "../../api/test/test";
+import {sayHello, testGet, testParam, testBody} from "@/api/test/test";
 
 export default {
   name: "Test",
   data() {
     return {
-      msg: "用于测试的页面,不是用于测试的页面",
+      msg: "用于测试的页面",
       inputVal: "",
       param1: "",
       param2: "",
