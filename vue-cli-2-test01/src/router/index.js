@@ -12,12 +12,20 @@ export default new Router({
     {
       path: '/index',
       name: 'Index',
-      component: () => import('@/views/Index')
+      component: () => import('@/views/Index'),
+      children: [
+        {
+          path: '/login',
+          name: 'Login',
+          component: () => import('@/views/Login')
+        },
+        {
+          path: '/test',
+          name: 'Test',
+          component: () => import('@/views/Test')
+        }
+      ]
     },
-    {
-      path: '/login',
-      name: 'Login',
-      component: () => import('@/views/Login')
-    }
+
   ]
 })
