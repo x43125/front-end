@@ -12,16 +12,18 @@ const instance = axios.create({
 })
 
 instance.interceptors.request.use(config => {
-  console.log("发送拦截器");
   return config;
 }, error => {
+  console.log("xxxxxxxxxxxx");
   console.log(error)
   Promise.reject(error)
 })
 
 instance.interceptors.response.use(res => {
   const code = res.data.code || 200
+  console.log(code);
   const msg = errorCode[code] || res.data.message || errorCode['default'];
+  console.log(msg);
   if (res.request.responseType === 'blob' || res.request.responseType === 'arraybuffer') {
     return res.data
   }

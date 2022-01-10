@@ -22,12 +22,17 @@ export default new Router({
         {
           path: '/login',
           name: 'Login',
-          component: () => import('@/views/Login')
+          component: () => import('@/views/user/Login')
         },
         {
           path: '/register',
           name: 'Register',
-          component: () => import('@/views/Register')
+          component: () => import('@/views/user/Register')
+        },
+        {
+          path: '/blog',
+          name: 'Blog',
+          component: () => import('@/views/blog/Blog')
         }
       ]
     },
