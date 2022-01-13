@@ -7,3 +7,15 @@ export function blogList(config) {
     data: config
   })
 }
+
+export function readBlog(config) {
+  const blogDto = {
+    id: '',
+    blogName: config
+  }
+  return request({
+    url: '/blog/readBlog',
+    method: 'post',
+    data: blogDto
+  })
+}

@@ -67,6 +67,6 @@ export default {
 <style scoped>
 .demo-registerForm {
   width: 33%;
-  margin-left: 33%;
+  margin-left: 25%;
 }
 </style>

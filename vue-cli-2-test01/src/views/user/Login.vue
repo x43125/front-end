@@ -87,7 +87,7 @@ export default {
 <style scoped>
 .demo-ruleForm {
   width: 33%;
-  margin-left: 33%;
+  margin-left: 25%;
 }
 
 </style>

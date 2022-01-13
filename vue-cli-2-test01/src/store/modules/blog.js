@@ -1,10 +1,13 @@
-import {blogList} from "@/api/blogManager";
+import {blogList, readBlog} from "@/api/blogManager";
 
 const blog = {
 
   actions: {
     BlogList({commit}, config) {
-      return blogList(config)
+      return blogList(config);
+    },
+    ReadBlog({commit}, config) {
+      return readBlog(config);
     }
   }
 }
