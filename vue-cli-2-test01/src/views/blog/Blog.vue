@@ -3,30 +3,16 @@
     <el-header>{{ msg }}</el-header>
     <el-container>
       <el-aside>
-        <!--      <el-table-->
-        <!--        :data="tableData"-->
-        <!--        style="width: 100%"-->
-        <!--        :row-class-name="tableRowClassName">-->
-        <!--        <el-table-column-->
-        <!--          prop="blogName"-->
-        <!--          label="博客"-->
-        <!--          width="180"-->
-        <!--        @click="readBlog">-->
-
-        <!--        </el-table-column>-->
-        <!--      </el-table>-->
         <div>
-          <p v-for="(item,i) in tableData" @click="readBlog(item.blogName)" >
-            <a href="javascript:;">  {{ item.blogName }}</a>
+          <p v-for="(item,i) in tableData" @click="readBlog(item.name)">
+            <router-link :to="{name: 'BlogContent', params:{obj: blogDto}}">{{ item.name }}</router-link>
+<!--            <router-link :to="{name: 'BlogContent'}">{{ item.name }}</router-link>-->
+<!--            <a @click="routerTo()">{{ item.name }}</a>-->
           </p>
         </div>
       </el-aside>
       <el-main>
-        <div>
-          <p>{{ this.blogDto.blogName }}</p>
-          <p>{{ blogContent }}</p>
-        </div>
-        <!--      <router-view/>-->
+        <router-view/>
       </el-main>
     </el-container>
   </el-container>
@@ -45,11 +31,11 @@ export default {
       },
       blogDto: {
         id: '',
-        blogName: '',
-        blogContent: ''
+        name: '',
+        content: ''
       },
       tableData: [],
-      blogContent: ''
+
     }
   },
   methods: {
@@ -62,13 +48,21 @@ export default {
       return '';
     },
     readBlog(blogName) {
-      this.blogDto.blogName = blogName;
-      this.blogContent = '';
+      this.blogDto.content = '';
       this.$store.dispatch("ReadBlog", blogName).then(result => {
         console.log(result.data);
-        this.blogContent = result.data;
+        this.blogDto.id = 1;
+        this.blogDto.content = result.data;
+        this.blogDto.name = blogName;
       }).catch(error => {
         console.log(error);
+      });
+      // this.$store.commit('SetBlog', this.blogDto)
+    },
+    routerTo() {
+      this.$router.push({
+        name: 'BlogContent',
+        params: {obj: this.blogDto}
       })
     }
   },
@@ -78,7 +72,7 @@ export default {
     }).catch(error => {
       console.log(error);
     })
-  }
+  },
 }
 </script>
 
@@ -90,6 +84,8 @@ export default {
 .el-table .success-row {
   background: #f0f9eb;
 }
+
+
 </style>
 
 

@@ -11,7 +11,7 @@ export function blogList(config) {
 export function readBlog(config) {
   const blogDto = {
     id: '',
-    blogName: config
+    name: config
   }
   return request({
     url: '/blog/readBlog',

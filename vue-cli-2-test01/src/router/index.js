@@ -32,7 +32,14 @@ export default new Router({
         {
           path: '/blog',
           name: 'Blog',
-          component: () => import('@/views/blog/Blog')
+          component: () => import('@/views/blog/Blog'),
+          children: [
+            {
+              path: '/blog/content',
+              name: 'BlogContent',
+              component: () => import('@/views/blog/BlogContent')
+            }
+          ]
         }
       ]
     },
