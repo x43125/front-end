@@ -1,14 +1,13 @@
 <template>
   <el-container>
-    <el-header>
+    <el-header class="core-header-class">
       <h1>用户名，用户头像</h1>
     </el-header>
 
-    <el-container>
-      <el-aside class="menu-class">
+    <el-container class="core-class">
+      <el-aside class="core-aside-class">
         <el-row class="tac">
           <el-col :span="12">
-            <!--          <h5>默认颜色</h5>-->
             <el-menu
               default-active="2"
               class="el-menu-vertical-demo"
@@ -55,7 +54,7 @@
       </el-main>
     </el-container>
 
-    <el-footer>
+    <el-footer class="core-footer-class">
       <h1>小静静驰名商标</h1>
     </el-footer>
   </el-container>
@@ -65,7 +64,6 @@
 <script>
 export default {
   name: "Index",
-
   methods: {
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
@@ -78,13 +76,30 @@ export default {
 </script>
 
 <style scoped>
-.el-menu-vertical-demo {
-
-  /*background-color: #99a9bf;*/
+.core-header-class {
+  height: 100px;
+  background-color: #E96463;
 }
 
-.menu-class {
-  width: 25%;
+.core-class {
+  height: 1150px;
+  background-color: #B3C0D1;
+}
+
+.core-footer-class {
+  height: 100px;
+  background-color: #ff8906;
+}
+
+.tac {
+  background-color: #bbffaa;
+  width: 290px;
+  height: 1150px;
+}
+
+.core-aside-class {
+  /*width: 200px;*/
+  height: 1150px;
   background-color: #ededed;
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
   <el-container>
-    <el-header>{{ msg }}</el-header>
+    <el-header class="blog-header">{{ msg }}</el-header>
     <el-container>
-      <el-aside>
+      <el-aside class="blog-name-list" width="150px">
         <div>
           <p v-for="(item,i) in tableData" @click="readBlog(item.name)">
             <router-link :to="{name: 'BlogContent', params:{obj: blogDto}}">{{ item.name }}</router-link>
@@ -32,7 +32,11 @@ export default {
       blogDto: {
         id: '',
         name: '',
-        content: ''
+        content: '',
+        likeCount: '1',
+        commentCount: '0',
+        forwardCount: '0',
+        readCount: '0'
       },
       tableData: [],
 
@@ -50,7 +54,8 @@ export default {
     readBlog(blogName) {
       this.blogDto.content = '';
       this.$store.dispatch("ReadBlog", blogName).then(result => {
-        console.log(result.data);
+        // console.log(result.data);
+        console.log("读取成功: " + blogName);
         this.blogDto.id = 1;
         this.blogDto.content = result.data;
         this.blogDto.name = blogName;
@@ -85,7 +90,13 @@ export default {
   background: #f0f9eb;
 }
 
+.blog-header {
+  background-color: white;
+}
 
+.blog-name-list {
+  background-color: #D3DCE6;
+}
 </style>
 
 
