@@ -35,6 +35,7 @@ export default new Router({
           component: () => import('@/views/blog/Blog'),
           children: [
             {
+              // 废弃，不用转路由，直接放在一个页面
               path: '/blog/content',
               name: 'BlogContent',
               component: () => import('@/views/blog/BlogContent')
