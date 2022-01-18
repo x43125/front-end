@@ -16,7 +16,7 @@
           </p>
         </div>
       </el-aside>
-      <el-main v-show=blogContentShowFlag>
+      <el-main v-show="blogContentShowFlag">
         <el-container>
           <el-header class="blog-name">
             <p>{{ this.blogDto.name }}</p>
@@ -24,6 +24,7 @@
           <el-main class="blog-content">
             <p>{{ this.blogDto.content }}</p>
           </el-main>
+
           <el-container class="blog-interact">
             <el-header class="blog-content-area">
               <el-badge
@@ -42,7 +43,11 @@
                 class="item"
                 type="warning"
               >
-                <el-button type="success" icon="el-icon-thumb" size="small"
+                <el-button
+                  type="success"
+                  icon="el-icon-thumb"
+                  size="small"
+                  @click="likeBlog()"
                   >点赞</el-button
                 >
               </el-badge>
@@ -139,7 +144,12 @@ export default {
 
       flagMaxNum: 99,
 
-      blogContentShowFlag: false
+      blogContentShowFlag: false,
+
+      user: {
+        id: "1",
+        name: "xx",
+      },
     };
   },
   methods: {
@@ -171,16 +181,43 @@ export default {
           console.log(error);
         });
     },
-    routerTo() {
-      this.$router.push({
-        // name: 'BlogContent',
-        path: "/blog/content",
-        // params: {obj: this.blogDto}
-        query: {
-          obj: this.blogDto,
-        },
-      });
+    likeBlog() {
+      const likeBlogDto = {
+        tourId: this.user.id,
+        tourName: this.user.name,
+        blogId: this.blogDto.id,
+        blogName: this.blogDto.name,
+      };
+
+      console.log(likeBlogDto);
+      this.$store
+        .dispatch("LikeBlog", likeBlogDto)
+        .then((result) => {
+          console.log(result);
+          this.blogDto.likeCount=result.data;
+          // this.likeHiddenFlag = this.blogDto.data <= 0;
+        })
+        .catch((error) => {
+          console.log(result);
+        });
     },
+
+
+
+
+
+
+
+    // routerTo() {
+    //   this.$router.push({
+    //     // name: 'BlogContent',
+    //     path: "/blog/content",
+    //     // params: {obj: this.blogDto}
+    //     query: {
+    //       obj: this.blogDto,
+    //     },
+    //   });
+    // },
   },
   created() {
     this.$store

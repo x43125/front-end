@@ -19,3 +19,11 @@ export function readBlog(config) {
     data: blogDto
   })
 }
+
+export function likeBlog(config) {
+  return request({
+    url: '/blog/incrLike',
+    method: 'post',
+    data: config
+  })
+}
