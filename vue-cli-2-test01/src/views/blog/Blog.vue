@@ -19,7 +19,10 @@
       <el-main v-show="blogContentShowFlag">
         <el-container>
           <el-header class="blog-name">
-            <p>{{ this.blogDto.name }}</p>
+            <div>
+              {{ this.blogDto.name }}
+            </div>
+            <time>发布于 {{ this.blogDto.createTime }}</time>
           </el-header>
           <el-main class="blog-content">
             <p>{{ this.blogDto.content }}</p>
@@ -99,6 +102,32 @@
 
             <el-main>
               <h1>评论区</h1>
+              <el-header>
+                <!-- 正在登录的用户的头像 -->
+                <img
+                  class=""
+                  width="38"
+                  height="38"
+                  src="static\img\yellow.png"/>
+                <el-input
+                  type="textarea"
+                  placeholder="撰写评论"
+                  v-model="textarea"
+                  maxlength="300"
+                  show-word-limit
+                  autosize=""
+                >
+                </el-input>
+              </el-header>
+              <h1>其他用户评论区</h1>
+              <el-main>
+                <div>
+                  <p v-for="(item, i) in touristList" :key="i">
+                    {{i}}{{ item.name }}
+                    <img width="38" height="38" src="picPath + item.picName + picSuffix">
+                  </p>
+                </div>
+              </el-main>
             </el-main>
 
             <el-footer>
@@ -122,17 +151,7 @@ export default {
         size: "10",
         total: "",
       },
-      blogDto: {
-        // id: '',
-        // name: '',
-        // content: '',
-        // likeCount: 0,
-        // commentCount: 0,
-        // collectCount: 0,
-        // forwardCount: 0,
-        // readCount: 0,
-        // trashCount: 0,
-      },
+      blogDto: {},
       tableData: [],
 
       likeHiddenFlag: true,
@@ -150,8 +169,27 @@ export default {
         id: "1",
         name: "xx",
       },
+      text: "",
+      textarea: "",
+      commentLineNum: { minRows: 2, maxRows: 6 },
+
+      picPath: '/static/img/',
+      picSuffix: '.png',
+      touristList: [
+        {
+          name: "wx",
+          picName: "baxi",
+        },
+        {
+          name: "wj",
+          picName: "yellow",
+        },
+      ],
+
+      loginTour: "",
     };
   },
+
   methods: {
     tableRowClassName({ row, rowIndex }) {
       if (rowIndex % 2 === 0) {
@@ -176,6 +214,8 @@ export default {
           this.forwardHiddenFlag = this.blogDto.forwardCount <= 0;
           this.trashHiddenFlag = this.blogDto.trashCount <= 0;
           this.readHiddenFlag = this.blogDto.readCount <= 0;
+
+          this.tourList = this.blogDto.tourList;
         })
         .catch((error) => {
           console.log(error);
@@ -194,19 +234,13 @@ export default {
         .dispatch("LikeBlog", likeBlogDto)
         .then((result) => {
           console.log(result);
-          this.blogDto.likeCount=result.data;
+          this.blogDto.likeCount = result.data;
           // this.likeHiddenFlag = this.blogDto.data <= 0;
         })
         .catch((error) => {
           console.log(result);
         });
     },
-
-
-
-
-
-
 
     // routerTo() {
     //   this.$router.push({
