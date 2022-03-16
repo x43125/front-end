@@ -6,16 +6,18 @@
 }
 
 .wrap {
-    width: 100%;
+    width: 1200px;
     height: 100vh;
     background: url(img/bg.png) center no-repeat;
     background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
+    /* justify-content: left; */
 }
 
 .nav {
+    /* 如果想要直接固定大小则把下面的宽度调整，并将 .nav:hover注释掉 */
     width: 110px;
     /* width: 280px; */
     height: 820px;
@@ -23,6 +25,8 @@
     border-radius: 20px;
     overflow: hidden;
     transition: 0.5s;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .nav:hover {
@@ -94,6 +98,7 @@
 
 .line {
     width: 60px;
+    /* width: 230px; */
     height: 1px;
     background: rgba(245, 253, 255, 0.5);
     margin: 20px 25px;
@@ -159,6 +164,20 @@
     opacity: 1;
 }
 
+/* .con {
+    width: 160;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    overflow: hidden;
+    position: relative;
+    left: -20px;
+    opacity: 1;
+} */
+
+
 .ricon {
     width: 0;
     height: 50px;
@@ -177,6 +196,17 @@
     align-items: center;
     opacity: 1;
 }
+
+/* .ricon {
+    width: 60;
+    height: 50px;
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    opacity: 1;
+} */
 
 .iconfont {
     font-size: 26px;
@@ -205,6 +235,7 @@
 
 .serve {
     width: 60px;
+    /* width: 230px; */
     background: rgba(0, 0, 0, 0.7);
     margin-left: 25px;
     border-radius: 10px;
@@ -214,4 +245,24 @@
 
 .nav:hover .serve {
     width: 230px;
+}
+
+
+.main {
+    width: 100%;
+    height: 820px;
+    background: rgba(255, 252, 252, 0.8);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.5s;
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.content {
+    border: 3px solid black;
+    width: 90%;
+    height: 700px;
+    /* justify-content: center; */
+    /* align-content: center; */
 }
