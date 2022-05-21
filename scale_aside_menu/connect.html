@@ -1,31 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connect Page</title>
 </head>
+
 <body>
-    <div>
+    <div id="hello">
+        <form action="http://127.0.0.1:8081/redis/hello">
+            <input type="submit" value="hello">
+        </form>
+    </div>
+
+    <div id="connect">
         <div>
-            <form action="http://127.0.0.1:8081/redisManager/connector" method="get">
-                host: <input type="text" name="host"/>
-                <br>
-                port: <input type="text" name="port"/>
-                <br>
-                user: <input type="text" name="user"/>
-                <br>
-                password: <input type="password" name="password"/>
-                <br>
+            <form action="http://127.0.0.1:8081/redis/connect" method="get">
+                host: <input type="text" name="host" value="47.98.59.193" /><br>
+                port: <input type="text" name="port" value="6379" /><br>
+                user: <input type="text" name="redisUsername" /><br>
+                password: <input type="password" name="redisPassword"/><br>
+                <hr>
+                ping: <input type="text" name="ping" id="ping"> <br>
+                get: <input type="text" name="getKey"><br>
+                set: <input type="text" name="setKey" id="setKey"><input type="text" name="setValue"><br>
                 <input type="submit" name="connect2Server">
+                <input type="reset">
             </form>
         </div>
         <div>
-            <p>connect your redis server</p>
+            <p>Redis server manager v0.0.1</p>
         </div>
     </div>
+
 </body>
+
+
+
 </html>
 
 <script>
