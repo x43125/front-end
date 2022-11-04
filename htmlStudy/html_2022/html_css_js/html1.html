@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我是标题</title>
+    <link rel="stylesheet" type="text/css" href="css1.css">
+    <style type="text/css">
+        @import url(css2.css);
+        body {
+            background-color: rgb(235, 231, 231);
+        }
+
+    </style>
+    <script src="js1.js">
+        document.write("hello world!")
+    </script>
+</head>
+
+<body>
+    <h1>html基本学习</h1>
+    <h2>一、html结构简介</h2>
+    <p>
+        html由几部分组成: <br>
+        html的标志：DOCTYPE html <br>
+        html主体：html <br>
+        html主体里又包含两大模块： <br>
+        html头：head <br>
+        html身体：body
+    </p>
+    <h3>1.1 头部</h3>
+    <p>
+        头部包含了几个元素: <br>
+        title: 定义html文档的标题，会展示在浏览器顶端的网页导航栏里，比如本网站的：“我是标题” <br>
+        base: 定义了所有链接的默认的相对目标地址，即：本页面出现的其他链接都将在此链接后面添加自己的链接 <br>
+        meta: 表示html文档的描述、关键词、作者、字符集等信息 <br>
+        link: 定义了文档与外部资源的关系，例如本文就引用了同文件夹下的css1.css <br>
+        style: 样式文件引用地址，也可以直接添加样式来渲染html文档，如本文就在此引用了同文件夹下的css2.css <br>
+        script: 用于加载脚本文件，如：JavaScript，如本文就在此引用了同文件夹下的js1.js，引用了之后，则该下的脚本则失效了 <br>
+    </p>
+    <h2>二、常见元素</h2>
+    <h3>2.1 标题</h3>
+    <h1>我是标题: h1</h1>
+    <h2>我是标题: h2</h2>
+    <h3>我是标题: h3</h3>
+    <h4>我是标题: h4</h4>
+    <h5>我是标题: h5</h5>
+    <h6>我是标题: h6</h6>
+    <h7>我是标题: h7</h7>
+    <h8>我是标题: h8</h8>
+    <p>
+        1. 标题就只有1到6级，之后的就没有意义了 <br>
+        2. 标题后会自动换行
+    </p>
+
+    <h3>2.2 段落</h3>
+    <p>我是段落: p</p>
+    <p>我是另一个段落</p>
+    <p>段落经常用来表示一大段文本</p>
+
+    <h4>2.2.1 文字元素</h4>
+    <p>正常文本</p>
+
+    <h5>2.2.1.1 文本格式化标签</h5>
+    <b>加粗文本</b> <br>
+    <i>斜体文本</i> <br>
+    这是<sub>下标</sub>，这是<sup>上标</sup> <br>
+    <em>着重文字(似乎就是倾斜，经查询:em标注的会更受搜索引擎重视、语音阅读器也会加强语气，而i则只是简单的倾斜)</em> <br>
+    <small>小号的字</small> <br>
+    <strong>加重语气</strong> <br>
+    <ins>插入字</ins> <br>
+    <del>删除线</del>
+
+    <h5>2.2.1.2 计算机输出标签</h5>
+    <code>电脑自动输出</code> <br>
+    <kbd>键盘码</kbd> <br>
+    <samp>计算机代码样本</samp> <br>
+    <var>定义变量</var> <br>
+    <pre>定义预格式文本</pre>
+
+    <h5>2.2.1.3 引文、引用及标签定义</h5>
+    <abbr title="缩写">定义缩写，不太懂</abbr>
+    <address>地址格式：江苏省、徐州市、睢宁县</address>
+    <bdo dir="ltr">定义文字方向，左到右</bdo> <br>
+    <bdo dir="rtl">定义文字方向，右到左</bdo> <br>
+    <blockquote>定义长的引用语</blockquote> <br>
+    <q>定义短的引用语</q> <br>
+    <cite>定义引用、引证</cite> <br>
+    <dfn>定义一个定义项目</dfn>
+
+
+    <h3>2.3 链接、分隔符、换行、图像等</h3>
+    <p>
+        - 未点击的链接是蓝色且有下划线 <br>
+        - 访问过的链接是紫色且有下划线 <br>
+        - 点击的时候是红色且有下划线
+    </p>
+    <a href="http://www.baidu.com/">这是一个链接 a href 形式: 点我可以跳转到百度,跳转方式为默认  </a> <br>
+    <a href="http://www.baidu.com/" target="_blank">这是百度的链接使用了target:_blank属性，所以会另起一个页面来打开百度</a> <br>
+    <a href="http://www.baidu.com/" target="_parent">这是百度的链接使用了target:_parent属性，在父窗口中打开链接，需要有嵌套的窗口</a> <br>
+    <a href="http://www.baidu.com/" target="_top">这是百度的链接使用了target:_top，在当前窗体打开链接，并替换当前的整个窗体</a> <br>
+
+    <p>分隔符: hr</p>
+    <hr>
+    <p>换行: br</p>
+    <br>
+    <img src="./imgs/t1.png" alt="这是一个图片">
+    <br>
+    <p>
+        html标记有两种，一种是包含内容的，有开闭两个元素组成，如: p, h1等 <br>
+        一种是不含内容的“空元素”，如：br,hr等 <br>
+    </p>
+    
+
+
+
+
+
+
+
+
+    <!-- 注释行，通过这种方式写出来的，不会展示在web上 -->
+    <h2>三、tip</h2>
+    <p>
+        - html对大小写不敏感 <br>
+        - 写链接的href时，最后也要写斜杠，如：http://www.baidu.com/ 如果不加则会发送两次http请求 <br>
+
+    </p>
+</body>
+
+</html>
