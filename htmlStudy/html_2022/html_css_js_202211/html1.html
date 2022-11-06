@@ -6,13 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我是标题</title>
+    <!-- 外部样式表 -->
     <link rel="stylesheet" type="text/css" href="css1.css">
+    <!-- 内部样式表 -->
     <style type="text/css">
         @import url(css2.css);
+
         body {
             background-color: rgb(235, 231, 231);
         }
-
     </style>
     <script src="js1.js">
         document.write("hello world!")
@@ -97,7 +99,7 @@
         - 访问过的链接是紫色且有下划线 <br>
         - 点击的时候是红色且有下划线
     </p>
-    <a href="http://www.baidu.com/">这是一个链接 a href 形式: 点我可以跳转到百度,跳转方式为默认  </a> <br>
+    <a href="http://www.baidu.com/">这是一个链接 a href 形式: 点我可以跳转到百度,跳转方式为默认 </a> <br>
     <a href="http://www.baidu.com/" target="_blank">这是百度的链接使用了target:_blank属性，所以会另起一个页面来打开百度</a> <br>
     <a href="http://www.baidu.com/" target="_parent">这是百度的链接使用了target:_parent属性，在父窗口中打开链接，需要有嵌套的窗口</a> <br>
     <a href="http://www.baidu.com/" target="_top">这是百度的链接使用了target:_top，在当前窗体打开链接，并替换当前的整个窗体</a> <br>
@@ -106,12 +108,163 @@
     <hr>
     <p>换行: br</p>
     <br>
-    <img src="./imgs/t1.png" alt="这是一个图片">
+    <!-- alt：预留的图片文字，如果未加载出来图片，则会展示此文字，加载图片需要时间，慎用图片 -->
+    <img src="./imgs/t1.png" alt="这是一个图片" width="200px" height="120px">
     <br>
     <p>
         html标记有两种，一种是包含内容的，有开闭两个元素组成，如: p, h1等 <br>
         一种是不含内容的“空元素”，如：br,hr等 <br>
     </p>
+    <h3>2.4 表格</h3>
+    <p>
+        - table: 表格范围 <br>
+        - th: 表头 <br>
+        - td: 一列 <br>
+        - tr: 一行 <br>
+        - border: 表格边框 <br>
+        - caption: 表名 <br>
+    </p>
+
+    <table border="1">
+        <caption>横标题</caption>
+        <tr>
+            <th>姓名</th>
+            <th>出生日期</th>
+            <th>性别</th>
+        </tr>
+        <tr>
+            <td>王一</td>
+            <td>1992-1-28</td>
+            <td>男</td>
+        </tr>
+        <tr>
+            <td>李四</td>
+            <td>1994-05-15</td>
+            <td>女</td>
+        </tr>
+    </table>
+
+    <table border="1">
+        <caption>竖标题</caption>
+        <tr>
+            <th>姓名</th>
+            <td>王一</td>
+            <td>李四</td>
+        </tr>
+        <tr>
+            <th>出生日期</th>
+            <td>1992-1-28</td>
+            <td>1994-05-15</td>
+        </tr>
+        <tr>
+            <th>性别</th>
+            <td>男</td>
+            <td>女</td>
+        </tr>
+    </table>
+
+    <table border="1">
+        <caption>跨格</caption>
+        <tr>
+            <th>Name</th>
+            <th colspan="2">跨列</th>
+        </tr>
+        <tr>
+            <th rowspan="2">跨行</th>
+            <td>123</td>
+            <td>456</td>
+        </tr>
+        <tr>
+            <td>789</td>
+            <td>000</td>
+        </tr>
+    </table>
+
+    <table border="1">
+        <caption>表格内部可以嵌套其他元素如：p,img,ul,table</caption>
+        <tr>
+            <td>
+                <p>这是一个段落</p>
+            </td>
+            <td>
+                <img src="./imgs/t2.png" alt="这是一个图片" width="50" height="50">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>1 这是一个列表</li>
+                    <li>2</li>
+                    <li>3</li>
+                </ul>
+            </td>
+            <td>HELLO</td>
+        </tr>
+    </table>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <td>页眉</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>主体</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>页脚</td>
+            </tr>
+        </tfoot>
+
+    </table>
+    <h3>2.5 列表</h3>
+    <p>无序列表</p>
+    <ul>
+        <li>hh</li>
+        <li>gg</li>
+        <li>mm</li>
+    </ul>
+    <ul style="list-style-type: circle">
+        <li>hh</li>
+        <li>gg</li>
+        <li>mm</li>
+    </ul>
+
+    <p>有序列表</p>
+    <ol>
+        <li>ww</li>
+        <li>ss</li>
+        <li>aa</li>
+    </ol>
+    <ol type="A">
+        <li>ww</li>
+        <li>ss</li>
+        <li>aa</li>
+    </ol>
+    <p>大写罗马字母</p>
+    <ol type="I">
+        <li>ww</li>
+        <li>ss</li>
+        <li>aa</li>
+    </ol>
+    <p>小写罗马字母</p>
+    <ol type="i">
+        <li>ww</li>
+        <li>ss</li>
+        <li>aa</li>
+    </ol>
+
+    <h3>2.6 div & span</h3>
+    <div style="color:#0000FF">
+        <h3>这是一个在 div 元素中的标题。</h3>
+        <p>这是一个在 div 元素中的文本。</p>
+    </div>
+
+
+    <h2>三、布局</h2>
     
 
 
@@ -121,8 +274,19 @@
 
 
 
+    <h2>三、CSS</h2>
+    <h3>3.1 内联样式</h3>
+    <p style="color:blue;margin-left:20px;">这是一个段落。</p>
+    <h1 style="text-align:center;">居中对齐的标题</h1>
+    <p>这是一个段落。</p>
+
+
+
+
+
+
     <!-- 注释行，通过这种方式写出来的，不会展示在web上 -->
-    <h2>三、tip</h2>
+    <h2>tip</h2>
     <p>
         - html对大小写不敏感 <br>
         - 写链接的href时，最后也要写斜杠，如：http://www.baidu.com/ 如果不加则会发送两次http请求 <br>

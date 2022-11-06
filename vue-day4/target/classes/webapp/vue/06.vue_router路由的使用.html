@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue router</title>
+</head>
+<body>
+<div id="app">
+  <h1>{{msg}}</h1>
+    <router-view></router-view>
+    <a href="#/users">用户管理</a>
+    <a href="#/emps">员工管理</a>
+</div>
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script src="js/vue-router.js"></script>
+<script src="js/axios.min.js"></script>
+<script>
+
+  const users = {
+    template: "<div><h3>用户管理</h3></div>",
+  };
+  const emps = {
+    template: "<div><h3>员工管理</h3></div>",
+  };
+  const router = new VueRouter({
+    routes: [
+      {path:"/users", component: users},
+      {path:"/emps", component: emps},
+    ]
+  });
+  const app = new Vue({
+    el: "#app",
+    data: {
+      msg: "vue-router",
+    },
+    methods: {
+
+    },
+    computed: {},
+    components: {
+      // users,
+      // emps,
+    },
+    router: router
+  });
+</script>

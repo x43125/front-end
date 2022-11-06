@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父子组件间传递事件</title>
+</head>
+<body>
+<div id="app">
+  <h1>{{msg}} -- {{user}}</h1>
+  <login @aa="findAll"></login>
+</div>
+
+</body>
+</html>
+<script src="js/vue.js"></script>
+<script src="js/axios.min.js"></script>
+<script>
+
+  const login = {
+    template: "<div><h2>login页面 -- {{msg}}</h2><button @click='test'>点我触发事件</button></div>",
+    data(){
+      return {
+        msg: "子组件信息",
+        user: {id:1,name:"xiaowang",des:"sss"},
+      }
+    },
+    methods: {
+      test() {
+        alert("子事件");
+        this.$emit("aa", this.msg, this.user);
+      }
+    },
+  }
+
+  const app = new Vue({
+    el: "#app",
+    data: {
+      msg: "hello vue",
+      user: {id:1,name:"xiaojing",des:"bbb"},
+    },
+    methods: {
+      findAll(msg, user) {
+        alert("父事件 " + msg);
+        this.msg = msg;
+        this.user = user;
+      },
+
+    },
+    components: {
+      login,
+    }
+  })
+</script>
