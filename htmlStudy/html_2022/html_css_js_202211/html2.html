@@ -2,25 +2,27 @@
  * @Author: wangxiang wangxiang@flashhold.com
  * @Date: 2022-11-06 15:17:13
  * @LastEditors: wangxiang wangxiang@flashhold.com
- * @LastEditTime: 2022-11-06 16:29:06
+ * @LastEditTime: 2022-11-06 17:28:57
  * @FilePath: \front-end\htmlStudy\html_2022\html_css_js_202211\html2.html
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advance</title>
 </head>
+
 <body>
     <h1>一、表单</h1>
     <p>表单用于收集用户的輸入信息: <br>
-       - action: 指定与哪一个后端进行请求 <br>
-       - method: 请求方式：post,get, <br>
+        - action: 指定与哪一个后端进行请求 <br>
+        - method: 请求方式：post,get, <br>
     </p>
-    
+
     <div>
         <form action="html1.java" method="post">
             <!-- 文本类型 -->
@@ -31,7 +33,7 @@
             sex: <input type="radio" name="sex" value="male">男
             <input type="radio" name="sex" value="female">女 <br>
             <!-- 复选框 -->
-            hobby: 
+            hobby:
             <input type="checkbox" name="sport" value="basketball">篮球
             <input type="checkbox" name="sport" value="tennis">网球
             <input type="checkbox" name="sport" value="润">跑步<br>
@@ -43,10 +45,52 @@
                 <option value="saab">Saab</option>
                 <option value="fiat">Fiat</option>
                 <option value="audi">Audi</option>
+            </select>
+            <!-- 有预选项的下拉框 -->
+            <select name="cars" id="cars_down_menu">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="fiat" selected>Fiat</option>
+                <option value="audi">Audi</option>
             </select> <br>
+            <!-- 文本框 -->
+            <textarea name="test_text" id="test_text" cols="70" rows="10">
+                自我介绍
+            </textarea> <br>
 
             <input type="submit" value="Submit">
+            <input type="reset" name="reset" id="reset-button" value="Reset">
+        </form>
+
+        <form action="">
+            <fieldset>
+                <legend>Personal information: （带边框的表单：fieldset; legend）</legend>
+                Name: <input type="text" name="name" id="name-frame" size="30" value="your name"> <br>
+                E-mail: <input type="text" name="email" id="email-frame" size="30"> <br>
+                Date Of Birth: <input type="text" name="dateOfBirth" id="dateOfBirth-frame" size="10">
+            </fieldset>
+        </form><br>
+
+        <p>datalist需要与input 的 list 属性对应，list后的内容要和datalist的id一致才会出现可选项</p>
+        <form action="demo-form.php" method="get">
+            <input list="browser-list">
+            <datalist id="browser-list">
+                <option value="IE">
+                <option value="FireFox">
+                <option value="Chrome">
+                <option value="Opera">
+                <option value="Safari">
+            </datalist>
+            <input type="submit">
+        </form>
+
+        <p>output标签作为计算结果输出显示，很神奇的功能</p>
+        <form oninput="x.value = parseInt(a.value) + parseInt(b.value)">0
+            <input type="range" id="a" value="50"> 100 + 
+            <input type="number" id="b" value="50"> = 
+            <output name="x" for="a b"></output>
         </form>
     </div>
 </body>
+
 </html>
