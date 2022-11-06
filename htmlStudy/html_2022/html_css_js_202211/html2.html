@@ -1,0 +1,44 @@
+<!--
+ * @Author: wangxiang wangxiang@flashhold.com
+ * @Date: 2022-11-06 15:17:13
+ * @LastEditors: wangxiang wangxiang@flashhold.com
+ * @LastEditTime: 2022-11-06 15:35:17
+ * @FilePath: \front-end\htmlStudy\html_2022\html_css_js_202211\html2.html
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advance</title>
+</head>
+<body>
+    <h1>一、表单</h1>
+    <p>表单用于收集用户的輸入信息: <br>
+       - action: 指定与哪一个后端进行请求 <br>
+       - method: 请求方式：post,get, <br>
+    </p>
+    
+    <div>
+        <form action="html1.java" method="post">
+            <!-- 文本类型 -->
+            Username: <input type="text" name="username"> <br>
+            <!-- 密码类型 -->
+            Password: <input type="password" name="password"> <br>
+            <!-- 单选框 -->
+            sex: <input type="radio" name="sex" value="male">男
+            <input type="radio" name="sex" value="female">女 <br>
+            <!-- 复选框 -->
+            hobby: 
+            <input type="checkbox" name="sport" value="basketball">篮球
+            <input type="checkbox" name="sport" value="tennis">网球
+            <input type="checkbox" name="sport" value="润">跑步<br>
+            <input type="checkbox" name="food" value="noodle">面条
+            <input type="checkbox" name="food" value="rice">米饭<br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
