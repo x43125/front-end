@@ -6,3 +6,38 @@ h1 {
     font-weight: 400;
     text-align: center;
 }
+
+a {
+    text-decoration: none;
+}
+
+p {
+    text-indent: 2em;
+}
+
+/* 以上为默认元素，以下为类 */
+
+
+.gray {
+    color: #888888;
+    font-size: 12px;
+    text-align: center;
+}
+
+.search {
+    color: #666666;
+}
+
+.btn {
+    font-weight: 700;
+}
+
+.pic {
+    /* 想要图片居中对齐，不能直接对img标签做操作，而应该对其父标签做操作 */
+    text-align: center;
+}
+
+.footer {
+    color: #888888;
+    font-size: 12px;
+}
