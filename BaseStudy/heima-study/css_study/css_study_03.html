@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元素显示模式</title>
+    <style>
+        a {
+            width: 150px;
+            height: 50px;
+            background-color: red;
+            /* 加上一个display: block 来将行内元素转换成块元素，从而让其拥有块元素的特点 */
+            display: block;
+        }
+
+        div {
+            width: 300px;
+            height: 100px;
+            background-color: antiquewhite;
+            /* 加上一个display: inline 来将块元素转换成行内元素 */
+            display: inline;
+        }
+
+        span {
+            width: 300px;
+            height: 100px;
+            background-color: aqua;
+            /* 加上 display: inline-block 转成行内块 */
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>一、块元素</h2>
+    <h3>块元素包括</h3>
+    <p>h1~h6, p, div, ul, ol, li等，其中div是最典型的块元素</p>
+    <h3>特点</h3>
+    <ol>
+        <li>独占一行</li>
+        <li>高度、宽度、外边距、内边距都可以控制</li>
+        <li>宽度默认是容器的100%</li>
+        <li>是一个容器及盒子，里面可以放行内或 块元素</li>
+        <li style="font-weight: 700;">文字类的块元素不允许再放块元素了</li>
+    </ol>
+    <h2>二、行内元素</h2>
+    <h3>行内元素包括</h3>
+    <p>a, strong, b, em, i, del, s, ins, u, span</p>
+    <h3>特点</h3>
+    <ol>
+        <li>可以放在同一行</li>
+        <li>不能直接设置高度、宽度</li>
+        <li>默认宽度是本身内容的宽度</li>
+        <li>只能容纳文本或其他行内元素</li>
+        <li>a不能再放a，a可以再放块元素</li>
+    </ol>
+    <h2>三、行内块元素</h2>
+    <h3>包含</h3>
+    <p>
+        img, input, td,
+    </p>
+    <h3>特点</h3>
+    <ol>
+        <li>可以一行放多个（行内）</li>
+        <li>默认宽度是内容宽度（行内）</li>
+        <li>高度、宽度、外边距、内边距可以控制（块）</li>
+    </ol>
+
+    <h2>四、元素转换</h2>
+    <a href="#">元素转换</a>
+    <a href="#">元素转换</a>
+    <div>块元素</div>
+    <div>块元素</div>
+    <span>行内元素转换成行内块元素</span>
+    <span>行内元素转换成行内块元素</span>
+    <span>行内元素转换成行内块元素</span>
+
+    <br><br><br><br><br><br><br><br><br><br>
+</body>
+
+</html>
