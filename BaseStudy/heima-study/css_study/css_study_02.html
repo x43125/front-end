@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 后代选择器：嵌套控制 */
+        ol li {
+            color: red
+        }
+
+        ul li a {
+            color: blue
+        }
+
+        .nav li a {
+            color: yellow
+        }
+
+        /* 亲儿子选择器，只选择离外面标签最近的那个选择器 */
+        ul>a {
+            color: gray
+        }
+
+        /* 并集选择器：喜欢竖着写，逗号分隔，最后一个不需要逗号 */
+        div,
+        p,
+        span,
+        .pig {
+            color: green
+        }
+
+        .pigPei:link {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .pigPei:visited {
+            color: orange;
+        }
+
+        .pigPei:hover {
+            color: skyblue;
+        }
+
+        .pigPei:active {
+            color: violet;
+        }
+    </style>
+</head>
+
+<body>
+    <ol>
+        <li>我是ol的孩子</li>
+        <li>我是ol的孩子</li>
+        <li>我是ol的孩子</li>
+    </ol>
+
+    <ul>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li><a href="#">孙子</a></li>
+    </ul>
+
+    <ul class="nav">
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li><a href="#">孙子</a></li>
+    </ul>
+
+    <ul>
+        <a href="#">儿子</a>
+        <li>我是ul的孩子</li>
+        <li>我是ul的孩子</li>
+        <li><a href="#">孙子</a></li>
+    </ul>
+
+    <div>熊大</div>
+    <p>熊二</p>
+    <span>光头强</span>
+    <ul class="pig">
+        <li>小猪佩奇</li>
+        <li>猪爸爸</li>
+    </ul>
+
+    <div>
+        <a href="#" class="pigPei">小猪佩奇</a>
+    </div>
+
+</body>
+
+</html>
