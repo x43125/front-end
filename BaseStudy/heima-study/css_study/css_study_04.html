@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字垂直居中</title>
+    <style>
+        .vertical-center {
+            height: 40px;
+            width: 200px;
+            background-color: gray;
+            /* 只要让line-height的值和容器的height相同即可实现 垂直居中 */
+            line-height: 40px;
+        }
+        .bc {
+            /* 背景颜色默认是 transparent透明的 */
+            background-color: red;
+        }
+        .bi {
+            /* 背景图片
+                便于控制位置
+                用url控制地址
+            */
+            background-image: url(../../img/3.jpg);   
+            width: 100%;         
+            height: 700px;
+        }
+    </style>
+</head>
+<body>
+    <div class="vertical-center">文字垂直居中</div>
+
+    <div class="bc">
+        <p>背景颜色</p>
+    </div>
+
+    <div class="bi">
+        <p>背景图片</p>
+    </div>
+</body>
+</html>
