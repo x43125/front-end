@@ -31,7 +31,7 @@
                 repeat-x 水平平铺
                 repeat-y 垂直平铺
             */
-            background-image: url(../../img/5.png);
+            background-image: url(../../img/2.jpg);
             /* background-repeat: repeat; */
             background-repeat: no-repeat;
             /* background-repeat: repeat-x; */
@@ -46,7 +46,14 @@
             /* background-position: top center; */
             /* background-position: top; */
             /* background-position: right; */
-            background-position: center center;
+            /* background-position: center center; */
+
+            /* 精准位置控制: x,y 
+                如果只写了一个，那么是x，y是垂直居中
+                可以和字符串型混用，如下，center,50px 表示 水平居中，垂直距离上侧50px
+            */
+            /* background-position: 50px; */
+            background-position: center, 50px;
 
 
             width: 300px;
@@ -69,10 +76,24 @@
 
         body {
             /* 超大的一般也用bi */
-            background-image: url(../../img/wzry_2.jpg);
-            background-repeat: no-repeat;
+            /* background-color: gray; */
+            /* background-image: url(../../img/wzry_2.jpg); */
+            /* background-repeat: no-repeat; */
             /* 将图片水平居中，处理超大图片显示不全的问题 */
-            background-position: center top;
+            /* background-position: center top; */
+            /* background-position: center 40px; */
+            /* 背景图像默认为滚动的 scroll,可以设置为fixed来固定显示，不随页面滚动而滚动 */
+            /* background-attachment: fixed; */
+
+            /* 背景有很多设置项，也可以复合写：如下：效果同上 */
+            background: url(../../img/wzry_2.jpg) no-repeat fixed center 50px;
+        }
+
+        .transparent {
+            width: 400px;
+            height: 100px;
+            /* 通过rgba的a来控制，0-1取值表示0.几的透明度 */
+            background-color: rgba(0, 0, 0, 0.5);
         }
     </style>
 </head>
@@ -102,6 +123,19 @@
         跟着方位名词的话顺序无所谓；<br>
         只写一个的话，另一个默认是居中，可以是水平，可以是垂直，系统会自动判断
     </p>
+    <h2>三、精准位置的背景图</h2>
+    <h3>3.1 精准位置</h3>
+    <p>x,y</p>
+    <h3>3.2 复合项书写</h3>
+    <p>不要求先后</p>
+    <p>
+        background: url(../../img/wzry_2.jpg) no-repeat fixed center 50px;
+    </p>
+    <h2>四、透明度</h2>
+    <p>
+        rgb(x,x,x,0.x)
+    </p>
+
 
     <div class="vertical-center">文字垂直居中</div>
 
@@ -116,6 +150,10 @@
     <h3 class="czshpt">
         成长守护平台
     </h3>
+
+    <div class="transparent">
+        <p>只会背景色半透明，盒子里内容不受影响</p>
+    </div>
 
 
 </body>
