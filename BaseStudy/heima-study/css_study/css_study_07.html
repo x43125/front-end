@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,13 +35,30 @@
             border: 4px solid yellow;
             border-top: 4px solid blue;
         }
-        
-        .box4 {
-            /* 简写 */
 
+        .box4 {
+            background-color: green;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+        
+        .box5 {
+            background-color: blueviolet;
+            /* 复合元素： */
+            /* 当只有一个的时候代表：上下左右 */
+            /* padding: 5px; */
+            /* 如果是两个值代表：上下是5px 左右是10px */
+            /* padding: 5px 10px ; */
+            /* 如果是三个值代表：上是5px 左右是10px 下是20px */
+            /* padding: 5px 10px 20px; */
+            /* 如果是四个值代表：上右下左分别是 5 10 20 30px */
+            padding: 5px 10px 20px 30px;
         }
     </style>
 </head>
+
 <body>
     <h2>一、盒子模型</h2>
     <h3>1.1 网页布局的本质</h3>
@@ -59,5 +77,50 @@
     <div class="box1"></div>
     <div class="box2"></div>
     <div class="box3"></div>
+
+    <div class="box4">
+        <p>盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离</p>
+    </div>
+
+    <div class="box5">
+        <p>盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离
+            盒子的内容和边框的距离</p>
+    </div>
 </body>
+
 </html>
