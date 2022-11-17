@@ -43,7 +43,7 @@
             padding-top: 40px;
             padding-bottom: 40px;
         }
-        
+
         .box5 {
             background-color: blueviolet;
             /* 复合元素： */
@@ -55,6 +55,68 @@
             /* padding: 5px 10px 20px; */
             /* 如果是四个值代表：上右下左分别是 5 10 20 30px */
             padding: 5px 10px 20px 30px;
+        }
+
+        .parent {
+            width: 300px;
+            height: 100px;
+            background-color: rgb(140, 228, 137);
+        }
+
+        /* 如果盒子本身没有指定 width/height属性 则此时padding不会撑开盒子的大小 */
+        .child {
+            /* 如果此处加了 width: 100%;则盒子会被撑大 */
+            /* width: 100%; */
+            padding: 30px;
+            background-color: skyblue;
+        }
+
+        .box11 {
+            background-color: red;
+            margin-bottom: 10px;
+        }
+
+        .box22 {
+            background-color: blue;
+            margin-left: 10px;
+        }
+
+        .box33 {
+            background-color: green;
+            /* margin: 10px; */
+            /* margin: 30px 50px; */
+            /* margin: 10px 20px 30px; */
+            margin: 10px 20px 30px 40px;
+        }
+
+        .box44 {
+            /* 控制盒子水平居中：1.盒子有宽度；2.只要设置左右为auto即可 */
+            background-color: gray;
+            /* 1 */
+            /* margin-left: auto; */
+            /* margin-right: auto; */
+            /* 2 */
+            /* margin: auto; */
+            /* 3 */
+            margin: 0 auto;
+            /* 如果想要将其下子元素的行内元素或者行内块元素居中，则只需要将父元素添加 text-align:center 即可 */
+            text-align: center;
+        }
+
+        .p1 {
+            background-color: yellow;
+            /* 1.  */
+            /* border: 1px solid transparent; */
+            /* 2.  */
+            /* padding: 1px; */
+            /* 3.  */
+            overflow: hidden;
+        }
+        .c1 {
+            width: 50px;
+            height: 50px;
+            background-color: skyblue;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -73,6 +135,10 @@
     <p>padding内边距</p>
     <p>margin外边距</p>
     <img src="../../img/box-model.png" alt="box-model">
+    <h3>二、border</h3>
+    <h3>三、padding</h3>
+    <h3>四、margin</h3>
+    <h3>五、嵌套块元素垂直外边距的塌陷</h3>
 
     <div class="box1"></div>
     <div class="box2"></div>
@@ -120,6 +186,25 @@
             盒子的内容和边框的距离
             盒子的内容和边框的距离
             盒子的内容和边框的距离</p>
+    </div>
+
+    <div class="parent">
+        <p class="child">
+        </p>
+    </div>
+
+    <div class="box11"></div>
+    <div class="box22"></div>
+    <div class="box33"></div>
+    <div class="box44">
+        <img src="../../img/wzry.png" alt="精灵图">
+    </div>
+
+    <div class="p1">
+        <div class="c1">
+
+        </div>
+
     </div>
 </body>
 
