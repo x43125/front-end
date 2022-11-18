@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>综合案例-产品模块</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: #f5f5f5;
+        }
+
+        .box {
+            width: 298px;
+            height: 415px;
+            background-color: #fff;
+            margin: 100px auto;
+        }
+
+        .box img {
+            /* 让盒子里的图片和父元素一样宽 */
+            width: 100%;
+        }
+
+        .review {
+            height: 70px;
+            font-size: 14px;
+            /* 因为未设置width，所以padding不会撑开盒子 */
+            padding: 0 28px;
+            /* 因为设置了height，所以不适用padding，使用margin来设置上下间距 */
+            margin-top: 30px;
+        }
+
+        .appraise {
+            font-size: 12px;
+            color: #b0b0b0;
+            margin-top: 20px;
+            padding: 0 28px;
+        }
+        .info {
+            font-size: 14px;
+            margin-top: 15px;
+            padding: 0 28px;
+        }
+        .info h4 {
+            display: inline-block;
+            font-weight: 400;
+        }
+        .info span {
+            color: #ff6700;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="../../../img/3.jpg" alt="pic">
+        <p class="review">天神下凡一锤四  -- theShy</p>
+        <div class="appraise">来自于S8</div>
+        <div class="info">
+            <h4>英雄联盟</h4>
+            | <span>2020</span>
+        </div>
+    </div>
+</body>
+
+</html>
