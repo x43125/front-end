@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圆角边框</title>
+    <style>
+        div {
+            width: 200px;
+            height: 100px;
+            background-color: green;
+            margin: 100px auto;
+            /* 圆角边框的原理：一个50px的圆和盒子内切 */
+            /* border-radius: 50px; */
+            /* 如果设置为宽高的一般，则为圆！！！ */
+            /* border-radius: 150px; */
+            /* 或者设置为50% */
+            /* border-radius: 50%;！！！ */
+            /* 圆角矩形：设置成高的一半 */
+            /* border-radius: 100px; */
+            /* 左上 右上 右下 左下 */
+            /* border-radius: 10px 20px 30px 40px; */
+            /* 左上 （右上左下） 右下 */
+            /* border-radius: 10px 20px 30px; */
+            /* （左上 右下） | （右上 左下） */
+            /* border-radius: 10px 40px; */
+            /* 分开写:顺序不允许颠倒 */
+            border-top-left-radius: 10px;
+            border-bottom-right-radius: 40px;
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+
+    </div>
+</body>
+
+</html>
