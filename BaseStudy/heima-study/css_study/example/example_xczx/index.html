@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,38 @@
     <title>学成在线</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- 先确定版型，再确定有几个模块，每个模块有几列，每个列再哪个位置 -->
-    123
+    <div class="header w">
+        <!-- 一浮全浮 -->
+        <div class="logo">
+            <img src="images/logo.png" alt="logo_xczx">
+        </div>
+        <div class="nav">
+            <!-- 导航栏一般用li包含a -->
+            <!-- 
+                让导航栏一行显示：给li加浮动，因为li是块级元素，需要一行显示
+                nav可以不给宽度，将来可以继续添加其余文字
+                因为导航栏里文字不一样多，所以最好给a左右padding撑开盒子，而不是指定宽度
+             -->
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">课程</a></li>
+                <li><a href="#">职业规划</a></li>
+            </ul>
+        </div>
+        <!-- 搜索框 -->
+        <div class="search">
+            <input type="text" value="请输入关键字">
+            <!-- 行内块中间会有一个缝隙!!!加浮动，加了浮动就没有了 -->
+            <button></button>
+        </div>
+        <div class="user">
+            <img src="images/user.png" alt="">
+            qq-lilei
+        </div>
+    </div>
 </body>
+
 </html>
