@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Float_2</title>
+    <title>清除浮动</title>
+
     <style>
         .box {
             width: 800px;
             border: 1px solid blue;
             margin: 0 auto;
-            /* 清楚浮动 */
-            overflow: hidden;
         }
+
         .box1 {
             float: left;
             width: 300px;
             height: 200px;
             background-color: yellow;
         }
+
         .box2 {
             float: left;
             width: 200px;
@@ -27,35 +29,55 @@
             /* 如果只开此盒子，其他两个不浮动的话。浮动的盒子只会影响后面的标准流，所以此处不会压住box1，而会压住box3 */
             /* float: left; */
         }
-        .box3 {
-            float: left;
-            width: 300px;
-            height: 300px;
-            background-color: purple;
+
+        /* 清除浮动的一种方式 */
+        .clearfix:before,
+        .clearfix:after {
+            content: "";
+            display: table;
         }
-        .box4 {
-            float: left;
-            width: 300px;
-            height: 300px;
-            background-color: red;
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        .clearfix {
+            *zoom: 1;
         }
 
         .footer {
             width: 900px;
-            height: 400px;
+            height: 100px;
             background-color: #333;
             margin: 0 auto;
         }
     </style>
 </head>
+
 <body>
-    <div class="box">
+    <div class="box clearfix">
         <div class="box1">1</div>
         <div class="box2">2</div>
-        <div class="box3">3</div>
-        <div class="box4">4</div>
     </div>
 
-    <div class="footer"></div>
+    <div class="footer">
+
+    </div>
+
+    <h2>清除浮动</h2>
+    <h3>为什么要清除浮动</h3>
+    <ol>
+        <li>父级没有高度</li>
+        <li>子盒子浮动了</li>
+        <li>影响下面布局了</li>
+    </ol>
+    <h3>怎么清除浮动</h3>
+    <ol>
+        <li>额外标签法（隔墙法）</li>
+        <li>父级overflow:hidden</li>
+        <li>父级after伪元素</li>
+        <li>父级双伪元素</li>
+    </ol>
 </body>
+
 </html>
