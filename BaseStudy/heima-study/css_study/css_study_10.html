@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float_2</title>
+    <style>
+        .box {
+            width: 800px;
+            border: 1px solid blue;
+            margin: 0 auto;
+            /* 清楚浮动 */
+            overflow: hidden;
+        }
+        .box1 {
+            float: left;
+            width: 300px;
+            height: 200px;
+            background-color: yellow;
+        }
+        .box2 {
+            float: left;
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            /* 如果只开此盒子，其他两个不浮动的话。浮动的盒子只会影响后面的标准流，所以此处不会压住box1，而会压住box3 */
+            /* float: left; */
+        }
+        .box3 {
+            float: left;
+            width: 300px;
+            height: 300px;
+            background-color: purple;
+        }
+        .box4 {
+            float: left;
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+
+        .footer {
+            width: 900px;
+            height: 400px;
+            background-color: #333;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box1">1</div>
+        <div class="box2">2</div>
+        <div class="box3">3</div>
+        <div class="box4">4</div>
+    </div>
+
+    <div class="footer">
+
+    </div>
+</body>
+</html>
