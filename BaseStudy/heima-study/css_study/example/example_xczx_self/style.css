@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f3f5f7;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.w {
+    width: 1200px;
+    margin: auto;
+}
+
+/* header开始 */
+.header {
+    height: 42px;
+    /* background-color: green; */
+    margin: 30px auto;
+}
+
+.logo {
+    float: left;
+    padding-left: 50px;
+}
+
+.menu {
+    float: left;
+    line-height: 42px;
+}
+
+.menu li {
+    float: left;
+    margin-left: 50px;
+    font-size: 18px;
+}
+
+.menu li a {
+    display: block;
+    height: 42px;
+    color: #333;
+}
+.menu li a:hover {
+    border-bottom: 2px solid #00a4ff;
+}
+
+.search {
+    float: left;
+    margin-left: 50px;
+}
+
+.search input {
+    float: left;
+    width: 412px;
+    height: 40px;
+    border: 1px solid #00a4ff;
+    border-right: 0;
+}
+
+.search img {
+    float: left;
+    height: 42px;
+}
+
+.self {
+    line-height: 42px;
+    float: right;
+    margin-right: 30px;
+}
+
+.self img {
+    float: left;
+}
+.self p {
+    float: left;
+}
