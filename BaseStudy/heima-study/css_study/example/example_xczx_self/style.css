@@ -32,23 +32,24 @@ a {
     padding-left: 50px;
 }
 
-.menu {
+.nav {
     float: left;
     line-height: 42px;
 }
 
-.menu li {
+.nav li {
     float: left;
     margin-left: 50px;
     font-size: 18px;
 }
 
-.menu li a {
+.nav li a {
     display: block;
     height: 42px;
     color: #333;
 }
-.menu li a:hover {
+
+.nav li a:hover {
     border-bottom: 2px solid #00a4ff;
 }
 
@@ -79,6 +80,86 @@ a {
 .self img {
     float: left;
 }
+
 .self p {
     float: left;
+}
+
+/* banner start */
+.banner {
+    height: 421px;
+    background-color: #1c036c;
+}
+
+.banner .w {
+    height: 421px;
+    background-image: url(images/banner2.png);
+}
+
+.subnav {
+    float: left;
+    height: 421px;
+    width: 200px;
+    background-color: rgba(0, 0, 0, .3)
+}
+
+.subnav ul li {
+    margin: 20px 0 20px 20px;
+}
+
+.subnav ul li a {
+    color: #fff;
+    font-size: 14px;
+}
+
+.subnav ul li a:hover {
+    color: #00a4ff;
+}
+
+.course {
+    float: right;
+    margin-top: 50px;
+    width: 230px;
+    height: 300px;
+    background-color: #fff;
+}
+
+.course h2 {
+    height: 50px;
+    background-color: skyblue;
+    color: #fff;
+    line-height: 50px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.course .bd {
+    padding: 0 20px;
+}
+
+.course .bd ul li a {
+    display: block;
+    color: #4e4e4e;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 10px 0;
+    /* padding-bottom: 15px; */
+    border-bottom: 1px solid #a5a5a5;
+}
+
+.course .bd ul li a span {
+    color: #a5a5a5;
+    font-size: 12px;
+}
+
+.course .all-course {
+    display: block;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    border: 1px solid #00a4ff;
+    margin-top: 5px;
+    color: #00a4ff;
+    font-size: 16px;
+    font-weight: 700;
 }
