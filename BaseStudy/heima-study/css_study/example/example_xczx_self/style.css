@@ -5,6 +5,7 @@
 
 body {
     background-color: #f3f5f7;
+    height: 3000px;
 }
 
 li {
@@ -15,6 +16,20 @@ a {
     text-decoration: none;
 }
 
+.clearfix::before,
+.clearfix::after {
+    content: "";
+    display: table;
+}
+
+.clearfix::after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
 .w {
     width: 1200px;
     margin: auto;
@@ -23,7 +38,6 @@ a {
 /* header开始 */
 .header {
     height: 42px;
-    /* background-color: green; */
     margin: 30px auto;
 }
 
@@ -93,7 +107,7 @@ a {
 
 .banner .w {
     height: 421px;
-    background-image: url(images/banner2.png);
+    background: url(images/banner2.png) no-repeat;
 }
 
 .subnav {
@@ -143,7 +157,6 @@ a {
     font-size: 16px;
     font-weight: 700;
     padding: 10px 0;
-    /* padding-bottom: 15px; */
     border-bottom: 1px solid #a5a5a5;
 }
 
@@ -162,4 +175,104 @@ a {
     color: #00a4ff;
     font-size: 16px;
     font-weight: 700;
+}
+
+.recommend {
+    height: 60px;
+    background-color: #fff;
+    margin-top: 12px;
+    box-shadow: 0 2px 3px 3px rgba(0, 0, 0, .3);
+}
+
+.recommend h3 {
+    float: left;
+    padding-left: 50px;
+    padding-right: 50px;
+    line-height: 60px;
+    color: #00a4ff;
+    font-size: 16px;
+}
+
+.recommend ul li {
+    float: left;
+    line-height: 60px;
+}
+
+.recommend ul li a {
+    border-left: 1px solid #a5a5a5;
+    color: #333;
+    padding: 0 30px;
+}
+
+.recommend .modify-interest {
+    float: right;
+    line-height: 60px;
+    padding-right: 30px;
+    color: #00a4ff;
+    font-size: 12px;
+}
+
+/* box */
+.box {
+    /* 不能设置高度，因为实际情况不知道有多少列 */
+    margin-top: 40px;
+}
+
+.box-hd {
+    height: 50px;
+    /* background-color: green; */
+}
+
+.box-hd h2 {
+    float: left;
+    font-size: 20px;
+    color: #4e4e4e;
+    line-height: 50px;
+}
+
+.box-hd a {
+    float: right;
+    line-height: 50px;
+    color: #a5a5a5;
+    font-size: 12px;
+    padding-right: 30px;
+}
+
+.box-bd ul {
+    width: 1225px;
+}
+
+.box-bd ul li {
+    float: left;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    width: 228px;
+    height: 270px;
+    background-color: #fff;
+}
+
+.box-bd img {
+    width: 228px;
+}
+
+.box-bd .title {
+    margin: 20px 15px 10px 15px;
+    color: #333;
+    font-size: 14px;
+}
+
+.box-bd .studying {
+    margin-left: 15px;
+    margin-top: 30px;
+    font-size: 12px;
+    color: #a5a5a5;
+}
+
+.box-bd .studying span {
+    color: #ff7c2d;
+}
+
+.footer {
+    height: 400px;
+    background-color: green;
 }
