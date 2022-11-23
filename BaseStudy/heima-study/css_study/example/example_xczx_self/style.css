@@ -5,7 +5,7 @@
 
 body {
     background-color: #f3f5f7;
-    height: 3000px;
+    height: 1700px;
 }
 
 li {
@@ -21,11 +21,9 @@ a {
     content: "";
     display: table;
 }
-
 .clearfix::after {
     clear: both;
 }
-
 .clearfix {
     *zoom: 1;
 }
@@ -274,5 +272,45 @@ a {
 
 .footer {
     height: 400px;
-    background-color: green;
+    margin-top: 40px;
+}
+
+.copyright {
+    float: left;
+}
+
+.copyright p {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #a5a5a5;
+}
+
+.copyright a {
+    display: block;
+    width: 150px;
+    height: 38px;
+    line-height: 38px;
+    text-align: center;
+    font-size: 16px;
+    border: 1.5px solid #00a4ff;
+    color: #00a4ff;
+    margin-top: 15px;
+}
+
+.links {
+    float: right;
+}
+
+.links dl {
+    float: right;
+    margin-left: 100px;
+}
+
+.links dd {
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+.links dl a {
+    color: #333;
 }
