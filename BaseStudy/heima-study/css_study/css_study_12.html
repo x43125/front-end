@@ -1,20 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>定位</title>
+    <style>
+        .box {
+            border: 1px solid #333;
+        }
+
+        .top {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            position: relative;
+            top: 30px;
+            left: 30px;
+        }
+
+        .bottom {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+    </style>
 </head>
+
 <body>
     <h1>定位</h1>
     <h2>一、定位组成</h2>
     <h3>1.1 定位</h3>
     <ol>
-        <li>静态定位：了解，知道有就行，无定位</li>
+        <li>
+
+            静态定位：了解，知道有就行，无定位
+
+        </li>
         <li>固定定位</li>
-        <li>相对定位</li>
-        <li>绝对定位</li>
+        <li>相对定位：<br>
+            相对原先自己的位置 <br>
+            原来在标准流的位置继续占用 <br>
+        </li>
+        <li>绝对定位： <br>
+            如果没有祖先元素或者祖先元素没有定位，则以浏览器为准定权 <br>
+            如果祖先元素有定位（相对、绝对、固定定位），
+            则以最近一级的有定位祖先元素为参考点移动位置 <br>
+        </li>
     </ol>
     <h3>1.2 边偏移</h3>
     <ol>
@@ -23,5 +56,18 @@
         <li>left 左侧~</li>
         <li>right 右侧~</li>
     </ol>
+
+
+    <div class="box">
+        <div class="top">
+
+        </div>
+
+        <div class="bottom">
+
+        </div>
+    </div>
+
 </body>
+
 </html>
