@@ -25,20 +25,52 @@
             height: 100px;
             background-color: red;
         }
+
+        .w {
+            width: 800px;
+            height: 800px;
+            background-color: green;
+            margin: 100px auto;
+        }
+
+        .daji {
+            position: fixed;
+            top: 100px;
+            /* 先用定位朝右走一半；再用margin-left朝右走版心的一半，就刚好和版心右侧紧贴了 */
+            left: 50%;
+            margin-left: 400px;
+        }
+
+        .nav {
+            position: sticky;
+            top: 10px;
+            width: 800px;
+            height: 50px;
+            background-color: green;
+            margin: 300px auto;            
+        }
     </style>
 </head>
 
 <body>
+
+    <div class="nav">
+        我是导航栏
+    </div>
+
     <h1>定位</h1>
     <h2>一、定位组成</h2>
     <h3>1.1 定位</h3>
     <ol>
         <li>
-
             静态定位：了解，知道有就行，无定位
-
         </li>
-        <li>固定定位</li>
+        <li>固定定位：<br>
+            固定在界面随着滚动条滚动而不会动的定位方式 <br>
+            不占用原先的位置 <br>
+            可以固定在版心相对位置 <br>
+            粘性定位：不常用
+        </li>
         <li>相对定位：<br>
             相对原先自己的位置 <br>
             原来在标准流的位置继续占用 <br>
@@ -50,13 +82,13 @@
         </li>
     </ol>
     <h3>1.2 边偏移</h3>
+    <p>重点：1.是否占有位置（脱标否）2.以谁为基准点移动位置；子绝父相</p>
     <ol>
         <li>top 顶端偏移量</li>
         <li>bottom 底部~</li>
         <li>left 左侧~</li>
         <li>right 右侧~</li>
     </ol>
-
 
     <div class="box">
         <div class="top">
@@ -66,6 +98,13 @@
         <div class="bottom">
 
         </div>
+    </div>
+
+    <div class="w">
+        版心盒子 800像素
+    </div>
+    <div class="daji">
+        <img src="img/pvp.png" alt="">
     </div>
 
 </body>
