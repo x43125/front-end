@@ -1,12 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>position</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f3f5f7;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .box-bd {
+            width: 228px;
+            height: 270px;
+            margin: 100px auto;
+        }
+
+        .box-bd ul li {
+            position: relative;
+        }
+
+        /* > 表示亲儿子 */
+        .box-bd ul li>img {
+            width: 228px;
+        }
+
+        .box-bd h4 {
+            margin: 10px 20px 20px 10px;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .box-bd .info {
+            margin: auto 10px;
+            color: #4e4e4e;
+            font-size: 12px;
+        }
+
+        .box-bd ul li em {
+            /* 如果父元素没有相对定位的话，则子元素会以第一个有定位的来定位 */
+            position: absolute;
+            top: 4px;
+            right: -4px;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="box-bd">
+        <ul>
+            <li>
+                <em>
+                    <img src="example/img/xczx/hot.png" alt="">
+                </em>
+                <img src="example/img/xczx/pic.png" alt="">
+                <h4>
+                    Think PHP 5.0 博客系统 实战项目演练
+                </h4>
+                <div class="info">
+                    <span>高级</span> · 1125人在学习
+                </div>
+            </li>
+        </ul>
+    </div>
 </body>
+
 </html>
