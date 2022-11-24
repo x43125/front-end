@@ -49,6 +49,61 @@
             background-color: green;
             margin: 300px auto;            
         }
+
+        .index {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin-bottom: 100px;
+        }
+        .size {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+        }
+        .xd {
+            background-color: red;
+            z-index: 2;
+            left: 50px;
+            top: 50px;
+        }
+        .xe {
+            background-color: blue;
+            z-index: 1;
+        }
+        .gtq {
+            background-color: yellow;
+            left: 100px
+            ;
+            top: 100px;
+            z-index: 3;
+        }
+
+        .mid {
+            /* 让绝对定位的盒子居中 */
+            position: absolute;
+            /* 先从左移动50% */
+            left: 50%;
+            /* 再回去半个距离 */
+            margin-left: -250px;
+
+            top: 50%;
+            margin-top: -50px;
+
+            width: 500px;
+            height: 100px;
+            background-color: green;
+        }
+
+        .b1 {
+            /* 浮动不会覆盖后来块的文字图片等元素，定位会 */
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
     </style>
 </head>
 
@@ -107,6 +162,18 @@
         <img src="img/pvp.png" alt="">
     </div>
 
+    <div class="index">
+        <div class="xd size">熊大</div>
+        <div class="xe size">熊二</div>
+        <div class="gtq size">光头强</div>
+    </div>
+
+    <div class="mid"></div>
+
+    <div class="cover">
+        <div class="b1"></div>
+        <p>我爱你</p>
+    </div>
 </body>
 
 </html>
