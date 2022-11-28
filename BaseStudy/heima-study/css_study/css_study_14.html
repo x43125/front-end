@@ -28,6 +28,26 @@
             font-display: block;
         }
 
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            height: 4000px;
+        }
+
+        input,
+        textarea {
+            /* 取消表单的轮廓线 */
+            outline: none;
+        }
+
+        textarea {
+            /* 让文本域不可以被拉伸 */
+            resize: none;
+        }
+
         .box1 {
             width: 60px;
             height: 60px;
@@ -60,6 +80,7 @@
             border-bottom: 100px solid yellow;
             border-left: 100px solid green;
         }
+
         .triangle2 {
             width: 0;
             height: 0;
@@ -93,7 +114,104 @@
 
         }
 
+        .box-in img {
+            width: 500px;
+            /* vertical-align: bottom; */
+            vertical-align: middle;
+            /* vertical-align: top; */
+            /* 行内块元素和vertical-align连用 */
+        }
 
+        .box-in {
+            display: inline-block;
+        }
+
+        .ldh {
+            border: 1px solid red;
+        }
+
+        .ldh img {
+            /* 让图片下侧和边框重叠，不留空隙的两种方式 */
+            /* vertical-align: bottom; */
+            display: block;
+        }
+
+        .wrap {
+            width: 100px;
+            height: 200px;
+            background-color: green;
+            margin: 100px auto;
+            /* 字体显示不开的时候的显示形式 */
+            /* white-space: normal; */
+            /* 1. 强制文字显示在一行 */
+            white-space: nowrap;
+            /* 2. 溢出的部分隐藏起来 */
+            overflow: hidden;
+            /* 3， 文字溢出的时候用省略号展示 */
+            text-overflow: ellipsis;
+        }
+
+        .multi-wrap {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            margin: 100px auto;
+            /* 推荐让后端来做 */
+            /* 字体显示不开的时候的显示形式:多行省略号 */
+            /* white-space: normal; */
+            /* 1. 强制文字显示在一行 */
+            /* white-space: nowrap; */
+            /* 2. 溢出的部分隐藏起来 */
+            overflow: hidden;
+            /* 3， 文字溢出的时候用省略号展示 */
+            text-overflow: ellipsis;
+
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+
+        .float-1 {
+            height: 250px;
+        }
+
+        .float-1 ul li {
+            /* position: relative; */
+            float: left;
+            list-style: none;
+            width: 150px;
+            height: 200px;
+            border: 1px solid red;
+            /* 左移-1px 刚好压住前一个的边框，使得覆盖的边框不会变粗 */
+            margin-left: -1px;
+        }
+
+        .float-1 ul li:hover {
+            /* 如果盒子没有定位，则加上相对定位即可 */
+            /* position: relative; */
+            /* 如果有定位，则使用z-index即可 */
+            z-index: 1;
+            border: 1px solid blue;
+        }
+
+        .box3 {
+            width: 300px;
+            height: 70px;
+            background-color: green;
+            margin: 0 auto;
+            padding: 5px;
+        }
+
+        .pic {
+            float: left;
+            width: 120px;
+            height: 60px;
+            margin-right: 5px;
+        }
+
+        .pic img {
+            width: 120px;
+        }
     </style>
 </head>
 
@@ -115,6 +233,54 @@
 
     <div class="jd">
         <span></span>
+    </div>
+
+    <div>
+        <ul>
+            <li style="cursor: default;">默认鼠标样式</li>
+            <li style="cursor: pointer;">小手样式</li>
+            <li style="cursor: move;">移动样式</li>
+            <li style="cursor: text;">文本样式</li>
+            <li style="cursor: not-allowed;">禁止样式</li>
+        </ul>
+        <input type="text">
+        <!-- 将textarea放到一栏上就可以在鼠标放进去的时候贴着竖线来开始输入 -->
+        <textarea cols="30" rows="10"></textarea>
+        <div class="box-in">
+            <!-- <img src="img/ldh.jpg" alt=""> -->
+            <img src="img/font-structure.png" alt="">
+        </div>
+        ping我是刘德华
+    </div>
+    <div class="ldh">
+        <img src="img/ldh.jpg" alt="">pink
+    </div>
+
+    <div class="wrap">
+        啥也不说，此处省略一万字
+    </div>
+
+    <div class="multi-wrap">
+        啥也不说，此处省略一万字，
+        啥也不说，此处省略一万字，
+        啥也不说，此处省略一万字，
+    </div>
+
+    <div class="float-1">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+
+    <div class="box3">
+        <!-- 浮动文字无需添加浮动，只需要将左侧的添加浮动即可 -->
+        <div class="pic">
+            <img src="img/img.png" alt="">
+        </div>
+        <p>【集锦】热身赛-巴西0-1秘鲁 内马尔替补两人血染赛场</p>
     </div>
 </body>
 
