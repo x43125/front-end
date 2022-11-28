@@ -8,16 +8,30 @@
 -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>精灵图</title>
     <style>
+        /* 字体声明 */
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?p4ssmb');
+            src: url('fonts/icomoon.eot?p4ssmb#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?p4ssmb') format('truetype'),
+                url('fonts/icomoon.woff?p4ssmb') format('woff'),
+                url('fonts/icomoon.svg?p4ssmb#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
         .box1 {
             width: 60px;
             height: 60px;
-            margin: 100px auto;
+            margin: 50px auto;
             background: url(img/index.png) -182px 0;
             /* background-position: -182px 0; */
         }
@@ -26,14 +40,28 @@
             width: 27px;
             height: 27px;
             /* background-color: green; */
-            margin: 200px ;
+            margin: 50px;
             background: url(img/index.png) -155px -106px;
 
         }
+
+        /* 字体图标像文字一样可以改颜色、变大小等 */
+        span {
+            font-family: 'icomoon';
+            font-size: 100px;
+            color: green;
+        }
     </style>
 </head>
+
 <body>
     <div class="box1"></div>
     <div class="box2"></div>
+
+    <h2>字体图标</h2>
+    <p>将引入到页面中</p>
+    <span></span>
+    <span></span>
 </body>
+
 </html>
