@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>精灵图</title>
     <style>
-        /* 字体声明 */
+        /* 引入字体声明 */
         @font-face {
             font-family: 'icomoon';
             src: url('fonts/icomoon.eot?p4ssmb');
@@ -51,6 +51,49 @@
             font-size: 100px;
             color: green;
         }
+
+        .triangle1 {
+            width: 0;
+            height: 0;
+            border-top: 100px solid red;
+            border-right: 100px solid blue;
+            border-bottom: 100px solid yellow;
+            border-left: 100px solid green;
+        }
+        .triangle2 {
+            width: 0;
+            height: 0;
+            border: 100px solid transparent;
+            /* border-right-color: red; */
+            border-top-color: blue;
+            /* border-bottom-color: yellow; */
+            /* border-left-color: green; */
+        }
+
+        .jd {
+            position: relative;
+            width: 120px;
+            height: 249px;
+            background-color: green;
+        }
+
+        /* 鼠标放上去产生的弹出框会有一个小角 */
+        .jd span {
+            position: absolute;
+            right: 15px;
+            top: -20px;
+            width: 0;
+            height: 0;
+            /* 为了照顾到兼容性 */
+            line-height: 0;
+            font-size: 0;
+
+            border: 10px solid transparent;
+            border-bottom-color: red;
+
+        }
+
+
     </style>
 </head>
 
@@ -60,8 +103,19 @@
 
     <h2>字体图标</h2>
     <p>将引入到页面中</p>
-    <span></span>
+    <span></span>
     <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+
+    <p>画一个三角形</p>
+    <div class="triangle1"></div>
+    <div class="triangle2"></div>
+
+    <div class="jd">
+        <span></span>
+    </div>
 </body>
 
 </html>
