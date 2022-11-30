@@ -13,7 +13,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>精灵图</title>
+    <title>零零碎碎</title>
     <style>
         /* 引入字体声明 */
         @font-face {
@@ -66,7 +66,7 @@
         }
 
         /* 字体图标像文字一样可以改颜色、变大小等 */
-        span {
+        .font span {
             font-family: 'icomoon';
             font-size: 100px;
             color: green;
@@ -212,76 +212,209 @@
         .pic img {
             width: 120px;
         }
+
+        .box4 {
+            /* 给父盒子加 
+            text-align: center;
+            会让子行元素和行内块元素水平居中
+            */
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .box4 a {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            background-color: #f7f7f7;
+            border: 1px solid #ccc;
+            text-decoration: none;
+            text-align: center;
+            line-height: 36px;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .box4 .prev,
+        .box4 .next {
+            width: 85px;
+        }
+
+        .box4 .current,
+        .box4 .elp {
+            border: 0;
+            background-color: #fff;
+        }
+
+        .box4 input {
+            height: 36px;
+            width: 45px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+
+        .box4 button {
+            height: 36px;
+            width: 60px;
+            border: 1px solid #ccc;
+        }
+
+        .box5 {
+            width: 0;
+            height: 0;
+            /* 得到一个直角三角形 */
+            /* 写法1 */
+            /* border-top: 100px solid transparent; */
+            /* border-right: 50px solid blue; */
+            /* border-bottom: 0 solid green; */
+            /* border-left: 0px solid yellow; */
+            /* 写法2 */
+            border-color: transparent blue transparent transparent;
+            border-style: solid;
+            border-width: 22px 8px 0 0;
+        }
+
+        .price {
+            width: 160px;
+            height: 24px;
+            line-height: 24px;
+            border: 1px solid red;
+            margin: 0 auto;
+
+        }
+
+        .miaosha {
+            position: relative;
+            float: left;
+            width: 90px;
+            height: 100%;
+            background-color: red;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        /* 添加一个三角形 */
+        .miaosha i {
+            position: absolute;
+            right: 0;
+            top: 0;
+
+            width: 0;
+            height: 0;
+            border-color: transparent #fff transparent transparent;
+            border-style: solid;
+            border-width: 24px 10px 0 0;
+        }
+
+        .price .orange {
+            font-size: 12px;
+            color: gray;
+            text-decoration: line-through;
+        }
+
     </style>
 </head>
 
 <body>
-    <div class="box1"></div>
-    <div class="box2"></div>
-
-    <h2>字体图标</h2>
-    <p>将引入到页面中</p>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-
-    <p>画一个三角形</p>
-    <div class="triangle1"></div>
-    <div class="triangle2"></div>
-
-    <div class="jd">
-        <span></span>
-    </div>
-
     <div>
-        <ul>
-            <li style="cursor: default;">默认鼠标样式</li>
-            <li style="cursor: pointer;">小手样式</li>
-            <li style="cursor: move;">移动样式</li>
-            <li style="cursor: text;">文本样式</li>
-            <li style="cursor: not-allowed;">禁止样式</li>
-        </ul>
-        <input type="text">
-        <!-- 将textarea放到一栏上就可以在鼠标放进去的时候贴着竖线来开始输入 -->
-        <textarea cols="30" rows="10"></textarea>
-        <div class="box-in">
-            <!-- <img src="img/ldh.jpg" alt=""> -->
-            <img src="img/font-structure.png" alt="">
+        <div class="box1"></div>
+        <div class="box2"></div>
+
+        <h2>字体图标</h2>
+        <div class="font">
+            <p>将引入到页面中</p>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-        ping我是刘德华
-    </div>
-    <div class="ldh">
-        <img src="img/ldh.jpg" alt="">pink
-    </div>
+        <p>画一个三角形</p>
+        <div class="triangle1"></div>
+        <div class="triangle2"></div>
 
-    <div class="wrap">
-        啥也不说，此处省略一万字
-    </div>
-
-    <div class="multi-wrap">
-        啥也不说，此处省略一万字，
-        啥也不说，此处省略一万字，
-        啥也不说，此处省略一万字，
-    </div>
-
-    <div class="float-1">
-        <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-        </ul>
-    </div>
-
-    <div class="box3">
-        <!-- 浮动文字无需添加浮动，只需要将左侧的添加浮动即可 -->
-        <div class="pic">
-            <img src="img/img.png" alt="">
+        <div class="jd">
+            <span></span>
         </div>
-        <p>【集锦】热身赛-巴西0-1秘鲁 内马尔替补两人血染赛场</p>
+
+        <div>
+            <ul>
+                <li style="cursor: default;">默认鼠标样式</li>
+                <li style="cursor: pointer;">小手样式</li>
+                <li style="cursor: move;">移动样式</li>
+                <li style="cursor: text;">文本样式</li>
+                <li style="cursor: not-allowed;">禁止样式</li>
+            </ul>
+            <input type="text">
+            <!-- 将textarea放到一栏上就可以在鼠标放进去的时候贴着竖线来开始输入 -->
+            <textarea cols="30" rows="10"></textarea>
+            <div class="box-in">
+                <!-- <img src="img/ldh.jpg" alt=""> -->
+                <img src="img/font-structure.png" alt="">
+            </div>
+            ping我是刘德华
+        </div>
+        <div class="ldh">
+            <img src="img/ldh.jpg" alt="">pink
+        </div>
+
+        <div class="wrap">
+            啥也不说，此处省略一万字
+        </div>
+
+        <div class="multi-wrap">
+            啥也不说，此处省略一万字，
+            啥也不说，此处省略一万字，
+            啥也不说，此处省略一万字，
+        </div>
+
+        <div class="float-1">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+            </ul>
+        </div>
+
+        <div class="box3">
+            <!-- 浮动文字无需添加浮动，只需要将左侧的添加浮动即可 -->
+            <div class="pic">
+                <img src="img/img.png" alt="">
+            </div>
+            <p>【集锦】热身赛-巴西0-1秘鲁 内马尔替补两人血染赛场</p>
+        </div>
+
+
+
+        <div class="box4">
+            <a href="#" class="prev">&lt;&lt;上一页</a>
+            <a href="#" class="current">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">6</a>
+            <a href="#" class="elp">...</a>
+            <a href="#" class="next">下一页&gt;&gt;</a>
+            到第
+            <input type="text">
+            页
+            <button>确定</button>
+        </div>
+
+        <div class="box5"></div>
     </div>
+
+    <div class="box6">
+
+    </div>
+    <div class="price">
+        <span class="miaosha">￥1650
+            <i></i>
+        </span>
+        <span class="orange">￥5650</span>
+    </div>
+
 </body>
 
 </html>
