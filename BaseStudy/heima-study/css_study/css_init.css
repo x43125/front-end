@@ -1,0 +1,59 @@
+/* 把所有内外边距先清除 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* em i 斜体文字不倾斜 */
+em,
+i {
+    font-style: normal;
+}
+
+/* 去掉li的圆点 */
+li {
+    list-style: none;
+}
+
+img {
+    /* 照顾低版本浏览器，如果图片外面包含了链接会有边框的问题 */
+    border: 0;
+    /* 取消图片底部有空隙的问题 */
+    vertical-align: middle;
+}
+
+button {
+    /* 当鼠标经过button 按钮的时候，鼠标变成 手 */
+    cursor: pointer;
+}
+
+a {
+    color: #666;
+    /* 取消下划线 */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #c81623;
+}
+
+body {
+    /* 抗锯齿性，文字放大更加清晰 css3写法 */
+    -webkit-font-smoothing: antialiased;
+    background-color: #fff;
+    color: #666;
+}
+
+/* 清除浮动 */
+.clearfix::after {
+    visibility: hidden;
+    clear: both;
+    display: block;
+    content: ".";
+    height: 0;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
