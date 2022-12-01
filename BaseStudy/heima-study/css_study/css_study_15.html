@@ -7,7 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Features</title>
     <style>
+        body {
+            height: 3000px;
+        }
 
+        input::placeholder {
+            color: green;
+        }
     </style>
 </head>
 
@@ -25,6 +31,14 @@
 
     <h2>音频参数</h2>
     <audio src="media/music.mp3" controls loop></audio>
+
+    <form action="">
+        <!-- required:非空 placeholder:占位文字 autofocus: 进入网页后自动聚焦 autocomplete: 记录输入内容（我的案例里不行） -->
+        <input type="search" name="sear" required placeholder="搜索框" autofocus autocomplete="off">
+        <!-- multiple:多上传 -->
+        <input type="file" multiple>
+        <input type="submit" value="提交">
+    </form>
 </body>
 
 </html>
