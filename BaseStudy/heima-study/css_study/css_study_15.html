@@ -7,12 +7,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Features</title>
     <style>
+        /* 引入字体声明 */
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?p4ssmb');
+            src: url('fonts/icomoon.eot?p4ssmb#iefix') format('embedded-opentype'),
+                url('fonts/icomoon.ttf?p4ssmb') format('truetype'),
+                url('fonts/icomoon.woff?p4ssmb') format('woff'),
+                url('fonts/icomoon.svg?p4ssmb#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+
         body {
             height: 3000px;
         }
 
         input::placeholder {
             color: green;
+        }
+
+        .box0 {
+            height: 300px;
+        }
+
+        .ul1 {
+            float: left;
+        }
+
+        .ul2 {
+            float: left;
+        }
+
+        .ul3 {
+            float: left;
+        }
+
+        .ul1 li:first-child {
+            color: red;
+        }
+
+        .ul1 li:last-child {
+            color: blue;
+        }
+
+        .ul1 li:nth-child(3) {
+            color: aqua;
+        }
+
+        /* 选择偶数行 */
+        .ul2 li:nth-child(even) {
+            color: aquamarine;
+        }
+
+        /* 选择奇数行 */
+        .ul2 li:nth-child(odd) {
+            color: yellowgreen;
+        }
+
+        /* 公式 */
+        .ul3 li:nth-child(n) {
+            color: blue;
+        }
+
+        /* 伪元素选择器：权重为1 */
+        /* 放到内容前面 */
+        .box1::before {
+            display: inline-block;
+            /* 必须有content */
+            content: 'asd';
+            width: 30px;
+            height: 40px;
+            background-color: purple;
+        }
+
+        /* 放到内容后面 */
+        .box1::after {
+            content: "1236127836172";
+        }
+
+        .box2 {
+            position: relative;
+            width: 200px;
+            height: 35px;
+            border: 1px solid red;
+            margin-top: 10px;
+        }
+
+        .box2::after {
+            position: absolute;
+            font-family: 'icomoon';
+            top: 10px;
+            right: 10px;
+            /* 可以直接放符合，也可以放转义字符串 */
+            /* content: ''; */
+            content: '\e905';
+            color: red;
+            font-size: 18px;
         }
     </style>
 </head>
@@ -39,6 +131,42 @@
         <input type="file" multiple>
         <input type="submit" value="提交">
     </form>
+    <div class="box0">
+        <ul class="ul1">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+
+        <ul class="ul2">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+        </ul>
+
+        <ul class="ul3">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+
+    <div class="box1">
+        是
+    </div>
+
+    <div class="box2">
+
+    </div>
 </body>
 
 </html>
