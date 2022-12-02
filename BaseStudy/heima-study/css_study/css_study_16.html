@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            border: 10px solid red;
+            padding: 15px;
+            box-sizing: content-box;
+        }
+
+        p {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            border: 10px solid red;
+            padding: 20px;
+            /* css3 盒子模型: 盒子大小就为 width,height 不会撑大 */
+            box-sizing: border-box;
+        }
+
+        img {
+            filter: blur(1px);
+        }
+    </style>
+</head>
+<body>
+    <div>小猪乔治</div>
+    <p>小猪佩奇</p>
+    <img src="img/ldh.jpg" alt="">
+</body>
+</html>
