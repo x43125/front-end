@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        div {
+        .box1 {
             width: 200px;
             height: 200px;
             background-color: green;
@@ -28,11 +28,30 @@
         img {
             filter: blur(1px);
         }
+
+        .father {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+
+        .son {
+            width: calc(100% - 30px);
+            height: calc(100% - 30px);
+            background-color: yellow;
+        }
     </style>
 </head>
 <body>
-    <div>小猪乔治</div>
+    <div class="box1">小猪乔治</div>
     <p>小猪佩奇</p>
     <img src="img/ldh.jpg" alt="">
+
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <!-- 过渡 -->
+    <!-- 非常重要，非常好用，非常漂亮 -->
+    
 </body>
 </html>
