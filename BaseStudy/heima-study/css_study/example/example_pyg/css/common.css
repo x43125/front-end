@@ -53,3 +53,106 @@
     font-family: 'icomoon';
     margin-left: 6px;
 }
+
+/* header start */
+.header {
+    position: relative;
+    height: 105px;
+}
+
+/* 四个盒子用定位的方式来制作 */
+/* 
+    logo: SEO优化
+    1. 放一个h1标签
+    2. 放一个首页链接
+    3. 放文字（网站名称），不要显示出来
+    4. 链接一个title属性
+*/
+.logo {
+    position: absolute;
+    top: 25px;
+    width: 171px;
+    height: 61px;
+}
+
+.logo a {
+    display: block;
+    width: 171px;
+    height: 61px;
+    background: url(../images/logo.png) no-repeat;
+    /* jd做法 */
+    /* font-size: 0; */
+    /* tb做法 */
+    text-indent: -9999px;
+    overflow: hidden;
+}
+
+.search {
+    position: absolute;
+    top: 25px;
+    left: 346px;
+    width: 538px;
+    height: 36px;
+    border: 2px solid #b1191a;
+}
+
+.search input {
+    float: left;
+    width: 454px;
+    height: 32px;
+    padding-left: 10px;
+}
+
+.search button {
+    float: left;
+    width: 80px;
+    height: 32px;
+    background-color: #b1191a;
+}
+
+.hotwords {
+    position: absolute;
+    top: 66px;
+    left: 346px;
+}
+
+.hotwords a {
+    margin: 0 10px;
+}
+
+.shopcart {
+    position: absolute;
+    right: 60px;
+    top: 25px;
+    width: 140px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border: 1px solid #dfdfdf;
+    background-color: #f7f7f7;
+}
+
+.shopcart::before {
+    content: '\e93a';
+    font-family: 'icomoon';
+    color: #b1191a;
+}
+
+.shopcart::after {
+    content: '\e920';
+    font-family: 'icomoon';
+}
+
+.count {
+    position: absolute;
+    top: -5px;
+    /* 最好用左对齐，不用右，因为当里面的文字变长了可以朝右扩展盒子 */
+    left: 105px;
+    height: 14px;
+    line-height: 14px;
+    background-color: #b1191a;
+    color: #fff;
+    padding: 0 5px;
+    border-radius: 7px 7px 7px 0;
+}
+
