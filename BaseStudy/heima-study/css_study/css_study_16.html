@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            border: 10px solid red;
+            padding: 15px;
+            box-sizing: content-box;
+        }
+
+        p {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            border: 10px solid red;
+            padding: 20px;
+            /* css3 盒子模型: 盒子大小就为 width,height 不会撑大 */
+            box-sizing: border-box;
+        }
+
+        img {
+            filter: blur(1px);
+        }
+
+        .father {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+        }
+
+        .son {
+            width: calc(100% - 30px);
+            height: calc(100% - 30px);
+            background-color: yellow;
+        }
+
+        .box2 {
+            width: 200px;
+            height: 100px;
+            background-color: green;
+            margin-top: 100px;
+
+            /* 谁过渡就给谁加 */
+            /* transition: 变化的属性 花费时间 运动曲线 何时开始; */
+            /* transition: width 2s ease-out 1s, height 1s ease .5s; */
+            /* 如果想让所有属性都变，可以直接使用all */
+            transition: all 0.5s;
+        }
+
+        .box2:hover {
+            width: 400px;
+            height: 150px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">小猪乔治</div>
+    <p>小猪佩奇</p>
+    <img src="img/ldh.jpg" alt="">
+
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <!-- 过渡 -->
+    <!-- 非常重要，非常好用，非常漂亮 -->
+    <div class="box2"></div>
+</body>
+
+</html>
