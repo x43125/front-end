@@ -10,6 +10,20 @@ Html5 + CSS3 + Javascript
 Vue
 Element-ui
 
+#### 项目结构
+1. BaseStudy: 前端基础学习主要为 html+css+js；
+
+|文件夹名|描述|
+|---|---|
+|heima_study|跟着b站黑马里的pink老师的视频学习|
+|html_study|自学html的一些demo|
+|img|基本图片存放目录，用于存放各种比较随意的图片|
+|js_study|自学js的一些demo|
+|self_demo|自己学这些的一些小demo，里面有跟着一位b站up主实现的伸缩侧边栏demo（很喜欢）|
+
+2. vue: 高阶框架vue学习；
+3. ele-ui: element-ui学习
+
 #### 安装教程
 
 
