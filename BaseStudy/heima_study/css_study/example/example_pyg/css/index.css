@@ -169,5 +169,46 @@
 
 .box_bd {
     height: 361px;
-    background-color: green;
+    background-color: #f9f9f9;
+}
+
+.tab_list_item > div{
+    float: left;
+}
+
+.col_210 {
+    width: 210px;
+    height: 361px;
+    background-color: #f9f9f9;
+}
+
+.col_210 ul li {
+    float: left;
+    width: 85px;
+    height: 34px;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    line-height: 33px;
+    margin-right: 10px;
+}
+
+.col_329 {
+    width: 329px;    
+    height: 361px;
+}
+
+.col_221 {
+    width: 221px;
+    height: 361px;
+    border-right: 1px solid #ccc;
+}
+
+.col_219 {
+    width: 219px;
+    height: 361px;
+}
+
+.bb {
+    display: block;
+    border-bottom: 1px solid #ccc;
 }
