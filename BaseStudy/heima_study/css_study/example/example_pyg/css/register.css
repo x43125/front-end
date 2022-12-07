@@ -1,0 +1,14 @@
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    /* 包含边框区域 */
+    height: 84px;
+    border: 2px solid #c81523;
+}
+
+header .logo {
+    line-height: 84px;  
+}
