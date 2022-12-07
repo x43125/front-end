@@ -6,7 +6,7 @@
 header {
     /* 包含边框区域 */
     height: 84px;
-    border: 2px solid #c81523;
+    border-bottom: 2px solid #c81523;
 }
 
 header .logo {
