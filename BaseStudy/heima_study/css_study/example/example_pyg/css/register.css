@@ -10,5 +10,74 @@ header {
 }
 
 header .logo {
-    line-height: 84px;  
+    line-height: 84px;
+}
+
+.registerarea {
+    height: 522px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+}
+
+.registerarea h3 {
+    height: 42px;
+    border-bottom: 1px solid #ccc;
+    background-color: #ccc;
+    line-height: 42px;
+    padding: 0 10px;
+    font-size: 18px;
+}
+
+.registerarea h3 .login {
+    float: right;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.registerarea h3 .login a {
+    color: #c81523;
+}
+
+.reg_form {
+    width: 600px;
+    margin: 50px auto 0;
+}
+
+.reg_form ul li {
+    margin-bottom: 20px;
+}
+
+.reg_form ul li label {
+    display: inline-block;
+    width: 88px;
+    text-align: right;
+}
+
+.reg_form ul li input {
+    width: 242px;
+    height: 37px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+.error {
+    color: #c81523;
+}
+
+.error_icon,
+.success_icon {
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    background: url(../images/error.png);
+    margin-top: -2px;
+}
+
+.success {
+    color: green;
+}
+
+.success_icon {
+    background: url(../images/success.png);
 }
