@@ -1,0 +1,46 @@
+@font-face {
+    font-family: 'icomoon';
+    /* 要注意:此处的url括号里的是对应文件的路径，不要太死板的照抄！！！只需要修改地址即可 */
+    src: url('../fonts/icomoon.eot?tomleg');
+    src: url('../fonts/icomoon.eot?tomleg#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?tomleg') format('truetype'),
+        url('../fonts/icomoon.woff?tomleg') format('woff'),
+        url('../fonts/icomoon.svg?tomleg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+.shortcut {
+    height: 30px;
+    background-color: #ccc;
+    line-height: 30px;
+    padding: 0 35px;
+}
+
+.shortcut .welcome {
+    float: left;
+}
+
+.register {
+    color: #c81623;
+}
+
+.shortcut .nav {
+    float: right;
+}
+
+.shortcut .nav ul li {
+    float: left;
+    padding: 0 10px;
+}
+
+.arrow-icon::after {
+    content: '\e91e';
+    font-family: 'icomoon';
+    padding-left: 10px;
+}
+
+.arrow-icon:hover::after {
+    color: #c81623;
+}
