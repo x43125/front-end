@@ -16,10 +16,14 @@
     margin: 0 auto;
 }
 
+.style_red {
+    color: #c81623;
+}
+
 /* shortcut */
 .shortcut {
     height: 30px;
-    background-color: #ccc;
+    background-color: #f1f1f1;
     line-height: 30px;
     padding: 0 35px;
 }
@@ -28,8 +32,8 @@
     float: left;
 }
 
-.register {
-    color: #c81623;
+.shortcut .welcome ul li {
+    float: left;
 }
 
 .shortcut .nav {
@@ -54,33 +58,90 @@
 /* header */
 .header {
     position: relative;
-    background-color: yellowgreen;
-    height: 120px;
+    height: 171px;
 }
 
 .header .logo {
     float: left;
-    line-height: 120px;
+    position: absolute;
+    top: 25px;
+    width: 171px;
+    height: 61px;
+}
+
+.header .logo a {
+    display: block;
+    width: 171px;
+    height: 61px;
+    font-size: 0;
+    background: url(../images/logo.png) no-repeat;
 }
 
 .header .search {
     position: absolute;
-    top: 34px;
-    left: 350px;
-    float: left;
-    width: 500px;
-    height: 34px;
-    background-color: #fff;
+    top: 25px;
+    left: 346px;
+    width: 538px;
+    height: 36px;
+    border: 2px solid #b1191a;
 }
 
 .header .search input {
-    width: 396px;
-    height: 34px;
-    border: 2px solid #c81623;
+    float: left;
+    width: 454px;
+    height: 32px;
+    padding-left: 10px;
 }
 
 .header .search button {
-    width: 100px;
+    float: right;
+    width: 80px;
+    height: 32px;
+    background-color: #b1191a;
+}
+
+.header .hotwords {
+    position: absolute;
+    top: 65px;
+    left: 350px;
+}
+
+.header .hotwords ul li {
+    float: left;
+    padding: 0 10px;
+}
+
+.shopcart {
+    position: absolute;
+    right: 60px;
+    top: 25px;
+    width: 140px;
     height: 34px;
-    background-color: #c81623;
+    line-height: 34px;
+    text-align: center;
+    border: 1px solid #dfdfdf;
+    background-color: #f7f7f7;
+}
+
+.count {
+    position: absolute;
+    left: 105px;
+    top: -5px;
+    height: 14px;
+    line-height: 14px;
+    padding: 0 5px;
+    background-color: #b1191a;
+    border-radius: 7px 7px 7px 0;
+    color: #fff;
+}
+
+.shopcart::before {
+    content: '\e93a';
+    font-family: 'icomoon';
+    color: #b1191a;
+}
+
+.shopcart::after {
+    content: '\e920';
+    font-family: 'icomoon';
 }
