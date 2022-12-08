@@ -11,6 +11,12 @@
     font-display: block;
 }
 
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+/* shortcut */
 .shortcut {
     height: 30px;
     background-color: #ccc;
@@ -43,4 +49,38 @@
 
 .arrow-icon:hover::after {
     color: #c81623;
+}
+
+/* header */
+.header {
+    position: relative;
+    background-color: yellowgreen;
+    height: 120px;
+}
+
+.header .logo {
+    float: left;
+    line-height: 120px;
+}
+
+.header .search {
+    position: absolute;
+    top: 34px;
+    left: 350px;
+    float: left;
+    width: 500px;
+    height: 34px;
+    background-color: #fff;
+}
+
+.header .search input {
+    width: 396px;
+    height: 34px;
+    border: 2px solid #c81623;
+}
+
+.header .search button {
+    width: 100px;
+    height: 34px;
+    background-color: #c81623;
 }
