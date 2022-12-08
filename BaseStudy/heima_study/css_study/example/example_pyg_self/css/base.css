@@ -42,7 +42,6 @@ a {
     text-decoration: none;
 }
 
-/* 当覆盖到a上的时候变色 */
 a:hover {
     color: #c81623;
 }

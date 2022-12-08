@@ -19,7 +19,7 @@ TDK分别指：Title, Description, Keywords
 
 ## 2 favicon.ico
 
-通过引入`favicon.ico`来给网页标题添加图标
+通过引入``favicon.ico`来给网页标题添加图标
 
 ```html
 <!-- 引入网站标题图标 favicon图标 -->
@@ -224,3 +224,27 @@ body {
 ```
 
 如上在`ul`里就加了clearfix来控制盒子浮动问题
+
+## 8 布局
+
+对于一个网页一般含有以下几部分：
+
+- shortcut
+    - welcome words
+    - login & register link
+    - big menu
+- header
+    - logo
+    - search box
+- nav
+    - **dropdown**
+    - navitems
+- main
+    - **focus**
+    - news
+    - recommend
+    - **floor**: the main content of the web
+- footer
+    - service
+    - help
+    - copyright
