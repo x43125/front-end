@@ -1,16 +1,18 @@
 # html-css-js tips
 
+> 记录学习html css js 的一些心得体会，持续更新...
+
 ## 1 TDK
 
 ```html
 <!-- TDK -->
 <!-- 标题 -->
-<title>品优购商城-正品低价、品质保障、配送及时、轻松购物！</title>
+<title>xxx商城-正品低价、品质保障、配送及时、轻松购物！</title>
 <!-- 描述 -->
-<meta name="description" content="品优购商城-专业的综合网上购物商城，为您提供正品低价的购物选择、优质便捷的服务体验。
+<meta name="description" content="xxx商城-专业的综合网上购物商城，为您提供正品低价的购物选择、优质便捷的服务体验。
                                   商品来自全球数十万品牌商家，囊括家电、手机、电脑、服装、居家、母婴、美妆、个护、食品、生鲜等丰富品类，满足各种购物需求。" />
 <!-- 关键字 -->
-<meta name="Keywords" content="网上购物,网上商城,家电,手机,电脑,服装,居家,母婴,美妆,个护,食品,生鲜,品优购商城" />
+<meta name="Keywords" content="网上购物,网上商城,家电,手机,电脑,服装,居家,母婴,美妆,个护,食品,生鲜,xxx商城" />
 ```
 
 通过给网页设置TDK三项来提升网站在搜索引擎中的可被搜索性，使得网站更容易被检索到。
@@ -22,7 +24,7 @@ TDK分别指：Title, Description, Keywords
 通过引入``favicon.ico`来给网页标题添加图标
 
 ```html
-<!-- 引入网站标题图标 favicon图标 -->
+<!-- 在header中引入网站标题图标 favicon图标 -->
 <link rel="shortcut icon" href="favicon.ico">
 ```
 
@@ -122,7 +124,7 @@ body {
 <!-- logo模块 -->
 <div class="logo">
     <h1>
-        <a href="index.html" title="品优购商城">品优购商城</a>
+        <a href="index.html" title="xxx商城">xxx商城</a>
     </h1>
 </div>
 ```
