@@ -1,4 +1,4 @@
-# html-css-js Tips
+# html-css-js tips
 
 ## 1 TDK
 
@@ -248,3 +248,9 @@ body {
     - service
     - help
     - copyright
+
+## 9 注意事项
+- 记得使用标题标签
+- 善用nth-child，before，after等元素
+- 最重要的其实是布局，想好该如何布局再开始做
+- 分块做，分好哪些是公共部分，哪些是独有的，尽可能地复用（复用不光是为了省事，更多的是为了统一，不犯错）
