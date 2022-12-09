@@ -145,3 +145,29 @@
     content: '\e920';
     font-family: 'icomoon';
 }
+
+.navigate {
+    height: 47px;
+    border-bottom: 2px solid #b1191a;
+}
+
+.navigate .dropdown {
+    width: 210px;
+    line-height: 47px;
+    text-align: center;
+    float: left;
+    background-color: #b1191a;
+    color: #fff;
+}
+
+.navigate .navitems {
+    line-height: 47px;
+    float: left;
+}
+
+.navigate .navitems ul li {
+    float: left;
+    padding: 0 20px 0 15px;
+    font-size: 16px;
+}
+
