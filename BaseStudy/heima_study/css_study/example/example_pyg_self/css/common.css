@@ -152,12 +152,32 @@
 }
 
 .navigate .dropdown {
+    float: left;
     width: 210px;
     line-height: 47px;
+}
+
+.navigate .dropdown .dt {
     text-align: center;
-    float: left;
     background-color: #b1191a;
     color: #fff;
+}
+
+.navigate .dropdown .dd {
+    background-color: #c81623;
+}
+
+.navigate .dropdown .dd ul li:hover {
+    background-color: #fff;
+}
+.navigate .dropdown .dd ul li:hover a {
+    color: #b1191a;
+}
+
+.navigate .dropdown .dd ul li a {
+    font-size: 14px;
+    color: #fff;
+    margin-left: 10px;
 }
 
 .navigate .navitems {
@@ -170,4 +190,3 @@
     padding: 0 20px 0 15px;
     font-size: 16px;
 }
-
