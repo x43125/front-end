@@ -58,7 +58,7 @@
 /* header */
 .header {
     position: relative;
-    height: 171px;
+    height: 105px;
 }
 
 .header .logo {
@@ -167,10 +167,30 @@
     background-color: #c81623;
 }
 
+.navigate .dropdown .dd ul li {
+    position: relative;
+    height: 31px;
+    line-height: 31px;
+    margin-left: 2px;
+}
+
+.navigate .dropdown .dd ul li::after {
+    position: absolute;
+    right: 10px;
+    content: '\e920';
+    font-family: 'icomoon';
+    color: #fff;
+}
+
 .navigate .dropdown .dd ul li:hover {
     background-color: #fff;
 }
+
 .navigate .dropdown .dd ul li:hover a {
+    color: #b1191a;
+}
+
+.navigate .dropdown .dd ul li:hover::after {
     color: #b1191a;
 }
 
