@@ -54,5 +54,6 @@ Element-ui
 |1204|一个月过去了，发现前端真的很好玩，所见即所得，成就感max，继续加油，为了想要的|
 |1207|一个大案例终于照着写完了，接下来自己码一遍，加深下各种印象|
 
-test
-test mac git
+test <br>
+test mac git <br>
+use mac
