@@ -55,3 +55,4 @@ Element-ui
 |1207|一个大案例终于照着写完了，接下来自己码一遍，加深下各种印象|
 
 test
+test mac git
