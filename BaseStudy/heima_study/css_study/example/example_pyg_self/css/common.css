@@ -165,7 +165,7 @@
 
 .navigate .dropdown .dd {
     /* TODO: to close it */
-    display: none;
+    display: block;
     background-color: #c81623;
 }
 

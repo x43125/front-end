@@ -1,5 +1,20 @@
 .main {
-    position: relative;
-    top: 10px;
-    left: 220px;
+    width: 980px;
+    height: 455px;
+    margin-left: 220px;
+    margin-top: 10px;
 }
+
+.main .focus {
+    float: left;
+    width: 721px;
+    height: 455px;
+}
+
+.main .news-box {
+    float: right;
+    width: 250px;
+    height: 455px;
+    background-color: red;
+}
+
