@@ -96,3 +96,23 @@
     margin: 12px auto 0px;
     background: url(../images/icons.png) no-repeat -16px -15px;
 }
+
+.recom {
+    height: 163px;
+    background-color: #ebebeb;
+}
+
+.recom_hd {
+    float: left;
+    height: 163px;
+    line-height: 163px;
+    width: 205px;
+    background-color: #5c5251;
+    text-align: center;
+}
+
+.recom_bd ul li {
+    float: left;
+}
+
+/* TODO: 加边框 */
