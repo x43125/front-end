@@ -64,7 +64,6 @@
     /* 把多余的部分隐藏掉，这样会让最右边的子盒子会小一点点，但不影响，可以忽略 */
     overflow: hidden;
     height: 209px;
-    /* background-color: purple; */
     border: 1px solid #e4e4e4;
     border-top: 0;
 }
@@ -88,7 +87,6 @@
     display: inline-block;
     width: 24px;
     height: 28px;
-    background-color: green;
     margin-top: 12px;
     background: url(../images/icons.png) no-repeat -16px -15px;
 }

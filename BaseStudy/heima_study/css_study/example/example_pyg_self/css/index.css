@@ -33,6 +33,7 @@
 .news {
     height: 165px;
     border: 1px solid #e4e4e4;
+    border-bottom: 0;
 }
 
 .news-title {
@@ -40,7 +41,6 @@
     line-height: 35px;
     border-bottom: 1px dotted #e4e4e4;
     padding: 0 15px;
-
 }
 
 .news-title h5 {
@@ -55,7 +55,6 @@
 .news-title a::after {
     content: '\e920';
     font-family: 'icomoon';
-
 }
 
 .news-bd {
@@ -72,4 +71,28 @@
 
 .lifeservice {
     height: 209px;
+    overflow: hidden;
+    border: 1px solid #e4e4e4;
+    margin-bottom: 6px;
+}
+
+.lifeservice ul {
+    width: 252px;
+}
+
+.lifeservice ul li {
+    float: left;
+    width: 63px;
+    height: 71px;
+    border-right: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    text-align: center;
+}
+
+.lifeservice ul li i {
+    display: block;
+    width: 24px;
+    height: 28px;
+    margin: 12px auto 0px;
+    background: url(../images/icons.png) no-repeat -16px -15px;
 }
