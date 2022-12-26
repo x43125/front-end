@@ -112,7 +112,48 @@
 }
 
 .recom_bd ul li {
+    position: relative;
     float: left;
 }
 
-/* TODO: 加边框 */
+.recom_bd ul li img {
+    width: 248px;
+    height: 163px;
+}
+
+.recom_bd ul li:nth-child(-n+3)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 10px;
+    width: 1px;
+    height: 145px;
+    background-color: #ddd;
+}
+
+.box_hd {
+    height: 30px;
+    border-bottom: 2px solid #c81623;
+}
+
+.box_hd h3 {
+    float: left;
+    font-size: 18px;
+    color: #c81623;
+    font-weight: 400;
+}
+
+.box_hd .tab_list {
+    float: right;
+}
+
+.box_hd .tab_list ul li {
+    float: left;
+    height: 30px;
+    line-height: 30px;
+}
+
+.box_hd .tab_list ul li a {
+    padding: 0 10px;
+}
+
