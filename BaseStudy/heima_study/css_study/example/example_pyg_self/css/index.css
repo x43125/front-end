@@ -131,6 +131,10 @@
     background-color: #ddd;
 }
 
+.floor .w {
+    margin-top: 30px;
+}
+
 .box_hd {
     height: 30px;
     border-bottom: 2px solid #c81623;
@@ -157,3 +161,42 @@
     padding: 0 10px;
 }
 
+.box_bd {
+    height: 361px;
+    background-color: #f9f9f9;
+}
+
+.tab_list_item>div {
+    float: left;
+}
+
+.col_210 {
+    width: 210px;
+    height: 361px;
+    background-color: #f9f9f9;
+}
+
+.col_210 ul li {
+    float: left;
+    width: 85px;
+    height: 34px;
+    text-align: center;
+    line-height: 33px;
+    margin-right: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.col_329 {
+    width: 329px;
+    height: 361px;
+}
+
+.col_221 {
+    width: 221px;
+    height: 361px;
+}
+
+.col_219 {
+    width: 219px;
+    height: 361px;
+}
