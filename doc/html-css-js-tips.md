@@ -255,9 +255,30 @@ body {
 
 `>` 包含选择器，指其下的所有某类选择器
 
+## 10 动画/过度
+
+### 动画
+
+@keyframes
+
+| 属性                      | 描述                                                         |
+| ------------------------- | ------------------------------------------------------------ |
+| animation                 | 所有动画属性的简写，除了animation-play-state                 |
+| animation-name            | 规定@keyframes的名称                                         |
+| animation-duration        | 动画完成一个周期的时间，默认0                                |
+| animation-timing-function | 动画速度曲线，默认ease                                       |
+| animation-delay           | 动画延迟播放时间，默认0                                      |
+| animation-iteration-count | 动画播放次数，默认1，infinite无限                            |
+| animation-direction       | 动画在下一播放周期的方向，normal，alternate                  |
+| animation-play-state      | 动画运行或暂停，running，paused                              |
+| animation-fill-mode       | 规定动画结束后的位置，forwards保持结束为止，backwards回到起始点 |
 
 
-## 10 注意事项
+
+
+
+## 注意事项
+
 - 记得使用标题标签
 - 善用nth-child，before，after等元素
 - 最重要的其实是布局，想好该如何布局再开始做

@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>transform</title>
     <style>
+
+        body {
+            height: 3000px;
+        }
         .d1 {
             width: 100px;
             height: 100px;
@@ -21,10 +26,152 @@
             height: 100px;
             background-color: yellow;
         }
+
+        .d3 {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            background-color: green;
+        }
+
+        .d3 p {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            transform: translate(-50%, -50%);
+        }
+
+        .d4 img {
+            width: 300px;
+            /*  顺时针旋转45度 */
+            /* transform: rotate(45deg); */
+
+            border-radius: 50%;
+            border: 2px solid green;
+            transition: all 0.5s;
+            transform-origin: left bottom;
+        }
+
+        .d4 img:hover {
+            transform: rotate(360deg);
+        }
+
+        .d5 {
+            position: relative;
+            width: 249px;
+            height: 30px;
+            border: 1px solid #333;
+        }
+        .d5::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            right: 15px;
+            width: 8px;
+            height: 8px;
+            border-bottom: 1px solid #333;
+            border-right: 1px solid #333;
+            transform: rotate(45deg);
+            transition: all 0.5s;
+        }
+        .d5:hover::after {
+            transform: rotate(225deg);
+        }
+
+        .d6 {
+            overflow: hidden;
+            width: 200px;
+            height: 200px;
+            border: 1px solid #333;
+            margin: auto;
+        }
+
+        .d6::before {
+            content: 'hhh';
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: yellow;
+            transform: rotate(180deg);   
+            transform-origin: left bottom;
+            transition: all 0.5s;
+        }
+
+        .d6:hover::before {
+            transform: rotate(0deg);
+        }
+
+        .d7 {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            transition: all 0.5s;
+        }
+        .d7:hover {
+            transform: translate(150px, 50px) rotate(180deg) scale(1.2);
+        }
+
+        /* 
+            keyframes: 关键帧
+            animation-name: 关键帧动画的名字
+            animation-duration: 关键帧动画的时间，也是根据关键帧节点划分时间的
+        */
+        @keyframes move {
+            /* 0可以不写 */
+            0% {
+                transform: translate(0, 0);
+            }
+
+            25% {
+                transform: translate(1000px, 0);
+            }
+
+            50% {
+                transform: translate(1000px, 500px);
+            }
+
+            75% {
+                transform: translate(0, 500px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+        .d8 {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+            animation-name: move;
+            animation-duration: 4s;
+        }
     </style>
 </head>
+
 <body>
     <div class="d1"></div>
     <div class="d2"></div>
+    <div class="d3">
+        <p></p>
+    </div>
+
+    <div class="d4">
+        <img src="../../img/20210706.jpg" alt="">
+    </div>
+
+    <div class="d5">
+    </div>
+
+    <div class="d6">
+    </div>
+
+    <div class="d7"></div>
+
+    <div class="d8"></div>
 </body>
+
 </html>
