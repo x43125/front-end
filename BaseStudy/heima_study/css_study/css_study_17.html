@@ -149,6 +149,17 @@
             animation-name: move;
             animation-duration: 4s;
         }
+
+        .d9 {
+            width: 100px;
+            height: 100px;
+            background-color: green;
+            /* 
+              name duration必填
+              animation简写里不包括 animation-play-state
+             */
+            animation: move 2s linear 0s 1 alternate forwards;
+        }
     </style>
 </head>
 
@@ -172,6 +183,8 @@
     <div class="d7"></div>
 
     <div class="d8"></div>
+
+    <div class="d9"></div>
 </body>
 
 </html>

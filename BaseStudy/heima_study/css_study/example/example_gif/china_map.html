@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>China Map</title>
+    <style>
+        .map {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin: 50px auto;
+            border: 1px solid #333;
+        }
+
+        .circle_1 {
+            position: absolute;
+            top: 100px;
+            right: 100px;
+        }
+
+        .dotted {
+            width: 8px;
+            height: 8px;
+            background-color: #09f;
+            border-radius: 50%;
+        }
+
+        /* city下且以pulse开头的类 */
+        .circle_1 div[class^='pulse_'] {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            box-shadow: 0 0 12px #009dfd;
+            border-radius: 50%;
+            animation: pulse 1.2s linear 0s infinite;
+        }
+
+        .circle_1 div.pulse_2 {
+            animation-delay: 0.4s;
+        }
+
+        .circle_1 div.pulse_3 {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes pulse {
+            0% {}
+
+            70% {
+                width: 40px;
+                height: 40px;
+                opacity: 1;
+            }
+
+            100% {
+                width: 70px;
+                height: 70px;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="map">
+        <div class="circle_1">
+            <div class="dotted"></div>
+            <div class="pulse_1"></div>
+            <div class="pulse_2"></div>
+            <div class="pulse_3"></div>
+        </div>
+    </div>
+</body>
+
+</html>

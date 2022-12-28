@@ -232,24 +232,24 @@ body {
 对于一个网页一般含有以下几部分：
 
 - shortcut
-    - welcome words
-    - login & register link
-    - big menu
+  - welcome words
+  - login & register link
+  - big menu
 - header
-    - logo
-    - search box
+  - logo
+  - search box
 - nav
-    - **dropdown**
-    - navitems
+  - **dropdown**
+  - navitems
 - main
-    - **focus**
-    - news
-    - recommend
-    - **floor**: the main content of the web
+  - **focus**
+  - news
+  - recommend
+  - **floor**: the main content of the web
 - footer
-    - service
-    - help
-    - copyright
+  - service
+  - help
+  - copyright
 
 ## 9 选择器
 
@@ -272,10 +272,6 @@ body {
 | animation-direction       | 动画在下一播放周期的方向，normal，alternate                  |
 | animation-play-state      | 动画运行或暂停，running，paused                              |
 | animation-fill-mode       | 规定动画结束后的位置，forwards保持结束为止，backwards回到起始点 |
-
-
-
-
 
 ## 注意事项
 
