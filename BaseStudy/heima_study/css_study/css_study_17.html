@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>transform</title>
     <style>
-
         body {
-            height: 3000px;
+            height: 4000px;
             background-color: #ccc;
         }
+
         .d1 {
             width: 100px;
             height: 100px;
@@ -66,6 +66,7 @@
             height: 30px;
             border: 1px solid #333;
         }
+
         .d5::after {
             content: '';
             position: absolute;
@@ -78,6 +79,7 @@
             transform: rotate(45deg);
             transition: all 0.5s;
         }
+
         .d5:hover::after {
             transform: rotate(225deg);
         }
@@ -96,7 +98,7 @@
             width: 100%;
             height: 100%;
             background-color: yellow;
-            transform: rotate(180deg);   
+            transform: rotate(180deg);
             transform-origin: left bottom;
             transition: all 0.5s;
         }
@@ -111,6 +113,7 @@
             background-color: green;
             transition: all 0.5s;
         }
+
         .d7:hover {
             transform: translate(150px, 50px) rotate(180deg) scale(1.2);
         }
@@ -120,7 +123,8 @@
             animation-name: 关键帧动画的名字
             animation-duration: 关键帧动画的时间，也是根据关键帧节点划分时间的
         */
-        @keyframes move {
+        @keyframes move1 {
+
             /* 0可以不写 */
             0% {
                 transform: translate(0, 0);
@@ -147,7 +151,7 @@
             width: 100px;
             height: 100px;
             background-color: yellow;
-            animation-name: move;
+            animation-name: move1;
             animation-duration: 4s;
         }
 
@@ -159,7 +163,7 @@
               name duration必填
               animation简写里不包括 animation-play-state
              */
-            animation: move 2s linear 0s 1 alternate forwards;
+            animation: move1 2s linear 0s 1 alternate forwards;
             /* animation: name duration timing-function delay iteration-count direction fill-mode; */
         }
 
@@ -169,7 +173,7 @@
             height: 100px;
             background: url(img/bear.png) no-repeat;
             /* 使用step来让精灵图动起来； 通过逗号连接两个动画*/
-            animation: bear 1s steps(8) 0s infinite, move 5s linear 1s forwards;
+            animation: bear 1s steps(8) 0s infinite, move_bear 5s linear 1s forwards;
         }
 
         @keyframes bear {
@@ -177,12 +181,13 @@
                 /* 通过改变背景图片的坐标来让精灵图不停的动以形成动图的效果 */
                 background-position: 0 0;
             }
+
             100% {
                 background-position: -1600px 0;
             }
         }
 
-        @keyframes move {
+        @keyframes move_bear {
             0% {
                 /* 通过修改class的绝对定位坐标，来图形成一种整体的平移效果 */
                 left: 0;
@@ -192,6 +197,22 @@
                 left: 50%;
                 transform: translateX(-50%);
             }
+        }
+
+        .d10 {
+            width: 500px;
+            height: 500px;
+            /* 3D的透视写在，想要透视的盒子的父盒子上 */
+            perspective: 1000px;
+        }
+
+        .d11 {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            /* transform: translateX(100px) translateY(100px) translateZ(100px); */
+            /* x,y,z都必填，没有可填0 */
+            transform: translate3d(500px, 200px, 100px);
         }
     </style>
 </head>
@@ -223,6 +244,10 @@
 
     </div>
 
+
+    <div class="d10">
+        <div class="d11"></div>
+    </div>
 </body>
 
 </html>
