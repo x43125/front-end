@@ -10,6 +10,7 @@
 
         body {
             height: 3000px;
+            background-color: #ccc;
         }
         .d1 {
             width: 100px;
@@ -159,6 +160,38 @@
               animation简写里不包括 animation-play-state
              */
             animation: move 2s linear 0s 1 alternate forwards;
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+        }
+
+        .bear {
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            background: url(img/bear.png) no-repeat;
+            /* 使用step来让精灵图动起来； 通过逗号连接两个动画*/
+            animation: bear 1s steps(8) 0s infinite, move 5s linear 1s forwards;
+        }
+
+        @keyframes bear {
+            0% {
+                /* 通过改变背景图片的坐标来让精灵图不停的动以形成动图的效果 */
+                background-position: 0 0;
+            }
+            100% {
+                background-position: -1600px 0;
+            }
+        }
+
+        @keyframes move {
+            0% {
+                /* 通过修改class的绝对定位坐标，来图形成一种整体的平移效果 */
+                left: 0;
+            }
+
+            100% {
+                left: 50%;
+                transform: translateX(-50%);
+            }
         }
     </style>
 </head>
@@ -185,6 +218,11 @@
     <div class="d8"></div>
 
     <div class="d9"></div>
+
+    <div class="bear">
+
+    </div>
+
 </body>
 
 </html>
