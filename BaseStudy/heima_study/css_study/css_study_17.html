@@ -214,39 +214,108 @@
             /* x,y,z都必填，没有可填0 */
             transform: translate3d(500px, 200px, 100px);
         }
+
+        .d12 {
+            perspective: 500px;
+        }
+
+        .d12 img {
+            display: block;
+            margin: 0 auto;
+            transition: all 1s;
+        }
+
+        .d12 img:hover {
+            /* transform: rotateY(180deg); */
+            /* transform: rotateX(180deg); */
+            /* transform: rotateZ(180deg); */
+            /* transform: rotate3d(1,0,0,180deg); */
+            transform: rotate3d(1, 1, 1, 180deg);
+        }
+
+        .d13 {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            perspective: 500px;
+            transition: all 2s;
+            /* 可以让自元素跟随父盒子一起旋转 */
+            transform-style: preserve-3d;
+        }
+
+        .d13:hover {
+            transform: rotateY(60deg);
+        }
+
+        /* .d13:hover .d14 {
+            transform: rotateY(45deg);
+        }
+        .d13:hover .d15 {
+            transform: rotateX(60deg);
+        } */
+
+        .d14, .d15{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: green;
+        }
+
+        .d15 {
+            background-color: yellow;
+            transform: rotateX(60deg);
+        }
+
+        
+
+
     </style>
 </head>
 
 <body>
-    <div class="d1"></div>
-    <div class="d2"></div>
-    <div class="d3">
-        <p></p>
+    <div class="d">
+        <div class="d1"></div>
+        <div class="d2"></div>
+        <div class="d3">
+            <p></p>
+        </div>
+
+        <div class="d4">
+            <img src="../../img/20210706.jpg" alt="">
+        </div>
+
+        <div class="d5">
+        </div>
+
+        <div class="d6">
+        </div>
+
+        <div class="d7"></div>
+
+        <div class="d8"></div>
+
+        <div class="d9"></div>
+
+        <div class="bear">
+
+        </div>
+
+
+        <div class="d10">
+            <div class="d11"></div>
+        </div>
+
+        <div class="d12">
+            <img src="img/pig.jpg" alt="">
+        </div>
     </div>
 
-    <div class="d4">
-        <img src="../../img/20210706.jpg" alt="">
-    </div>
-
-    <div class="d5">
-    </div>
-
-    <div class="d6">
-    </div>
-
-    <div class="d7"></div>
-
-    <div class="d8"></div>
-
-    <div class="d9"></div>
-
-    <div class="bear">
-
-    </div>
-
-
-    <div class="d10">
-        <div class="d11"></div>
+    <div class="d13">
+        <div class="d14"></div>
+        <div class="d15"></div>
     </div>
 </body>
 
