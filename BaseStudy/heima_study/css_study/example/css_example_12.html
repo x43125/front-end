@@ -61,6 +61,8 @@
         }
 
         .box2 ul li {
+            float: left;
+            margin: 0 5px;
             width: 120px;
             height: 35px;
             perspective: 500px;
@@ -71,6 +73,11 @@
             height: 100%;
             position: relative;
             transform-style: preserve-3d;
+            transition: all .4s;
+        }
+
+        .child:hover {
+            transform: rotateX(90deg);
         }
 
         .front2,
@@ -84,13 +91,17 @@
 
         .front2 {
             background-color: green;
-            transform: translateZ(1px);
+            transform: translateZ(17.5px);
         }
 
         .bottom2 {
             background-color: red;
-            transform: rotateX(-80deg);
+            /* 如果有移动或者其他样式，必须先写移动 */
+            transform: translateY(17.5px) rotateX(-90deg);
         }
+
+
+
     </style>
 </head>
 
@@ -102,6 +113,30 @@
 
     <div class="box2">
         <ul>
+            <li>
+                <div class="child">
+                    <div class="front2"></div>
+                    <div class="bottom2"></div>
+                </div>
+            </li>
+            <li>
+                <div class="child">
+                    <div class="front2"></div>
+                    <div class="bottom2"></div>
+                </div>
+            </li>
+            <li>
+                <div class="child">
+                    <div class="front2"></div>
+                    <div class="bottom2"></div>
+                </div>
+            </li>
+            <li>
+                <div class="child">
+                    <div class="front2"></div>
+                    <div class="bottom2"></div>
+                </div>
+            </li>
             <li>
                 <div class="child">
                     <div class="front2"></div>
