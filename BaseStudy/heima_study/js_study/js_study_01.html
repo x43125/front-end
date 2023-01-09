@@ -68,11 +68,42 @@
             for(var i=1; i<arguments[0]; i++) {
                 sum += i
             }
+            // 返回值
             return sum
         }
         console.log('8.1: ' + sumN(10))
 
-
+        // 9.1 预解析:
+        /**
+         * js引擎运行js 分为两部：预解析， 代码执行
+         * 预解析：会将所有的var，function提升到当前作用域的最前面
+         * 代码执行：按照代码书写顺序上下执行
+         */
+         
+        // 10.1 对象创建方式：字面量
+        var p = {
+            uname: 'abc',
+            age: '11',
+            sayHi: function() {
+                console.log('hi');
+            }
+        } 
+        console.log(p.uname);
+        console.log(p['age']);
+        p.sayHi()
+        // 此种写法可以直接输出函数体
+        console.log(p.sayHi);
+        // 10.2 new Object()方式
+        var p2 = new Object();
+        p2.uname = 'qwe'
+        p2.age = 123
+        p2.sayHi = function() {
+            console.log('hi');
+        }
+        console.log(p2.uname);
+        console.log(p2.age);
+        p2.sayHi();
+        // 10.3 
     </script>
     <!-- 1.3 外部js文件 (script: 标签中间不允许再写代码了) -->
     <script src="js_01.js"></script>
