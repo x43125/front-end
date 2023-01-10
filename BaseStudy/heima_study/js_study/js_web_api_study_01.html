@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebApiStudy</title>
+
+</head>
+
+<body>
+    <div id="time">2019-9-9</div>
+    <ul>
+        <li>知否</li>
+    </ul>
+
+    <ul id="ul1">
+        <li>知否1</li>
+    </ul>
+
+    <ul class="ul2">
+        <li>知否2</li>
+    </ul>
+
+
+    <script>
+        // DOM 文档对象模型
+        // 1.1 getElementById
+        console.log('1.1: ');
+        var timer = document.getElementById('time');
+        console.log(timer);
+        console.log(typeof timer);
+        console.dir(timer);
+        // 1.2 getElementsByTagName
+        console.log('1.2: ');
+        var lst = document.getElementsByTagName('li')
+        console.log(lst);
+        console.log(lst[1]);
+        for (let i = 0; i < lst.length; i++) {
+            console.log(lst[i]);
+        }
+        // 1.2.1 ul1.getElementsByTagName
+        var ul1 = document.getElementById('ul1')
+        var li1 = ul1.getElementsByTagName('li')
+        console.log(li1);
+        // 1.3 getElementsByClassName
+        var ul2 = document.getElementsByClassName('ul2')
+        console.log(ul2);
+        // 1.4 querySelector()获取第一个元素 querySelectorAll()获取所有符合条件的元素
+    </script>
+</body>
+
+</html>
