@@ -23,6 +23,8 @@
         <li>知否2</li>
     </ul>
 
+    <button id="btn">特别好</button>
+
 
     <script>
         // DOM 文档对象模型
@@ -45,9 +47,29 @@
         var li1 = ul1.getElementsByTagName('li')
         console.log(li1);
         // 1.3 getElementsByClassName
+        console.log('1.3: ');
         var ul2 = document.getElementsByClassName('ul2')
         console.log(ul2);
+        console.log('1.4: ');
         // 1.4 querySelector()获取第一个元素 querySelectorAll()获取所有符合条件的元素
+        var li2 = document.querySelector('li')
+        console.log(li2);
+        var liAll = document.querySelectorAll('li')
+        console.log(liAll);
+        // 1.5 
+        console.log('1.5: ');
+        var bodyE = document.body
+        console.log(bodyE);
+        var htmlE = document.documentElement
+        console.log(htmlE);
+
+        // 2.1 事件
+        console.log('2.1: ');
+        var btn = document.getElementById('btn')
+        btn.onclick = function() {
+            alert('点秋香')
+        }
+
     </script>
 </body>
 
