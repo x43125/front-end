@@ -23,7 +23,9 @@
         <li>知否2</li>
     </ul>
 
+    <div id="tbh">唐伯虎</div>
     <button id="btn">特别好</button>
+
 
 
     <script>
@@ -64,11 +66,15 @@
         console.log(htmlE);
 
         // 2.1 事件
-        console.log('2.1: ');
+        // 2.2 更改内部信息
+        console.log('2.1,2.2: ');
         var btn = document.getElementById('btn')
         btn.onclick = function() {
-            alert('点秋香')
+            // alert('点秋香')
+            // tbh.innerText = '唐伯虎点秋香'
+            tbh.innerHTML = '唐伯虎点<strong>秋香</strong>'
         }
+
 
     </script>
 </body>
