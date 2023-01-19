@@ -1,0 +1,64 @@
+body {
+    /* 抗锯齿性，文字放大更加清晰 css3写法 */
+    -webkit-font-smoothing: antialiased;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.calc {
+    margin: 100px auto;
+    width: 200px;
+    height: 273px;
+    border: 2px solid green;
+    background-color: #575755;
+    border-radius: 8px;
+}
+
+.screen {
+    height: 50px;
+    line-height: 50px;
+    margin: 0 2px;
+    padding: 0 3px;
+    text-align: right;
+    color: #fff;
+    font-size: 35px;
+}
+
+.btn {
+    width: 100%;
+    background-color: #80807f;
+    border-radius: 0 0 8px 8px;
+    /* 屏蔽双击选中文字的区域 */
+    -webkit-user-select:none;-moz-user-select:none;-o-user-select:none;user-select:none;
+}
+
+.btn td {
+    width: 50px;
+    height: 40px;
+    border: 1px solid #575755;
+    text-align: center;
+    color: #fff;
+}
+
+.btn tr:first-child {
+    background-color: #676766;
+}
+
+.btn td:last-child {
+    background-color: #fd9f31;
+}
+
+.btn:hover {
+    cursor: pointer;
+}
+
+.td2 {
+    width: 100px;
+}
