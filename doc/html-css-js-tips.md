@@ -273,6 +273,13 @@ body {
 | animation-play-state      | 动画运行或暂停，running，paused                              |
 | animation-fill-mode       | 规定动画结束后的位置，forwards保持结束为止，backwards回到起始点 |
 
+## 11 清除鼠标多次点击选中
+鼠标在多次点击数字或图片的时候会选中内容，想要清除的话，只需要在其区域样式中添加一行：
+```css
+/* 屏蔽双击选中文字的区域 */
+-webkit-user-select:none;-moz-user-select:none;-o-user-select:none;user-select:none;
+```
+
 ## 注意事项
 
 - 记得使用标题标签
