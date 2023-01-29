@@ -12,3 +12,5 @@ ECMAScript：
 DOM：文档对象类型
 BOM：浏览器对象模型
 ```
+
+## DOM
