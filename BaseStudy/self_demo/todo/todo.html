@@ -6,80 +6,51 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo</title>
-    <style>
-        body {
-            /* 抗锯齿性，文字放大更加清晰 css3写法 */
-            -webkit-font-smoothing: antialiased;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        li {
-            list-style: none;
-        }
-    </style>
+    <link rel="stylesheet" href="todo.css">
 </head>
 
 <body>
-    <h1>TODO</h1>
-    <div class="todo">
-        <div class="area-in">
-            <!-- todo输入区 -->
-            请输入TODO：<br>
-            <textarea name="todo-in" id="todo-in" cols="30" rows="10"></textarea>
-            <button id="create">创建</button>
-        </div>
-        <div class="area-out">
-            <!-- todo展示区 -->
-            <p>
-            <ul id="todo-out">
+    <div class="todo-box">
+        <h1>TODO</h1>
 
-            </ul>
-            </p>
+        <!-- todo输入区 -->
+        <div class="area-in">
+            <h2>请输入TODO：</h2>
+            <textarea name="todo-in" id="todo-in" cols="30" rows="3"></textarea>
+            <button id="create">创建TODO</button>
+        </div>
+
+        <!-- todo展示区 -->
+        <div class="area-out">
+            <h2>TODO-LIST:</h2>
+            <!-- 未完成区 -->
+            <div class="todo-area">
+                <h4>todo-area</h4>
+                <ul class="todo-out" id="todo-out">
+                    
+                </ul>
+            </div>
+
+            <!-- 已完成区 -->
+            <div class="done-area">
+                <h4>done-area</h4>
+                <ul class="done-out" id="done-out">
+                    
+                </ul>
+            </div>
+
+            <!-- 删除区 -->
+            <div class="delete-area">
+                <h4>delete-area</h4>
+                <ul class="delete-out" id="delete-out">
+
+                </ul>
+            </div>
         </div>
     </div>
 
 </body>
-<script>
-    // 获取元素
-    var createTodoBtn = document.getElementById('create')
-    var todoIn = document.getElementById('todo-in')
-    var todoOut = document.getElementById('todo-out')
-
-    // 创建一个数组，用来存储所有的todo  -- 获取事件
-    var todoArray = ['demo_1']
-
-    // 然后每次创建todo后，将内容追加到数组中  -- 追加事件
-    function createTodo(todoValue) {
-        if (todoValue == '') {
-            return
-        }
-
-        console.log(todoValue);
-        todoArray.push(todoValue)
-    }
-
-    // 数组每次更新后，都重新组装成一个todo输出列表  -- 更新输出事件
-    function updateTodo() {
-        var outputValue = '';
-        for (var i = 0; i < todoArray.length; i++) {
-            outputValue += todoArray[i]
-        }
-        return outputValue
-    }
-
-    function create(todoValue) {
-        createTodo(todoValue)
-        todoOut.innerHTML = updateTodo()
-    }
-
-    // 赋予事件
-    console.log(todoIn.value);
-    createTodoBtn.onclick = create(todoIn.value)
-
+<script src="todo.js">
 </script>
 
 </html>
