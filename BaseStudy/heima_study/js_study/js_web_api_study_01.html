@@ -32,6 +32,35 @@
         .bgc-change img {
             width: 100px;
         }
+
+        .tab {
+            width: 400px;
+            height: 500px;
+            background-color: gainsboro;
+            margin: 10px auto;
+        }
+
+        .tab_list li {
+            float: left;
+            width: 98px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+            background-color: #fff;
+            border: 1px solid gainsboro;
+        }
+
+        .tab_list .current {
+            background-color: red;
+        }
+
+        .tab_con li {
+            display: none;
+        }
+
+        .tab_con li:first-child {
+            display: block;
+        }
     </style>
 </head>
 
@@ -65,6 +94,26 @@
         <li><img src="img/3.jpg"></li>
         <li><img src="img/4.jpg"></li>
     </ul>
+
+    <div class="tab">
+        <div class="tab_list">
+            <ul>
+                <li class="current">商品介绍</li>
+                <li>规格与包装</li>
+                <li>商品评价</li>
+                <li>手机社区</li>
+            </ul>
+        </div>
+        <div class="tab_con">
+            <ul>
+                <li class="item">1</li>
+                <li class="item">2</li>
+                <li class="item">3</li>
+                <li class="item">4</li>
+            </ul>
+        </div>
+    </div>
+
 
 
 
@@ -138,6 +187,33 @@
                 document.body.style.backgroundImage = 'url(' + this.src + ')'
             }
         }
+
+        // 2.5 切换tab栏
+        var tabs_list = document.querySelector('.tab_list')
+        var lis = tabs_list.querySelectorAll('li')
+
+        var items = document.querySelectorAll('.item')
+        console.log(items);
+
+
+        for (var i = 0; i < lis.length; i++) {
+            lis[i].setAttribute('index', i)
+            lis[i].onclick = function () {
+                // 清除其他li的类
+                for (var i = 0; i < lis.length; i++) {
+                    lis[i].className = ''
+                }
+                this.className = 'current'
+                var index = this.getAttribute('index')
+                console.log(index);
+
+                for (var i = 0; i < items.length; i++) {
+                    items[i].style.display = 'none'
+                }
+                items[index].style.display = 'block'
+            }
+        }
+
 
 
 
