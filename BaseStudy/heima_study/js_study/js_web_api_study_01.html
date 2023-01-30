@@ -6,7 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebApiStudy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
 
+        li {
+            list-style: none;
+        }
+
+        body {
+            background: url(img/1.jpg) no-repeat center top;
+        }
+
+        .bgc-change {
+            width: 400px;
+            margin: 0 auto;
+        }
+
+        .bgc-change li {
+            float: left;
+        }
+
+        .bgc-change img {
+            width: 100px;
+        }
+    </style>
 </head>
 
 <body>
@@ -32,6 +58,13 @@
     <button id="btn2">按钮2</button>
     <button id="btn2">按钮3</button>
     <button id="btn2">按钮4</button>
+
+    <ul class="bgc-change">
+        <li><img src="img/1.jpg"></li>
+        <li><img src="img/2.jpg"></li>
+        <li><img src="img/3.jpg"></li>
+        <li><img src="img/4.jpg"></li>
+    </ul>
 
 
 
@@ -92,7 +125,22 @@
                 this.style.backgroundColor = 'yellowgreen'
             }
         }
-        
+        // 2.4 更换背景图片
+        // 2.4.1 获取元素
+        // 现获取到父级元素，再获取其下元素
+        var imgs = document.querySelector('.bgc-change').querySelectorAll('img')
+        console.log(imgs);
+        // 2.4.2 循环注册事件，for循环并不是一直在循环的，只注册一次
+        for (var i = 0; i < imgs.length; i++) {
+            imgs[i].onclick = function () {
+                // this.src就是图片的路径
+                console.log(this.src);
+                document.body.style.backgroundImage = 'url(' + this.src + ')'
+            }
+        }
+
+
+
 
 
 

@@ -37,6 +37,16 @@ function doneTodo(todoNo) {
     updateTodo()
 }
 
+// 删除
+function deleteTodo(todoNo, fromArray) {
+    // 事务的
+    doneArray.push(todoArray[todoNo])
+    fromArray.splice(todoNo, 1)
+    updateTodo()
+}
+
+
+
 // 数组每次更新后，都重新组装成一个todo输出列表  -- 更新输出事件
 function updateTodo() {
     var todoListString = '';
@@ -44,17 +54,17 @@ function updateTodo() {
     var deleteListString = '';
     // 更新todo
     for (var i = 0; i < todoArray.length; i++) {
-        todoListString += '<li>' + todoArray[i] + '</li>'
+        todoListString += '<li> <input type="button" value="完成"> <input type="button" value="删除">' + todoArray[i] + '</li>'
     }
     todoOut.innerHTML = todoListString
     // 更新done
     for (var i = 0; i < doneArray.length; i++) {
-        doneListString += '<li>' + doneArray[i] + '</li>'
+        doneListString += '<li> <input type="button" value="继续"> <input type="button" value="删除">' + doneArray[i] + '</li>'
     }
     doneOut.innerHTML = doneListString
     // 更新delete
     for (var i = 0; i < deleteArray.length; i++) {
-        deleteListString += '<li>' + deleteArray[i] + '</li>'
+        deleteListString += '<li> <input type="button" value="继续">' + deleteArray[i] + '</li>'
     }
     deleteOut.innerHTML = deleteListString
 }
@@ -72,6 +82,7 @@ createTodoBtn.onclick = function () {
     clearInput()
 }
 // 完成按钮赋予事件
+
 
 
 
