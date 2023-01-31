@@ -114,6 +114,16 @@
         </div>
     </div>
 
+    <div class="demo">
+        <div class="box">
+            <div class="erweima">
+                x
+            </div>
+        </div>
+    </div>
+
+
+
 
 
 
@@ -197,14 +207,20 @@
 
 
         for (var i = 0; i < lis.length; i++) {
-            lis[i].setAttribute('index', i)
+            // 自定义数据：保存数据，使用数据
+            lis[i].setAttribute('data-index', i)
             lis[i].onclick = function () {
                 // 清除其他li的类
                 for (var i = 0; i < lis.length; i++) {
                     lis[i].className = ''
                 }
                 this.className = 'current'
-                var index = this.getAttribute('index')
+                // 获取自定义数据
+                // var index = this.getAttribute('data-index')
+                // 或者
+                // var index = this.dataset.index
+                // 或者
+                var index = this.dataset['index']
                 console.log(index);
 
                 for (var i = 0; i < items.length; i++) {
@@ -214,6 +230,15 @@
             }
         }
 
+        // 自定义属性通过 "data-"开头，以示区别
+
+        // 3 节点操作
+        var box = document.querySelector('.box')
+        // var box = document.querySelector('.box')
+        console.log(box.parentNode);
+        console.log(box.childNodes);
+        console.log(box.childNodes[0].nodeType);
+        console.log(box.children);
 
 
 
