@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态调整节点</title>
+</head>
+
+<body>
+    <button>删除</button>
+    <ul>
+        <li>123</li>
+    </ul>
+
+
+</body>
+<script>
+    // 4. 动态创建节点
+    // 创建节点
+    var li = document.createElement('li');
+    var lili = document.createElement('li');
+    // 添加节点 node.appendChild(child) 
+    var ul = document.querySelector('ul');
+    ul.appendChild(li);
+    // 不能多次使用同一个字节点
+    ul.insertBefore(lili, ul.children[0]);
+    var lilili = ul.children[0].cloneNode();
+    ul.appendChild(lilili);
+
+    // 4.1 删除节点
+    var btn = document.querySelector('button');
+    btn.onclick = function () {
+        if (ul.children.length == 0) {
+            return;
+        }
+        ul.removeChild(ul.children[0]);
+    }
+
+
+</script>
+
+</html>

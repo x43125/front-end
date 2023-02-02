@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>评论示例</title>
+    <style>
+        li {
+            width: 200px;
+        }
+        li a {
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id="">123</textarea>
+    <button>发布</button>
+    <ul>
+
+    </ul>
+</body>
+<script>
+    var btn = document.querySelector('button');
+    var text = document.querySelector('textarea');
+    var ul = document.querySelector('ul');
+    btn.onclick = function () {
+        // append element
+        if (text.value == '') {
+            alert('没有输入内容');
+            return;
+        }
+        // create element
+        var li = document.createElement('li');
+        li.innerHTML = text.value + "<a href='javascript:;'>删除</a>";
+        // ul.appendChild(li);
+        ul.insertBefore(li, ul.children[0]);
+
+        // 删除按钮功能
+        // 先获取到所有的a，然后遍历每一个，赋上按钮功能
+        var as = document.querySelectorAll('a');
+        for (var i = 0; i < as.length; i++) {
+            as[i].onclick = function () {
+                console.log('删除啥哈哈哈哈');
+                ul.removeChild(this.parentNode);
+            }
+        }
+    }
+
+</script>
+
+</html>

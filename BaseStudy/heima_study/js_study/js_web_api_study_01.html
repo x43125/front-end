@@ -12,9 +12,9 @@
             padding: 0;
         }
 
-        li {
+        /* li {
             list-style: none;
-        }
+        } */
 
         body {
             background: url(img/1.jpg) no-repeat center top;
@@ -121,12 +121,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
     <script>
         // DOM 文档对象模型
         // 1.1 getElementById
@@ -202,50 +196,43 @@
         var tabs_list = document.querySelector('.tab_list')
         var lis = tabs_list.querySelectorAll('li')
 
-        var items = document.querySelectorAll('.item')
+        var items = document.querySelectorAll('.item');
         console.log(items);
 
 
         for (var i = 0; i < lis.length; i++) {
             // 自定义数据：保存数据，使用数据
-            lis[i].setAttribute('data-index', i)
+            lis[i].setAttribute('data-index', i);
             lis[i].onclick = function () {
                 // 清除其他li的类
                 for (var i = 0; i < lis.length; i++) {
-                    lis[i].className = ''
+                    lis[i].className = '';
                 }
-                this.className = 'current'
+                this.className = 'current';
                 // 获取自定义数据
                 // var index = this.getAttribute('data-index')
                 // 或者
                 // var index = this.dataset.index
                 // 或者
-                var index = this.dataset['index']
+                var index = this.dataset['index'];
                 console.log(index);
 
                 for (var i = 0; i < items.length; i++) {
-                    items[i].style.display = 'none'
+                    items[i].style.display = 'none';
                 }
-                items[index].style.display = 'block'
+                items[index].style.display = 'block';
             }
         }
 
         // 自定义属性通过 "data-"开头，以示区别
 
         // 3 节点操作
-        var box = document.querySelector('.box')
+        var box = document.querySelector('.box');
         // var box = document.querySelector('.box')
         console.log(box.parentNode);
         console.log(box.childNodes);
         console.log(box.childNodes[0].nodeType);
         console.log(box.children);
-
-
-
-
-
-
-
     </script>
 </body>
 
