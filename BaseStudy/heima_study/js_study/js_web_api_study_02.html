@@ -6,6 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>动态调整节点</title>
+    <style>
+        .father {
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+            margin: 100px auto;
+        }
+
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            margin: auto;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,7 +29,17 @@
         <li>123</li>
     </ul>
 
+    <button>传统方式</button>
+    <button>新方式</button>
 
+    <a href="www.baidu.com">百度</a>
+    <form action="www.baidu.com">
+        <input type="submit" value="提交" name="sub">
+    </form>
+
+    <div class="father">
+        <div class="son">son</div>
+    </div>
 </body>
 <script>
     // 4. 动态创建节点
@@ -37,6 +62,51 @@
         }
         ul.removeChild(ul.children[0]);
     }
+
+    // 5.1 listener
+    var btns = document.querySelectorAll('button');
+    btns[1].onclick = function () {
+        alert('traditional way 01');
+    }
+    btns[1].onclick = function () {
+        alert('traditional way 02')
+        // 传统方式移除注册事件
+        btns[1].onclick = null;
+    }
+
+    // 新的监听器方式可以监听多个事件，传统的方式只能生效最后一个
+    btns[2].addEventListener('click', function () {
+        alert('new way 01');
+    })
+
+    btns[2].addEventListener('click', fn2)
+    function fn2(e) {
+        console.log(e.target);
+        alert('new way 02');
+        // 移除注册事件
+        btns[2].removeEventListener('click', fn2);
+    }
+
+    // 5.2 阻止默认行为
+    var a = document.querySelector('a');
+    a.addEventListener('click', fn3);
+    function fn3(e) {
+        console.log('阻止跳转');
+        e.preventDefault();
+    }
+
+    // 5.3 阻止冒泡事件
+    var father = document.querySelector('.father');
+    var son = document.querySelector('.son');
+    father.addEventListener('click', function () {
+        alert('father');
+    })
+
+    son.addEventListener('click', function (e) {
+        e.stopPropagation();
+        alert('son');
+    })
+
 
 
 </script>
