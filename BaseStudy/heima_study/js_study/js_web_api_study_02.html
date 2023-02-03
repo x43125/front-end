@@ -40,6 +40,8 @@
     <div class="father">
         <div class="son">son</div>
     </div>
+
+    <p>拒绝选中，拒绝右键</p>
 </body>
 <script>
     // 4. 动态创建节点
@@ -107,7 +109,27 @@
         alert('son');
     })
 
+    // 6 鼠标事件
+    // 6.1 拒绝右键
+    document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+    })
+    // 6.2 拒绝选中
+    document.addEventListener('selectstart', function (e) {
+        e.preventDefault();
+    })
 
+    document.addEventListener('click', function (e) {
+        console.log(e.clientX);
+        console.log(e.clientY);
+        console.log('--------------------------------');
+        console.log(e.pageX);
+        console.log(e.pageY);
+        console.log('--------------------------------');
+        console.log(e.screenX);
+        console.log(e.screenY);
+        console.log('--------------------------------');
+    })
 
 </script>
 
