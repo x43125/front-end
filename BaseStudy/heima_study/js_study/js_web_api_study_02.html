@@ -42,6 +42,7 @@
     </div>
 
     <p>拒绝选中，拒绝右键</p>
+    <input type="text" id="search">
 </body>
 <script>
     // 4. 动态创建节点
@@ -111,13 +112,13 @@
 
     // 6 鼠标事件
     // 6.1 拒绝右键
-    document.addEventListener('contextmenu', function (e) {
-        e.preventDefault();
-    })
+    // document.addEventListener('contextmenu', function (e) {
+    //     e.preventDefault();
+    // })
     // 6.2 拒绝选中
-    document.addEventListener('selectstart', function (e) {
-        e.preventDefault();
-    })
+    // document.addEventListener('selectstart', function (e) {
+    //     e.preventDefault();
+    // })
 
     document.addEventListener('click', function (e) {
         console.log(e.clientX);
@@ -131,6 +132,29 @@
         console.log('--------------------------------');
     })
 
+    // 7. 键盘事件
+    document.addEventListener('keyup', function (e) {
+        console.log("keyup");
+        console.log(e.keyCode); // ascii码
+        console.log(e.key);  // 具体某键
+    })
+    // 和keyup一致，但不识别功能键
+    document.addEventListener('keypress', function () {
+        console.log('keypress');
+    })
+    document.addEventListener('keydown', function () {
+        console.log('keydown');
+    })
+    // 三者全写的时候，顺序：keydown -> keypress -> keyup
+
+    // 使用s键来捕获输入框
+    var search = document.querySelector('#search');
+    document.addEventListener('keyup', function (e) {
+        if (e.key == 's') {
+            console.log('focus 2 input area');
+            search.focus();
+        }
+    })
 </script>
 
 </html>
