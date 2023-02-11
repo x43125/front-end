@@ -11,11 +11,28 @@
 </head>
 
 <body>
-    
+    <button>点击停止定时器</button>
+    <img src="img/4.jpg" alt="" class="ad">
 </body>
 <script>
-    window.setTimeout(function () {
+    var timer = window.setTimeout(function () {
         console.log('time out,3s');
+    }, 5000);
+    var btn = document.querySelector('button');
+    btn.addEventListener('click', function () {
+        console.log('timer finish');
+        clearTimeout(timer);
+    })
+ 
+    // 每隔2秒，只调一次
+    var ad = document.querySelector('.ad');
+    setTimeout(() => {
+        ad.style.display = 'none';
+    }, 2000);
+
+    // 每隔3秒重复调用
+    setInterval(() => {
+        console.log('每隔3秒重复调用');
     }, 3000);
 </script>
 
