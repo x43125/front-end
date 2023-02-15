@@ -13,6 +13,8 @@
 <body>
     <button>点击停止定时器</button>
     <img src="img/4.jpg" alt="" class="ad">
+
+    <button id="jump">点击</button>
 </body>
 <script>
     var timer = window.setTimeout(function () {
@@ -23,17 +25,29 @@
         console.log('timer finish');
         clearTimeout(timer);
     })
- 
-    // 每隔2秒，只调一次
+
+    // 8.1 每隔2秒，只调一次
     var ad = document.querySelector('.ad');
     setTimeout(() => {
         ad.style.display = 'none';
     }, 2000);
 
-    // 每隔3秒重复调用
+    // 8.2 每隔3秒重复调用
     setInterval(() => {
         console.log('每隔3秒重复调用');
     }, 3000);
+
+    // 9
+    var jump = document.querySelector('#jump');
+    jump.addEventListener('click', function () {
+        console.log('jump to baidu');
+        // 跳转到新页面，可以回退回来
+        // location.assign('http://baidu.com');
+        // location.replace('http://baidu.com');
+        location.reload();
+    })
+
+
 </script>
 
 </html>
