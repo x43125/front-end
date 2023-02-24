@@ -9,11 +9,12 @@
     <style>
         .box {
             position: relative;
-            width: 398px;
+            width: 400px;
             border: 1px solid #ebebeb;
         }
 
         .mask {
+            display: none;
             position: absolute;
             top: 0px;
             left: 0px;
@@ -21,9 +22,11 @@
             height: 200px;
             background-color: #fede4f;
             opacity: .5;
+            cursor: move;
         }
 
         .big {
+            display: none;
             position: absolute;
             top: 0;
             left: 410px;
@@ -45,5 +48,29 @@
         </div>
     </div>
 </body>
+
+<script>
+    var preview_img = document.querySelector('.box');
+    var mask = document.querySelector('.mask');
+    var big = document.querySelector('.big');
+
+    preview_img.addEventListener('mouseover', function () {
+        mask.style.display = 'block';
+        big.style.display = 'block';
+    })
+    preview_img.addEventListener('mouseout', function () {
+        mask.style.display = 'none';
+        big.style.display = 'none';
+    })
+
+    mask.addEventListener('mousedown', function (e) {
+        console.log(e.pageX + " " + e.pageY);
+        console.log(e.pageX + " " + e.pageY);
+        document.addEventListener('mousemove', function (e) {
+            console.log(e);
+        
+        })
+    })
+</script>
 
 </html>
