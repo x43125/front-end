@@ -7,9 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .box {
+        .w {
+            width: 1200px;
+            margin: 100px auto;
+        }
+
+        .preview_img {
             position: relative;
-            width: 400px;
+            width: 398px;
             border: 1px solid #ebebeb;
         }
 
@@ -40,37 +45,48 @@
 </head>
 
 <body>
-    <div class="box">
-        <img src="jd_plus/upload/s3.png" alt="">
-        <div class="mask"></div>
-        <div class="big">
-            <img src="jd_plus/upload/big.jpg" alt="">
+    <div class="w">
+        <div class="preview_img">
+            <img src="jd_plus/upload/s3.png" alt="">
+            <div class="mask"></div>
+            <div class="big">
+                <img src="jd_plus/upload/big.jpg" alt="">
+            </div>
         </div>
     </div>
 </body>
 
 <script>
-    var preview_img = document.querySelector('.box');
+    var preview_img = document.querySelector('.preview_img');
     var mask = document.querySelector('.mask');
     var big = document.querySelector('.big');
 
-    preview_img.addEventListener('mouseover', function () {
+    preview_img.addEventListener('mouseover', function (e) {
+
         mask.style.display = 'block';
         big.style.display = 'block';
+        // mask.width=length=200
+        // mask.style.left = e.pageX - preview_img.offsetLeft - e.offsetLeft + 'px';
+        // mask.style.top = e.pageY - preview_img.offsetTop - e.offsetTop + 'px';
     })
+
     preview_img.addEventListener('mouseout', function () {
         mask.style.display = 'none';
         big.style.display = 'none';
     })
 
-    mask.addEventListener('mousedown', function (e) {
-        console.log(e.pageX + " " + e.pageY);
-        console.log(e.pageX + " " + e.pageY);
-        document.addEventListener('mousemove', function (e) {
-            console.log(e);
-        
-        })
+    // mask.addEventListener('mousedown', function (e) {
+    document.addEventListener('mousemove', function (e) {
+        // pagex 到屏幕的距离， preview_img.offsetLeft：大框到屏幕的距离 e.offsetX 到大框的距离
+        // console.log(e.pageX + ":" + preview_img.offsetLeft + ":" + e.offsetX);
+        if (e.pageY - preview_img.offsetTop > 100) {
+            mask.style.top = e.pageY - preview_img.offsetTop + 'px';
+        }
+        if (e.pageX - preview_img.offsetLeft > 100) {
+            mask.style.left = e.pageX - preview_img.offsetLeft + 'px';
+        }
     })
+    // })
 </script>
 
 </html>
