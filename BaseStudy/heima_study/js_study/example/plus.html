@@ -61,32 +61,50 @@
     var mask = document.querySelector('.mask');
     var big = document.querySelector('.big');
 
-    preview_img.addEventListener('mouseover', function (e) {
+    var imgWidth = preview_img.offsetWidth;
+    var imgHeight = preview_img.offsetHeight;
 
-        mask.style.display = 'block';
-        big.style.display = 'block';
-        // mask.width=length=200
-        // mask.style.left = e.pageX - preview_img.offsetLeft - e.offsetLeft + 'px';
-        // mask.style.top = e.pageY - preview_img.offsetTop - e.offsetTop + 'px';
-    })
-
-    preview_img.addEventListener('mouseout', function () {
-        mask.style.display = 'none';
-        big.style.display = 'none';
-    })
+    var imgX = preview_img.offsetLeft;
+    var imgY = preview_img.offsetTop;
 
     // mask.addEventListener('mousedown', function (e) {
     document.addEventListener('mousemove', function (e) {
         // pagex 到屏幕的距离， preview_img.offsetLeft：大框到屏幕的距离 e.offsetX 到大框的距离
-        // console.log(e.pageX + ":" + preview_img.offsetLeft + ":" + e.offsetX);
-        if (e.pageY - preview_img.offsetTop > 100) {
-            mask.style.top = e.pageY - preview_img.offsetTop + 'px';
-        }
-        if (e.pageX - preview_img.offsetLeft > 100) {
-            mask.style.left = e.pageX - preview_img.offsetLeft + 'px';
+        var mouseX = e.pageX - imgX;
+        var maskWidth = mask.offsetWidth;
+        var leftEdge = maskWidth / 2;
+        var rightEdge = imgWidth - leftEdge;
+
+        var mouseY = e.pageY - imgY;
+        var maskHeight = mask.offsetHeight;
+        var topEdge = maskHeight / 2;
+        var bottomEdge = imgHeight - topEdge;
+
+        if (mouseX < 0 || mouseY < 0 || mouseX > imgWidth || mouseY > imgHeight) {
+            mask.style.display = 'none';
+            big.style.display = 'none';
+        } else {
+            mask.style.display = 'block';
+            big.style.display = 'block';
+            if (mouseX <= leftEdge) {
+                mask.style.left = '0px';
+            } else if (mouseX <= rightEdge) {
+                mask.style.left = mouseX - leftEdge + 'px';
+            } else {
+                mask.style.left = imgWidth - maskWidth + 'px';
+            }
+
+            if (mouseY <= topEdge) {
+                mask.style.top = '0px';
+            } else if (mouseY <= bottomEdge) {
+                mask.style.top = mouseY - topEdge + 'px';
+            } else {
+                mask.style.top = imgHeight - maskHeight + 'px';
+            }
         }
     })
     // })
+
 </script>
 
 </html>
