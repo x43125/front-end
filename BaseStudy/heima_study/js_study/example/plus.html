@@ -13,6 +13,7 @@
         }
 
         .preview_img {
+            /* 子绝父相 */
             position: relative;
             width: 398px;
             border: 1px solid #ebebeb;
@@ -20,32 +21,36 @@
 
         .mask {
             display: none;
+            /* 子绝父相 */
             position: absolute;
             top: 0px;
             left: 0px;
             width: 250px;
             height: 250px;
             background-color: #fede4f;
+            /* 透明度 */
             opacity: .5;
+            /* 当鼠标到达该部分时，样式变成移动 */
             cursor: move;
         }
 
         .big {
             display: none;
+            /* 绝对定位用来控制位置 */
             position: absolute;
             top: 0;
-            left: 410px;
+            left: 450px;
             width: 500px;
             height: 500px;
             z-index: 999;
             border: 1px solid #ccc;
+            /* 注意事项：子元素超过父元素的部分隐藏 */
             overflow: hidden;
         }
 
         .big .big_img {
+            /* 绝对定位用来控制移动 */
             position: absolute;
-            /* top: -100px; */
-            /* left: -100px; */
         }
     </style>
 </head>
@@ -53,95 +58,98 @@
 <body>
     <div class="w">
         <div class="preview_img">
-            <img src="jd_plus/upload/s3.png" alt="">
+            <img src="../img/s3.png" alt="">
             <div class="mask"></div>
             <div class="big">
-                <img class="big_img" src="jd_plus/upload/big.jpg" alt="">
+                <img class="big_img" src="../img/big.jpg" alt="">
             </div>
         </div>
     </div>
 </body>
 
 <script>
-    var preview_img = document.querySelector('.preview_img');
-    var mask = document.querySelector('.mask');
-    var big = document.querySelector('.big');
-    var big_img = document.querySelector('.big_img');
+    // 等待加载完成后再执行相关操作 load
+    window.addEventListener('load', function () {
+        var preview_img = document.querySelector('.preview_img');
+        var mask = document.querySelector('.mask');
+        var big = document.querySelector('.big');
+        var big_img = document.querySelector('.big_img');
 
-    var imgWidth = preview_img.offsetWidth;
-    var imgHeight = preview_img.offsetHeight;
+        var imgWidth = preview_img.offsetWidth;
+        var imgHeight = preview_img.offsetHeight;
 
-    var imgX = preview_img.offsetLeft;
-    var imgY = preview_img.offsetTop;
+        var imgX = preview_img.offsetLeft;
+        var imgY = preview_img.offsetTop;
 
-    console.log(imgWidth + ":" + imgHeight);
+        preview_img.addEventListener('mouseover', function () {
+            mask.style.display = 'block';
+            big.style.display = 'block';
+        })
 
-    preview_img.addEventListener('mouseover', function () {
-        mask.style.display = 'block';
-        big.style.display = 'block';
+        preview_img.addEventListener('mouseout', function () {
+            mask.style.display = 'none';
+            big.style.display = 'none';
+        })
 
+        // 点击拖动mask
+        // mask.addEventListener('mousedown', function (e) {
+        document.addEventListener('mousemove', function (e) {
+            // e.pagex 到屏幕的距离， preview_img.offsetLeft：左框到屏幕的距离 e.offsetX 到大框左框的距离，
+            // offsetWidth宽度，要在block的时候才会有值，none的时候没有
+            // 鼠标相对box左边框的坐标
+            var mouseX = e.pageX - imgX;
+            var maskWidth = mask.offsetWidth;
+            var leftEdge = maskWidth / 2;
+            var rightEdge = imgWidth - leftEdge;
 
+            var mouseY = e.pageY - imgY;
+            var maskHeight = mask.offsetHeight;
+            var topEdge = maskHeight / 2;
+            var bottomEdge = imgHeight - topEdge;
+
+            var bigImgWidth = big_img.offsetWidth;
+            var bigImgHeight = big_img.offsetHeight;
+            var bigWidth = big.offsetWidth;
+            var bigHeight = big.offsetHeight;
+
+            // mask 和 大图的框的比例
+            var boxRatio = (bigWidth / maskWidth).toFixed(2);
+            // 小图 和 大图的比例
+            var picRatio = (bigImgWidth / imgWidth).toFixed(2);
+
+            // 如果鼠标到达此处区域，则不展示mask及大图信息
+            if (mouseX < 0 || mouseY < 0 || mouseX > imgWidth || mouseY > imgHeight) {
+                return
+            }
+
+            // 如果在左侧，则不移动mask及大图
+            if (mouseX <= leftEdge) {
+                mask.style.left = '0px';
+                big_img.style.left = '0px';
+            } else if (mouseX <= rightEdge) {
+                // 在此区域内，变动图片
+                // mask随着鼠标方向移动
+                mask.style.left = mouseX - leftEdge + 'px';
+                // 大图随着鼠标方向反向移动，并且根据比例放大移动距离
+                big_img.style.left = -(mouseX - leftEdge) * boxRatio + 'px';
+            } else {
+                // 在此区域内则移动到头了，不再移动
+                mask.style.left = imgWidth - maskWidth + 'px';
+            }
+
+            // 同上
+            if (mouseY <= topEdge) {
+                mask.style.top = '0px';
+                big_img.style.top = '0px';
+            } else if (mouseY <= bottomEdge) {
+                mask.style.top = mouseY - topEdge + 'px';
+                big_img.style.top = -(mouseY - topEdge) * boxRatio + 'px';
+            } else {
+                mask.style.top = imgHeight - maskHeight + 'px';
+            }
+        })
+        // })
     })
-
-    preview_img.addEventListener('mouseout', function () {
-        mask.style.display = 'none';
-        big.style.display = 'none';
-    })
-
-    // mask.addEventListener('mousedown', function (e) {
-    document.addEventListener('mousemove', function (e) {
-        // pagex 到屏幕的距离， preview_img.offsetLeft：大框到屏幕的距离 e.offsetX 到大框的距离
-        // 鼠标相对box左边框的坐标
-        var mouseX = e.pageX - imgX;
-        var maskWidth = mask.offsetWidth;
-        var leftEdge = maskWidth / 2;
-        var rightEdge = imgWidth - leftEdge;
-
-        var mouseY = e.pageY - imgY;
-        var maskHeight = mask.offsetHeight;
-        var topEdge = maskHeight / 2;
-        var bottomEdge = imgHeight - topEdge;
-
-
-        // 
-        var bigImgWidth = big_img.offsetWidth;
-        var bigImgHeight = big_img.offsetHeight;
-        var bigWidth = big.offsetWidth;
-        var bigHeight = big.offsetHeight;
-        // console.log(bigImgWidth + ":" + bigImgHeight);
-        // console.log(bigWidth + ":" + bigHeight);
-
-        // mask 和 大图的框的比例
-        var boxRatio = (bigWidth / maskWidth).toFixed(2);
-        // 小图 和 大图的比例
-        var picRatio = (bigImgWidth / imgWidth).toFixed(2);
-
-        if (mouseX < 0 || mouseY < 0 || mouseX > imgWidth || mouseY > imgHeight) {
-            return
-        }
-
-        if (mouseX <= leftEdge) {
-            mask.style.left = '0px';
-            big_img.style.left = '0px';
-        } else if (mouseX <= rightEdge) {
-            mask.style.left = mouseX - leftEdge + 'px';
-            big_img.style.left = -(mouseX - leftEdge) * boxRatio + 'px';
-        } else {
-            mask.style.left = imgWidth - maskWidth + 'px';
-        }
-
-        if (mouseY <= topEdge) {
-            mask.style.top = '0px';
-            big_img.style.top = '0px';
-        } else if (mouseY <= bottomEdge) {
-            mask.style.top = mouseY - topEdge + 'px';
-            big_img.style.top = -(mouseY - topEdge) * boxRatio + 'px';
-        } else {
-            mask.style.top = imgHeight - maskHeight + 'px';
-        }
-    })
-    // })
-
 </script>
 
 </html>
