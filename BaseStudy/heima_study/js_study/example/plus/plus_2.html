@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .w {
+            width: 1200px;
+            margin: 100px auto;
+        }
+
+        .preview_img {
+            /* 子绝父相 */
+            position: relative;
+            width: 398px;
+            border: 1px solid #ebebeb;
+        }
+
+        .mask {
+            display: none;
+            /* 子绝父相 */
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 250px;
+            height: 250px;
+            background-color: #fede4f;
+            /* 透明度 */
+            opacity: .5;
+            /* 当鼠标到达该部分时，样式变成移动 */
+            cursor: move;
+        }
+
+        .big {
+            display: none;
+            /* 绝对定位用来控制位置 */
+            position: absolute;
+            top: 0;
+            left: 450px;
+            width: 500px;
+            height: 500px;
+            z-index: 999;
+            border: 1px solid #ccc;
+            /* 注意事项：子元素超过父元素的部分隐藏 */
+            overflow: hidden;
+        }
+
+        .big .big_img {
+            /* 绝对定位用来控制移动 */
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w">
+        <div class="preview_img">
+            <img src="../../img/s3.png" alt="">
+            <div class="mask"></div>
+            <div class="big">
+                <img class="big_img" src="../../img/big.jpg" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    // 等待加载完成后再执行相关操作 load
+    window.addEventListener('load', function () {
+        var preview_img = document.querySelector('.preview_img');
+        var mask = document.querySelector('.mask');
+        var big = document.querySelector('.big');
+        var big_img = document.querySelector('.big_img');
+
+        preview_img.addEventListener('mouseover', function () {
+            mask.style.display = 'block';
+            big.style.display = 'block';
+        })
+
+        preview_img.addEventListener('mouseout', function () {
+            mask.style.display = 'none';
+            big.style.display = 'none';
+        })
+
+        // 点击拖动mask
+        // mask.addEventListener('mousedown', function (e) {
+        document.addEventListener('mousemove', function (e) {
+            // e.pagex 到屏幕的距离， preview_img.offsetLeft：左框到屏幕的距离 e.offsetX 到大框左框的距离，
+            // offsetWidth宽度，要在block的时候才会有值，none的时候没有
+            // 鼠标相对box左边框的坐标
+            var mouseX = e.pageX - preview_img.offsetLeft;
+            var mouseY = e.pageY - preview_img.offsetTop;
+
+            var maskX = mouseX - mask.offsetWidth / 2;
+            var maskY = mouseY - mask.offsetHeight / 2;
+
+            if (maskX <= 0) {
+                maskX = 0;
+            } else if (maskX > preview_img.offsetWidth - mask.offsetWidth) {
+                maskX = preview_img.offsetWidth - mask.offsetWidth;
+            }
+
+            if (maskY <= 0) {
+                maskY = 0;
+            } else if (maskY > preview_img.offsetHeight - mask.offsetHeight) {
+                maskY = preview_img.offsetHeight - mask.offsetHeight;
+            }
+
+            mask.style.left = maskX + 'px';
+            mask.style.top = maskY + 'px';
+
+            var boxRatio = (big.offsetWidth / mask.offsetWidth).toFixed(2);
+
+            big_img.style.left = -maskX * boxRatio + 'px';
+            big_img.style.top = -maskY * boxRatio + 'px';
+        })
+        // })
+    })
+</script>
+
+</html>
