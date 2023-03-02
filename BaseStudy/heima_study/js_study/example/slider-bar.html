@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slider-bar</title>
+    <style>
+        .w {
+            width: 1200px;
+            margin: 10px auto;
+        }
+
+        .header {
+            height: 150px;
+            background-color: hotpink;
+        }
+
+        .banner {
+            height: 250px;
+            background-color: yellow;
+        }
+
+        .main {
+            height: 1000px;
+            background-color: green;
+        }
+
+        .slider-bar {
+            position: absolute;
+            left: 50%;
+            top: 300px;
+            margin-left: 600px;
+            width: 45px;
+            height: 130px;
+            background-color: pink;
+        }
+
+        span {
+            display: none;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider-bar">
+        <span class="goBack">返回顶部</span>
+    </div>
+    <div class="header w">头部区域</div>
+    <div class="banner w">banner区域</div>
+    <div class="main w">主体区域</div>
+</body>
+
+<script>
+    var sliderbar = document.querySelector('.slider-bar');
+    var banner = document.querySelector('.banner');
+    var banner_top = banner.offsetTop;
+    document.addEventListener('scroll', function () {
+        // console.log(11);
+        console.log(window.pageYOffset);
+        if(window.pageYOffset >= banner_top) {
+            sliderbar.style.position = 'fixed';
+        } else {
+            sliderbar.style.position = 'absolute';
+        }
+    })
+</script>
+
+</html>

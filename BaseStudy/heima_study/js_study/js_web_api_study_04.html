@@ -7,6 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>windows</title>
     <style>
+        div {
+            width: 100px;
+            height: 100px;
+            border: 10px solid red;
+            padding: 10px solid red;
+            overflow: auto;
+        }
     </style>
     <!-- <script src="07-flexible分析.js"></script> -->
 </head>
@@ -14,10 +21,32 @@
 <body>
     <script>
         window.addEventListener('load', function () {
-            alert(11);
+            // alert(11);
+            var div = document.querySelector('div');
+
+            // 被卷去的头部
+            console.log(div.scrollTop);
+            console.log(div.scrollHeight);
+            console.log(div.scrollWidth);
+            div.addEventListener('scroll', function () {
+                console.log(div.scrollTop);
+            })
         })
     </script>
     <a href="http://www.baidu.com">链接</a>
+    <div>
+        我是内容
+        我是内容
+        我是内容
+        我是内容
+        我是内容
+        我是内容
+        我是内容
+        我是内容
+        我是内容
+        我是内容
+        我是内容
+    </div>
 </body>
 <script>
 </script>
