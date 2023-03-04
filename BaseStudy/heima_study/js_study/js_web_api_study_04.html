@@ -7,34 +7,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>windows</title>
     <style>
-        div {
+        .scroll-s {
             width: 100px;
             height: 100px;
             border: 10px solid red;
             padding: 10px solid red;
             overflow: auto;
         }
+
+        /* 右侧滚动定住功能开发 */
+        .w {
+            width: 800px;
+            margin: 10px auto;
+        }
+
+        .header {
+            height: 150px;
+            background-color: hotpink;
+        }
+
+        .banner {
+            height: 300px;
+            background-color: yellow;
+        }
+
+        .main {
+            height: 1200px;
+            background-color: green;
+        }
+
+        .slider-bar {
+            position: absolute;
+            left: 50%;
+            top: 300px;
+            margin-left: 400px;
+            width: 45px;
+            height: 130px;
+            background-color: pink;
+        }
+
+        span {
+            display: none;
+            position: absolute;
+            bottom: 0;
+        }
     </style>
     <!-- <script src="07-flexible分析.js"></script> -->
 </head>
 
 <body>
-    <script>
-        window.addEventListener('load', function () {
-            // alert(11);
-            var div = document.querySelector('div');
-
-            // 被卷去的头部
-            console.log(div.scrollTop);
-            console.log(div.scrollHeight);
-            console.log(div.scrollWidth);
-            div.addEventListener('scroll', function () {
-                console.log(div.scrollTop);
-            })
-        })
-    </script>
     <a href="http://www.baidu.com">链接</a>
-    <div>
+    <div class="scroll-s">
         我是内容
         我是内容
         我是内容
@@ -47,8 +70,55 @@
         我是内容
         我是内容
     </div>
+
+    <div class="slider-bar">
+        <span class="goBack">返回顶部</span>
+    </div>
+    <div class="header w">头部区域</div>
+    <div class="banner w">banner区域</div>
+    <div class="main w">主体区域</div>
 </body>
 <script>
+    window.addEventListener('load', function () {
+        // alert(11);
+        var div = document.querySelector('div');
+
+        // 被卷去的头部
+        console.log(div.scrollTop);
+        console.log(div.scrollHeight);
+        console.log(div.scrollWidth);
+        div.addEventListener('scroll', function () {
+            console.log(div.scrollTop);
+        })
+
+
+        // 滚动条用例
+        var sliderBar = document.querySelector('.slider-bar');
+        var banner = document.querySelector('.banner');
+        var bannerTop = banner.offsetTop;
+        var main = document.querySelector('.main');
+        var mainTop = main.offsetTop;
+        var goBack = document.querySelector('.goBack');
+
+
+        var sliderBarTop = sliderBar.offsetTop - bannerTop;
+        document.addEventListener('scroll', function () {
+            if (window.pageYOffset >= bannerTop) {
+                sliderBar.style.position = 'fixed';
+                sliderBar.style.top = sliderBarTop + 'px';
+            } else {
+                sliderBar.style.position = 'absolute';
+                sliderBar.style.top = '300px';
+            }
+
+            if (window.pageYOffset >= mainTop) {
+                goBack.style.display = 'block';
+            } else {
+                goBack.style.display = 'none';
+            }
+        })
+    })
+
 </script>
 
 </html>
