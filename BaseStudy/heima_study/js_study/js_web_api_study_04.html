@@ -51,6 +51,14 @@
             position: absolute;
             bottom: 0;
         }
+
+        .move {
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
     </style>
     <!-- <script src="07-flexible分析.js"></script> -->
 </head>
@@ -77,6 +85,11 @@
     <div class="header w">头部区域</div>
     <div class="banner w">banner区域</div>
     <div class="main w">主体区域</div>
+
+    <!-- 动画 -->
+    <div class="move">
+
+    </div>
 </body>
 <script>
     window.addEventListener('load', function () {
@@ -117,6 +130,9 @@
                 goBack.style.display = 'none';
             }
         })
+
+        // 动画部分开始
+        
     })
 
 </script>
