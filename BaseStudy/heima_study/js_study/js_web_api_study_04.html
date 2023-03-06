@@ -46,18 +46,28 @@
             background-color: pink;
         }
 
-        span {
+        .goBack {
             display: none;
             position: absolute;
             bottom: 0;
         }
 
         .move {
+            /* 想要移动元素，必须加绝对定位 */
             position: absolute;
             left: 0;
             width: 100px;
             height: 100px;
             background-color: green;
+        }
+
+        .move2 {
+            position: absolute;
+            left: 0;
+            display: block;
+            width: 150px;
+            height: 150px;
+            background-color: yellow;
         }
     </style>
     <!-- <script src="07-flexible分析.js"></script> -->
@@ -87,9 +97,10 @@
     <div class="main w">主体区域</div>
 
     <!-- 动画 -->
-    <div class="move">
-
-    </div>
+    <button class="btn2500">移动到500</button>
+    <button class="btn2800">移动到800</button>
+    <div class="move"></div>
+    <span class="move2"></span>
 </body>
 <script>
     window.addEventListener('load', function () {
@@ -104,7 +115,6 @@
             console.log(div.scrollTop);
         })
 
-
         // 滚动条用例
         var sliderBar = document.querySelector('.slider-bar');
         var banner = document.querySelector('.banner');
@@ -112,7 +122,6 @@
         var main = document.querySelector('.main');
         var mainTop = main.offsetTop;
         var goBack = document.querySelector('.goBack');
-
 
         var sliderBarTop = sliderBar.offsetTop - bannerTop;
         document.addEventListener('scroll', function () {
@@ -132,7 +141,40 @@
         })
 
         // 动画部分开始
-        
+        // 核心原理：通过定时器让元素不断运动
+        var move = document.querySelector('.move');
+        var move2 = document.querySelector('.move2');
+        var btn2500 = document.querySelector('.btn2500');
+        var btn2800 = document.querySelector('.btn2800');
+        // 封装一个运动函数
+        function animate(obj, target, callBack) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                var step = (target - obj.offsetLeft) / 10;
+                step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                // 将设置成 == 否则当一开始目标值就小于当前值的时候，就不会运动了
+                if (obj.offsetLeft == target) {
+                    clearInterval(obj.timer);
+                    // 回调函数写到定时器结束的时候
+                    callBack();
+                }
+                obj.style.left = obj.offsetLeft + step + 'px';
+            }, 15)
+        }
+
+        // animate(move, 800);
+        btn2800.addEventListener('click', function () {
+            animate(move2, 800, function () {
+                console.log("变成绿色");
+                move2.style.backgroundColor = 'green';
+            });
+        })
+        btn2500.addEventListener('click', function () {
+            animate(move2, 500, function () {
+                console.log("变成红色");
+                move2.style.backgroundColor = 'red';
+            });
+        })
     })
 
 </script>
