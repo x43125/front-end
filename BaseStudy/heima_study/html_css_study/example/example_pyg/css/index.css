@@ -6,10 +6,65 @@
     margin-top: 10px;
 }
 
-.main .focus {
+.focus {
+    /* 子绝父相!!! */
+    position: relative;
     float: left;
     width: 721px;
     height: 455px;
+    overflow: hidden;
+}
+
+.focus ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 600%;
+}
+
+.focus ul li {
+    float: left;
+}
+
+.arrow-l,
+.arrow-r {
+    display: none;
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    width: 20px;
+    height: 40px;
+    line-height: 40px;
+    background: rgba(0, 0, 0, .3);
+    text-align: center;
+    color: #fff;
+    /* font-family: 'icomoon'; */
+    font-size: 18px;
+    z-index: 999;
+}
+
+.arrow-r {
+    right: 0;
+}
+
+.circle {
+    position: absolute;
+    bottom: 10px;
+    left: 50px;
+}
+
+.circle li {
+    float: left;
+    width: 12px;
+    height: 12px;
+    border: 2px solid rgba(255, 255, 255, .5);
+    margin: 0 3px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.current {
+    background-color: #fff;
 }
 
 .main .newsflash {
@@ -170,7 +225,7 @@
     background-color: #f9f9f9;
 }
 
-.tab_list_item > div{
+.tab_list_item>div {
     float: left;
 }
 
@@ -191,7 +246,7 @@
 }
 
 .col_329 {
-    width: 329px;    
+    width: 329px;
     height: 361px;
 }
 
