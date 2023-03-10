@@ -7,9 +7,10 @@ function animate(obj, target, callBack) {
         if (obj.offsetLeft == target) {
             clearInterval(obj.timer);
             // 回调函数写到定时器结束的时候
-            if (callBack) {
-                callBack();
-            }
+            // if (callBack) {
+                // callBack();
+            // }
+            callBack && callBack();
         }
         obj.style.left = obj.offsetLeft + step + 'px';
     }, 15)

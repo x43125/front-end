@@ -7,6 +7,8 @@ window.addEventListener('load', function () {
     focus.addEventListener('mouseenter', function () {
         arrow_l.style.display = 'block';
         arrow_r.style.display = 'block';
+        clearInterval(timer);
+        timer = null;
     })
     // mouseleave 当只要在此元素的面积覆盖上就不算离开
     // mouseout 当到达子元素的时候就算离开
@@ -14,6 +16,9 @@ window.addEventListener('load', function () {
     focus.addEventListener('mouseleave', function () {
         arrow_l.style.display = 'none';
         arrow_r.style.display = 'none';
+        timer = setInterval(() => {
+            arrow_r.click();
+        }, 2000);
     })
 
     // 动态生成小圆圈
@@ -21,57 +26,120 @@ window.addEventListener('load', function () {
     var ol = focus.querySelector('ol');
     var focusWidth = focus.offsetWidth;
     var num = 0;
-    var ulLength = ul.children.length;
-    console.log("ul length : " + ulLength);
-    for (var index = 0; index < ulLength; index++) {
+    var circle = 0;
+    var flag = true;
+    console.log("ul length : " + ul.children.length);
+    for (var i = 0; i < ul.children.length; i++) {
         // 生成子元素
         var li = this.document.createElement('li');
         // 给小圆圈设置属性，记录序号
-        li.setAttribute('index', index);
+        li.setAttribute('index', i);
         // 父元素插入子元素
         ol.appendChild(li);
         // 拍他思想
         li.addEventListener('click', function () {
             // 点击圆圈移动图片
-            var circleIndex = this.getAttribute('index');
-            num = parseInt(circleIndex);
-            picAndCircleMove(ul, ol, num, focusWidth, ulLength);
+            var index = this.getAttribute('index');
+            for (var x = 0; x < ol.children.length; x++) {
+                ol.children[x].className = '';
+            }
+            this.className = 'current';
+            circle = num = parseInt(index);
+            console.log(circle + ":" + num);
+            animate(ul, -num * focusWidth);
         })
     }
 
-    ol.children[0].className = 'current';
-    // 点击左右按钮移动轮播图
+    ol.children[num].className = 'current';
+    var first = ul.children[0].cloneNode(true);
+    ul.appendChild(first);
     arrow_r.addEventListener('click', function () {
-        if (num == ulLength - 1) {
-            num = 0;
-            picAndCircleMove(ul, ol, num, focusWidth, ulLength);
-            return;
+        if (flag) {
+            flag = false;
+            console.log(num);
+            if (num == ul.children.length - 1) {
+                ul.style.left = 0;
+                num = 0;
+                console.log(num);
+            }
+            num++;
+            console.log(num);
+            animate(ul, -num * focusWidth, function () {
+                flag = true;
+            });
+            circle++;
+            if (circle == ol.children.length) {
+                circle = 0;
+            }
+            circleChange();
         }
-        num += 1;
-        picAndCircleMove(ul, ol, num, focusWidth, ulLength);
     })
 
     arrow_l.addEventListener('click', function () {
-        if (num == 0) {
-            num = ulLength - 1;
-            picAndCircleMove(ul, ol, num, focusWidth, ulLength);
-            return;
+        if (flag) {
+            flag = false;
+            if (num == 0) {
+                num = ul.children.length - 1;
+                ul.style.left = -num * focusWidth + 'px';
+            }
+            num--;
+            animate(ul, -num * focusWidth, function () {
+                flag = true;
+            });
+            circle--;
+            if (circle < 0) {
+                circle = ol.children.length - 1;
+            }
+            circleChange();
         }
-        num -= 1;
-        picAndCircleMove(ul, ol, num, focusWidth, ulLength);
     })
 
-    // 移动图片并切换小圆圈焦点
-    function picAndCircleMove(ul, ol, num, focusWidth, ulLength) {
-        animate(ul, -num * focusWidth);
-        for (var i = 0; i < ulLength; i++) {
+
+    function circleChange() {
+        for (var i = 0; i < ol.children.length; i++) {
             ol.children[i].className = '';
         }
-        ol.children[num].className = 'current';
+        ol.children[circle].className = 'current';
     }
 
+    var timer = setInterval(() => {
+        // 善于发现善于利用现有的规律
+        arrow_r.click();
+    }, 2000);
+
+    // ol.children[0].className = 'current';
+    // // 点击左右按钮移动轮播图
+    // arrow_r.addEventListener('click', function () {
+    //     if (num == ul.children.length - 1) {
+    //         num = 0;
+    //         picAndCircleMove(ul, ol, num, focusWidth, ul.children.length);
+    //         return;
+    //     }
+    //     num += 1;
+    //     picAndCircleMove(ul, ol, num, focusWidth, ul.children.length);
+    // })
+
+    // arrow_l.addEventListener('click', function () {
+    //     if (num == 0) {
+    //         num = ul.children.length - 1;
+    //         picAndCircleMove(ul, ol, num, focusWidth, ul.children.length);
+    //         return;
+    //     }
+    //     num -= 1;
+    //     picAndCircleMove(ul, ol, num, focusWidth, ul.children.length);
+    // })
+
+    // // 移动图片并切换小圆圈焦点
+    // function picAndCircleMove(ul, ol, num, focusWidth, ul.children.length) {
+    //     animate(ul, -num * focusWidth);
+    //     for (var i = 0; i < ul.children.length; i++) {
+    //         ol.children[i].className = '';
+    //     }
+    //     ol.children[num].className = 'current';
+    // }
+
     // TODO 添加定时器
-    this.setInterval(function () {
-        picAndCircleMove(ul, ol, 1, focusWidth, ulLength);
-    }, 1);
+    // this.setInterval(function () {
+    //     picAndCircleMove(ul, ol, 1, focusWidth, ul.children.length);
+    // }, 1);
 })
