@@ -8,36 +8,68 @@
     <title>TODO</title>
     <link rel="stylesheet" href="css/base.css">
     <style>
-        img {
-            width: 200px;
+        .main {
+            width: 1000px;
+            height: 600px;
+            margin: 100px auto;
+            border: 1px solid red;
         }
 
-        .day {
-            
+        .todo {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 100px auto;
+            border: 1px solid red;
+            /* overflow: hidden; */
+        }
+
+        .year {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        li {
+            float: left;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
         }
     </style>
 </head>
 
 <body>
     <div class="main">
-        <div class="day">
-            <ul>
-                <li>
-                    <a href="#"><img src="upload/focus1.png" alt=""></a>
-                </li>
-                <li>
-                    <a href="#"><img src="upload/focus1.jpg" alt=""></a>
-                </li>
-                <li>
-                    <a href="#"><img src="upload/focus2.jpg" alt=""></a>
-                </li>
-                <li>
-                    <a href="#"><img src="upload/focus3.jpg" alt=""></a>
-                </li>
+        <button class="up">上上上上⬆️</button>
+        <div class="todo">
+            <ul class="year">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
             </ul>
         </div>
-
+        <button class="down">下下下下⬇️</button>
     </div>
 </body>
+
+<script>
+    window.addEventListener('load', function () {
+        console.log('123');
+        var ul = document.querySelector('ul');
+        var year = document.querySelector('.year');
+        var todo = document.querySelector('.todo');
+        var todoLength = todo.offsetHeight;
+
+        var up = document.querySelector('.up');
+
+        up.addEventListener('click', function () {
+            var yearLength = year.offsetTop;
+            console.log(yearLength);
+
+            year.style.top = yearLength + '-100px';
+        })
+    })
+</script>
 
 </html>
