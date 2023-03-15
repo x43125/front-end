@@ -21,7 +21,7 @@
             height: 100px;
             margin: 100px auto;
             border: 1px solid red;
-            overflow: hidden;
+            /* overflow: hidden; */
         }
 
         .year {
@@ -30,28 +30,67 @@
             left: 0;
         }
 
-        li {
+        .year li {
             float: left;
             width: 100px;
             height: 100px;
             line-height: 100px;
-            text-align: center;
             border: 1px solid black;
+        }
+
+        .month {
+            width: 1000px;
+        }
+
+        .month li {
         }
     </style>
 </head>
 
 <body>
     <div class="main">
-        <button class="up">上上上上⬆️</button>
+        <table>
+            <tr>
+                <td></td>
+                <td>
+                    <button class="up">上上上上⬆️</button>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="left">左左左左⬅️</button>
+                </td>
+                <td></td>
+                <td>
+                    <button class="right">右右右右➡️</button>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <button class="down">下下下下⬇️</button>
+                </td>
+                <td></td>
+            </tr>
+        </table>
         <div class="todo">
             <ul class="year">
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
+                <li>
+                    <p>1月</p>
+                    <ul class="month">
+                        <li>1日</li>
+                        <li>2日</li>
+                        <li>3日</li>
+                    </ul>
+
+                </li>
+                <li>2月</li>
+                <li>3月</li>
             </ul>
         </div>
-        <button class="down">下下下下⬇️</button>
+
+
     </div>
 </body>
 <script>
@@ -64,11 +103,15 @@
 
         var up = document.querySelector('.up');
         var down = document.querySelector('.down');
+        var left = document.querySelector('.left');
+        var right = document.querySelector('.right');
 
         var li = ul.children;
         var liHeight = li[0].offsetHeight;
         console.log(liHeight);
 
+        var month = 0;
+        var day = 0;
         up.addEventListener('click', function () {
             var yearTop = year.offsetTop;
             console.log(yearTop);
@@ -76,8 +119,6 @@
             if (yearTop != - (li.length - 1) * liHeight) {
                 year.style.top = yearTop - 100 + 'px';
             }
-
-
         })
 
         down.addEventListener('click', function () {
@@ -88,6 +129,24 @@
                 year.style.top = yearTop + 100 + 'px';
             }
         })
+
+        left.addEventListener('click', function () {
+            var yearLeft = year.offsetLeft;
+            console.log(yearLeft);
+            // if (yearLeft != 0) {
+
+            year.style.left = yearLeft - 100 + 'px';
+            // }
+        })
+
+        right.addEventListener('click', function () {
+            var yearLeft = year.offsetLeft;
+            console.log(yearLeft);
+            // if (yearLeft != 0) {
+            year.style.left = yearLeft + 100 + 'px';
+            // }
+        })
+
     })
 </script>
 

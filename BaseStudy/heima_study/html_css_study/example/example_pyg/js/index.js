@@ -94,7 +94,6 @@ window.addEventListener('load', function () {
         }
     })
 
-
     function circleChange() {
         for (var i = 0; i < ol.children.length; i++) {
             ol.children[i].className = '';
@@ -106,40 +105,4 @@ window.addEventListener('load', function () {
         // 善于发现善于利用现有的规律
         arrow_r.click();
     }, 2000);
-
-    // ol.children[0].className = 'current';
-    // // 点击左右按钮移动轮播图
-    // arrow_r.addEventListener('click', function () {
-    //     if (num == ul.children.length - 1) {
-    //         num = 0;
-    //         picAndCircleMove(ul, ol, num, focusWidth, ul.children.length);
-    //         return;
-    //     }
-    //     num += 1;
-    //     picAndCircleMove(ul, ol, num, focusWidth, ul.children.length);
-    // })
-
-    // arrow_l.addEventListener('click', function () {
-    //     if (num == 0) {
-    //         num = ul.children.length - 1;
-    //         picAndCircleMove(ul, ol, num, focusWidth, ul.children.length);
-    //         return;
-    //     }
-    //     num -= 1;
-    //     picAndCircleMove(ul, ol, num, focusWidth, ul.children.length);
-    // })
-
-    // // 移动图片并切换小圆圈焦点
-    // function picAndCircleMove(ul, ol, num, focusWidth, ul.children.length) {
-    //     animate(ul, -num * focusWidth);
-    //     for (var i = 0; i < ul.children.length; i++) {
-    //         ol.children[i].className = '';
-    //     }
-    //     ol.children[num].className = 'current';
-    // }
-
-    // TODO 添加定时器
-    // this.setInterval(function () {
-    //     picAndCircleMove(ul, ol, 1, focusWidth, ul.children.length);
-    // }, 1);
 })
