@@ -21,12 +21,12 @@
             height: 100px;
             margin: 100px auto;
             border: 1px solid red;
-            /* overflow: hidden; */
+            overflow: hidden;
         }
 
         .year {
             position: absolute;
-            top: 0;
+            top: -100px;
             left: 0;
         }
 
@@ -34,6 +34,8 @@
             float: left;
             width: 100px;
             height: 100px;
+            line-height: 100px;
+            text-align: center;
             border: 1px solid black;
         }
     </style>
@@ -52,7 +54,6 @@
         <button class="down">下下下下⬇️</button>
     </div>
 </body>
-
 <script>
     window.addEventListener('load', function () {
         console.log('123');
@@ -62,12 +63,30 @@
         var todoLength = todo.offsetHeight;
 
         var up = document.querySelector('.up');
+        var down = document.querySelector('.down');
+
+        var li = ul.children;
+        var liHeight = li[0].offsetHeight;
+        console.log(liHeight);
 
         up.addEventListener('click', function () {
-            var yearLength = year.offsetTop;
-            console.log(yearLength);
+            var yearTop = year.offsetTop;
+            console.log(yearTop);
 
-            year.style.top = yearLength + '-100px';
+            if (yearTop != - (li.length - 1) * liHeight) {
+                year.style.top = yearTop - 100 + 'px';
+            }
+
+
+        })
+
+        down.addEventListener('click', function () {
+            var yearTop = year.offsetTop;
+            console.log(yearTop);
+
+            if (yearTop != 0) {
+                year.style.top = yearTop + 100 + 'px';
+            }
         })
     })
 </script>
