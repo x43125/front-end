@@ -33,8 +33,8 @@
             float: left;
             width: 721px;
             height: 455px;
-            /* overflow: hidden; */
             background-color: antiquewhite;
+            /* overflow: hidden; */
         }
 
         .focus ul {
@@ -56,6 +56,7 @@
 
         .arrow-l,
         .arrow-r {
+            display: none;
             position: absolute;
             top: 50%;
             margin-top: -20px;
@@ -97,7 +98,7 @@
     <div class="main">
 
         <div class="focus">
-            <ul>
+            <ul class="pic">
                 <li>1</li>
                 <li>2</li>
                 <li>3</li>
@@ -105,9 +106,6 @@
             </ul>
 
             <ol class="circle">
-                <li></li>
-                <li></li>
-                <li></li>
             </ol>
 
             <a href="javascript:;" class="arrow-l">&lt;</a>
@@ -116,8 +114,37 @@
     </div>
 </body>
 <script>
-    var focus = document.querySelector('focus');
-    
+    window.addEventListener('load', function () {
+        var focus = document.querySelector('.focus');
+        var circle = document.querySelector('.circle');
+        var pic = document.querySelector('.pic');
+        console.log(pic.children.length);
+
+        // 显示消失左右按键
+        var arrowL = document.querySelector(".arrow-l");
+        var arrowR = document.querySelector(".arrow-r");
+
+        focus.addEventListener('mouseenter', function () {
+            arrowL.style.display = 'block';
+            arrowR.style.display = 'block';
+        })
+        focus.addEventListener('mouseleave', function () {
+            arrowL.style.display = 'none';
+            arrowR.style.display = 'none';
+        })
+
+        // 根据图片个数生成小圆圈
+        for (let i = 0; i < pic.children.length; i++) {
+            var li = this.document.createElement('li');
+            circle.appendChild(li);
+        }
+        // 额外复制第一张图到最后
+        var pic1 = pic.children[0].cloneNode(true);
+        pic.appendChild(pic1);
+        // 让点击小圆圈，控制图片跟着动起来
+    })
+
+
 
 </script>
 
